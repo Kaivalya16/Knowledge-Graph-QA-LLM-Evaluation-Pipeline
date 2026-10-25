@@ -1,0 +1,466 @@
+[
+  {
+    "id": "train_spider_3597",
+    "source_dataset": "train_spider",
+    "db_id": "music_1",
+    "question": "What are the average rating and resolution of songs that are in Bangla?",
+    "sql": "SELECT avg(rating) ,  avg(resolution) FROM song WHERE languages  =  \"bangla\"",
+    "answer": [
+      [
+        "7.5",
+        "558.0"
+      ]
+    ],
+    "answer_count": 1
+  },
+  {
+    "id": "train_spider_1759",
+    "source_dataset": "train_spider",
+    "db_id": "gymnast",
+    "question": "Give the different hometowns of gymnasts that have a total point score of above 57.5.",
+    "sql": "SELECT DISTINCT T2.Hometown FROM gymnast AS T1 JOIN people AS T2 ON T1.Gymnast_ID  =  T2.People_ID WHERE T1.Total_Points  >  57.5",
+    "answer": [
+      [
+        "Santo Domingo"
+      ],
+      [
+        "Bonao"
+      ]
+    ],
+    "answer_count": 2
+  },
+  {
+    "id": "dev_450",
+    "source_dataset": "dev",
+    "db_id": "wta_1",
+    "question": "How many matches were played in 2013 or 2016?",
+    "sql": "SELECT count(*) FROM matches WHERE YEAR  =  2013 OR YEAR  =  2016",
+    "answer": [
+      [
+        "170"
+      ]
+    ],
+    "answer_count": 1
+  },
+  {
+    "id": "train_spider_3500",
+    "source_dataset": "train_spider",
+    "db_id": "hr_1",
+    "question": "What are the full names and hire dates for employees in the same department as someone with the first name Clara?",
+    "sql": "SELECT first_name ,  last_name ,  hire_date FROM employees WHERE department_id  =  (SELECT department_id FROM employees WHERE first_name  =  \"Clara\")",
+    "answer": [
+      [
+        "John",
+        "Russell",
+        "1987-08-01"
+      ],
+      [
+        "Karen",
+        "Partners",
+        "1987-08-02"
+      ],
+      [
+        "Alberto",
+        "Errazuriz",
+        "1987-08-03"
+      ],
+      [
+        "Gerald",
+        "Cambrault",
+        "1987-08-04"
+      ],
+      [
+        "Eleni",
+        "Zlotkey",
+        "1987-08-05"
+      ],
+      [
+        "Peter",
+        "Tucker",
+        "1987-08-06"
+      ],
+      [
+        "David",
+        "Bernstein",
+        "1987-08-07"
+      ],
+      [
+        "Peter",
+        "Hall",
+        "1987-08-08"
+      ],
+      [
+        "Christopher",
+        "Olsen",
+        "1987-08-09"
+      ],
+      [
+        "Nanette",
+        "Cambrault",
+        "1987-08-10"
+      ],
+      [
+        "Oliver",
+        "Tuvault",
+        "1987-08-11"
+      ],
+      [
+        "Janette",
+        "King",
+        "1987-08-12"
+      ],
+      [
+        "Patrick",
+        "Sully",
+        "1987-08-13"
+      ],
+      [
+        "Allan",
+        "McEwen",
+        "1987-08-14"
+      ],
+      [
+        "Lindsey",
+        "Smith",
+        "1987-08-15"
+      ],
+      [
+        "Louise",
+        "Doran",
+        "1987-08-16"
+      ],
+      [
+        "Sarath",
+        "Sewall",
+        "1987-08-17"
+      ],
+      [
+        "Clara",
+        "Vishney",
+        "1987-08-18"
+      ],
+      [
+        "Danielle",
+        "Greene",
+        "1987-08-19"
+      ],
+      [
+        "Mattea",
+        "Marvins",
+        "1987-08-20"
+      ],
+      [
+        "David",
+        "Lee",
+        "1987-08-21"
+      ],
+      [
+        "Sundar",
+        "Ande",
+        "1987-08-22"
+      ],
+      [
+        "Amit",
+        "Banda",
+        "1987-08-23"
+      ],
+      [
+        "Lisa",
+        "Ozer",
+        "1987-08-24"
+      ],
+      [
+        "Harrison",
+        "Bloom",
+        "1987-08-25"
+      ],
+      [
+        "Tayler",
+        "Fox",
+        "1987-08-26"
+      ],
+      [
+        "William",
+        "Smith",
+        "1987-08-27"
+      ],
+      [
+        "Elizabeth",
+        "Bates",
+        "1987-08-28"
+      ],
+      [
+        "Sundita",
+        "Kumar",
+        "1987-08-29"
+      ],
+      [
+        "Ellen",
+        "Abel",
+        "1987-08-30"
+      ],
+      [
+        "Alyssa",
+        "Hutton",
+        "1987-08-31"
+      ],
+      [
+        "Jonathon",
+        "Taylor",
+        "1987-09-01"
+      ],
+      [
+        "Jack",
+        "Livingston",
+        "1987-09-02"
+      ],
+      [
+        "Charles",
+        "Johnson",
+        "1987-09-04"
+      ]
+    ],
+    "answer_count": 34
+  },
+  {
+    "id": "train_spider_6826",
+    "source_dataset": "train_spider",
+    "db_id": "flight_4",
+    "question": "How many routes does American Airlines operate?",
+    "sql": "SELECT count(*) FROM airlines AS T1 JOIN routes AS T2 ON T1.alid  =  T2.alid WHERE T1.name  =  'American Airlines'",
+    "answer": [
+      [
+        "2352"
+      ]
+    ],
+    "answer_count": 1
+  },
+  {
+    "id": "train_spider_5909",
+    "source_dataset": "train_spider",
+    "db_id": "cre_Theme_park",
+    "question": "What are the names of the tourist attractions that can be accessed by bus?",
+    "sql": "SELECT Name FROM TOURIST_ATTRACTIONS WHERE How_to_Get_There  =  \"bus\"",
+    "answer": [
+      [
+        "art museum"
+      ],
+      [
+        "film festival"
+      ],
+      [
+        "haunted mansion"
+      ],
+      [
+        "impressions de France"
+      ],
+      [
+        "jungle cruise"
+      ],
+      [
+        "cafe"
+      ]
+    ],
+    "answer_count": 6
+  },
+  {
+    "id": "train_spider_4041",
+    "source_dataset": "train_spider",
+    "db_id": "student_1",
+    "question": "Which grade is studying in room 105?",
+    "sql": "SELECT DISTINCT grade FROM list WHERE classroom  =  105",
+    "answer": [
+      [
+        "0"
+      ]
+    ],
+    "answer_count": 1
+  },
+  {
+    "id": "train_spider_3792",
+    "source_dataset": "train_spider",
+    "db_id": "e_learning",
+    "question": "How many students have personal names that contain the word \"son\"?",
+    "sql": "SELECT COUNT(*) FROM Students WHERE personal_name LIKE \"%son%\"",
+    "answer": [
+      [
+        "2"
+      ]
+    ],
+    "answer_count": 1
+  },
+  {
+    "id": "train_spider_1839",
+    "source_dataset": "train_spider",
+    "db_id": "browser_web",
+    "question": "List the names of the browser that are compatible with both 'CACHEbox' and 'Fasterfox'.",
+    "sql": "SELECT T3.name FROM web_client_accelerator AS T1 JOIN accelerator_compatible_browser AS T2 ON T2.accelerator_id  =  T1.id JOIN browser AS T3 ON T2.browser_id  =  T3.id WHERE T1.name  =  'CACHEbox' INTERSECT SELECT T3.name FROM web_client_accelerator AS T1 JOIN accelerator_compatible_browser AS T2 ON T2.accelerator_id  =  T1.id JOIN browser AS T3 ON T2.browser_id  =  T3.id WHERE T1.name  =  'Fasterfox'",
+    "answer": [
+      [
+        "Firefox"
+      ],
+      [
+        "Internet Explorer"
+      ]
+    ],
+    "answer_count": 2
+  },
+  {
+    "id": "train_spider_4858",
+    "source_dataset": "train_spider",
+    "db_id": "local_govt_and_lot",
+    "question": "How many customers have any event?",
+    "sql": "SELECT count(*) FROM customers WHERE customer_id IN ( SELECT customer_id FROM customer_events )",
+    "answer": [
+      [
+        "8"
+      ]
+    ],
+    "answer_count": 1
+  },
+  {
+    "id": "train_spider_2452",
+    "source_dataset": "train_spider",
+    "db_id": "movie_1",
+    "question": "Find all years that have a movie that received a rating of 4 or 5, and sort them in increasing order of year.",
+    "sql": "SELECT DISTINCT YEAR FROM Movie AS T1 JOIN Rating AS T2 ON T1.mID  =  T2.mID WHERE T2.stars  >=  4 ORDER BY T1.year",
+    "answer": [
+      [
+        "1937"
+      ],
+      [
+        "1939"
+      ],
+      [
+        "1981"
+      ],
+      [
+        "2009"
+      ]
+    ],
+    "answer_count": 4
+  },
+  {
+    "id": "train_spider_4644",
+    "source_dataset": "train_spider",
+    "db_id": "college_3",
+    "question": "How many departments are in the division AS?",
+    "sql": "SELECT count(*) FROM DEPARTMENT WHERE Division  =  \"AS\"",
+    "answer": [
+      [
+        "19"
+      ]
+    ],
+    "answer_count": 1
+  },
+  {
+    "id": "train_spider_2524",
+    "source_dataset": "train_spider",
+    "db_id": "movie_1",
+    "question": "What are names of the movies that are either made after 2000 or reviewed by Brittany Harris?",
+    "sql": "SELECT DISTINCT T2.title FROM Rating AS T1 JOIN Movie AS T2 ON T1.mID  =  T2.mID JOIN Reviewer AS T3 ON T1.rID  =  T3.rID WHERE T3.name  =  'Brittany Harris' OR T2.year  >  2000",
+    "answer": [
+      [
+        "The Sound of Music"
+      ],
+      [
+        "Raiders of the Lost Ark"
+      ],
+      [
+        "Avatar"
+      ]
+    ],
+    "answer_count": 3
+  },
+  {
+    "id": "train_spider_3760",
+    "source_dataset": "train_spider",
+    "db_id": "program_share",
+    "question": "find the names of programs whose origin is in Beijing.",
+    "sql": "SELECT name FROM program WHERE origin = 'Beijing'",
+    "answer": [
+      [
+        "Kaku"
+      ]
+    ],
+    "answer_count": 1
+  },
+  {
+    "id": "train_spider_4454",
+    "source_dataset": "train_spider",
+    "db_id": "network_2",
+    "question": "Find the name of persons who are friends with Bob.",
+    "sql": "SELECT T1.name FROM Person AS T1 JOIN PersonFriend AS T2 ON T1.name  =  T2.name WHERE T2.friend  =  'Bob'",
+    "answer": [
+      [
+        "Alice"
+      ]
+    ],
+    "answer_count": 1
+  },
+  {
+    "id": "train_spider_883",
+    "source_dataset": "train_spider",
+    "db_id": "chinook_1",
+    "question": "What are the birth dates of employees living in Edmonton?",
+    "sql": "SELECT BirthDate FROM EMPLOYEE WHERE City  =  \"Edmonton\"",
+    "answer": [
+      [
+        "1962-02-18 00:00:00"
+      ]
+    ],
+    "answer_count": 1
+  },
+  {
+    "id": "train_spider_595",
+    "source_dataset": "train_spider",
+    "db_id": "store_1",
+    "question": "How many employees are living in Canada?",
+    "sql": "SELECT count(*) FROM employees WHERE country = \"Canada\";",
+    "answer": [
+      [
+        "8"
+      ]
+    ],
+    "answer_count": 1
+  },
+  {
+    "id": "train_spider_562",
+    "source_dataset": "train_spider",
+    "db_id": "store_1",
+    "question": "How many invoices were billed from Chicago, IL?",
+    "sql": "SELECT COUNT(*) FROM invoices WHERE billing_city  =  \"Chicago\" AND billing_state  =  \"IL\";",
+    "answer": [
+      [
+        "7"
+      ]
+    ],
+    "answer_count": 1
+  },
+  {
+    "id": "dev_1006",
+    "source_dataset": "dev",
+    "db_id": "singer",
+    "question": "List the name of singers whose citizenship is \"France\".",
+    "sql": "SELECT Name FROM singer WHERE Citizenship = \"France\"",
+    "answer": [
+      [
+        "Liliane Bettencourt"
+      ]
+    ],
+    "answer_count": 1
+  },
+  {
+    "id": "train_spider_4533",
+    "source_dataset": "train_spider",
+    "db_id": "document_management",
+    "question": "Find the description of the most popular role among the users that have logged in.",
+    "sql": "SELECT role_description FROM ROLES WHERE role_code  =  (SELECT role_code FROM users WHERE user_login  =  1 GROUP BY role_code ORDER BY count(*) DESC LIMIT 1)",
+    "answer": [
+      [
+        "Database Administrator"
+      ]
+    ],
+    "answer_count": 1
+  }
+]

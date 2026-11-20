@@ -1,0 +1,58 @@
+{
+  "iterations": [
+    0,
+    1,
+    2
+  ],
+  "repeated_shot_sets": 0,
+  "per_iteration": {
+    "0": {
+      "execution_accuracy": 73.05,
+      "exact_match": 37.26,
+      "returns_paired_answer_percent": 1.68,
+      "execution_errors": 28,
+      "examples": 475
+    },
+    "1": {
+      "execution_accuracy": 73.26,
+      "exact_match": 32.84,
+      "returns_paired_answer_percent": 1.68,
+      "execution_errors": 24,
+      "examples": 475
+    },
+    "2": {
+      "execution_accuracy": 74.32,
+      "exact_match": 33.68,
+      "returns_paired_answer_percent": 1.26,
+      "execution_errors": 25,
+      "examples": 475
+    }
+  },
+  "execution_accuracy": {
+    "mean": 73.54,
+    "std": 0.68,
+    "values": [
+      73.05,
+      73.26,
+      74.32
+    ]
+  },
+  "exact_match": {
+    "mean": 34.59,
+    "std": 2.35,
+    "values": [
+      37.26,
+      32.84,
+      33.68
+    ]
+  },
+  "returns_paired_answer_percent": {
+    "mean": 1.54,
+    "std": 0.24,
+    "values": [
+      1.68,
+      1.68,
+      1.26
+    ]
+  }
+}

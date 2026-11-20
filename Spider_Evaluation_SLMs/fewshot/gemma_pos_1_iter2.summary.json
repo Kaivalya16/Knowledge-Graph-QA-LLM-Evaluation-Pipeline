@@ -1,0 +1,33 @@
+{
+  "model": "google/gemma-2-9b-it",
+  "mode": "pos",
+  "iteration": 2,
+  "test_file": "final_datasets_checked/pos_test.json",
+  "train_file": [
+    "final_datasets_checked/pos_train.json"
+  ],
+  "num_shots": 3,
+  "shot_strategy": "similar",
+  "shot_pool_size": 12,
+  "same_db_bonus": 0.1,
+  "exclude_same_db": false,
+  "seed": 42,
+  "examples": 475,
+  "empty_predictions": 0,
+  "prompts_too_long": 0,
+  "examples_with_fewer_shots": 0,
+  "exact_match": 32.0,
+  "execution_accuracy": 75.79,
+  "execution_errors": 20,
+  "returns_paired_answer_percent": 0.0,
+  "accuracy_by_source_dataset": {
+    "dev": {
+      "n": 64,
+      "accuracy": 78.12
+    },
+    "train_spider": {
+      "n": 411,
+      "accuracy": 75.43
+    }
+  }
+}

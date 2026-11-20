@@ -1,0 +1,22 @@
+{
+  "input_file": "final_datasets_checked/pos_test.json",
+  "adapter_dir": "finetuned_models/gemma_pos_1",
+  "mode": "pos",
+  "examples": 475,
+  "empty_predictions": 0,
+  "skipped_long_prompts": 0,
+  "execution_accuracy": 87.37,
+  "execution_errors": 17,
+  "returns_paired_answer": 0,
+  "returns_paired_answer_percent": 0.0,
+  "accuracy_by_source_dataset": {
+    "dev": {
+      "n": 64,
+      "accuracy": 89.06
+    },
+    "train_spider": {
+      "n": 411,
+      "accuracy": 87.1
+    }
+  }
+}

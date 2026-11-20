@@ -1,0 +1,232 @@
+{
+  "settings": {
+    "paraphrases": "kept, not grouped",
+    "verify_by_execution": true,
+    "allow_empty_answers": false,
+    "train_ratio": 0.7,
+    "random_seed": 42
+  },
+  "input_pairs": 1643,
+  "dropped": {
+    "exact_duplicate": 2,
+    "native_question_without_negation_word": 3,
+    "native_not_converted:empty_positive_answer": 30,
+    "native_not_converted:same_answer_after_conversion": 5,
+    "native_not_converted:unsupported_except_structure": 3,
+    "native_not_converted:no_sql_negation_found": 13,
+    "native_not_converted:unsupported_question_negation": 2,
+    "native_not_converted:null_only_positive_answer": 1
+  },
+  "verification_failures": {},
+  "final_pairs": 1643,
+  "train": {
+    "pairs": 1150,
+    "by_source": {
+      "train_spider": 1026,
+      "train_others": 0,
+      "dev": 124
+    }
+  },
+  "test": {
+    "pairs": 493,
+    "by_source": {
+      "train_spider": 434,
+      "train_others": 0,
+      "dev": 59
+    }
+  },
+  "native_negatives": {
+    "input": 472,
+    "final": 413,
+    "verification_failures": {
+      "native_question_without_negation_word": 3,
+      "native_not_converted:empty_positive_answer": 30,
+      "native_not_converted:same_answer_after_conversion": 5,
+      "native_not_converted:unsupported_except_structure": 3,
+      "native_not_converted:no_sql_negation_found": 13,
+      "native_not_converted:unsupported_question_negation": 2,
+      "native_not_converted:null_only_positive_answer": 1
+    },
+    "train": {
+      "count": 289,
+      "by_source": {
+        "train_spider": 251,
+        "train_others": 0,
+        "dev": 38
+      }
+    },
+    "test": {
+      "count": 124,
+      "by_source": {
+        "train_spider": 102,
+        "train_others": 0,
+        "dev": 22
+      }
+    },
+    "sql_negation": {
+      "not_in_to_in": 207,
+      "not_equal_to_equal": 76,
+      "except_to_intersect": 130
+    },
+    "negation_mismatch": {
+      "none": 413
+    }
+  },
+  "negative_totals": {
+    "train": 1439,
+    "test": 617,
+    "all": 2056
+  },
+  "positive_totals": {
+    "train": 1439,
+    "test": 617,
+    "all": 2056
+  },
+  "negation_types": {
+    "between_to_not_between": 28,
+    "equal_to_not_equal": 931,
+    "greater_to_not_greater": 376,
+    "like_to_not_like": 78,
+    "less_to_not_less": 158,
+    "at_least_to_not_at_least": 30,
+    "in_to_not_in": 7,
+    "entity_to_not_entity": 30,
+    "at_most_to_not_at_most": 5
+  },
+  "question_rules": {
+    "between": 28,
+    "contrast": 277,
+    "copula": 85,
+    "comparison": 569,
+    "like": 71,
+    "preposition": 337,
+    "coordination": 171,
+    "participle": 84,
+    "relative_clause": 21
+  },
+  "funnel": [
+    {
+      "stage": "0. Original Spider",
+      "counts": {
+        "train_spider": 7000,
+        "train_others": 1659,
+        "dev": 1034
+      },
+      "total": 9693,
+      "percent_of_previous": null,
+      "percent_of_original": 100.0
+    },
+    {
+      "stage": "1. Canonical positives",
+      "counts": {
+        "train_spider": 6218,
+        "train_others": 0,
+        "dev": 891
+      },
+      "total": 7109,
+      "percent_of_previous": 73.3,
+      "percent_of_original": 73.3
+    },
+    {
+      "stage": "2. Questions with >=1 negation candidate",
+      "counts": {
+        "train_spider": 2263,
+        "train_others": 0,
+        "dev": 324
+      },
+      "total": 2587,
+      "percent_of_previous": 36.4,
+      "percent_of_original": 26.7
+    },
+    {
+      "stage": "3. Validated pairs (one per question)",
+      "counts": {
+        "train_spider": 1460,
+        "train_others": 0,
+        "dev": 183
+      },
+      "total": 1643,
+      "percent_of_previous": 63.5,
+      "percent_of_original": 17.0
+    },
+    {
+      "stage": "4. Merged pairs",
+      "counts": {
+        "train_spider": 1460,
+        "train_others": 0,
+        "dev": 183
+      },
+      "total": 1643,
+      "percent_of_previous": 100.0,
+      "percent_of_original": 17.0
+    },
+    {
+      "stage": "5a. Exact duplicates removed",
+      "counts": {
+        "train_spider": 1460,
+        "train_others": 0,
+        "dev": 183
+      },
+      "total": 1643,
+      "percent_of_previous": 100.0,
+      "percent_of_original": 17.0
+    },
+    {
+      "stage": "5b. Verified (final dataset)",
+      "counts": {
+        "train_spider": 1460,
+        "train_others": 0,
+        "dev": 183
+      },
+      "total": 1643,
+      "percent_of_previous": 100.0,
+      "percent_of_original": 17.0
+    }
+  ],
+  "native_funnel": [
+    {
+      "stage": "N0. Native negatives set aside in Stage 1",
+      "counts": {
+        "train_spider": 402,
+        "train_others": 0,
+        "dev": 70
+      },
+      "total": 472,
+      "percent_of_previous": 100.0,
+      "percent_of_original": 4.9
+    },
+    {
+      "stage": "N1. Exact duplicates removed",
+      "counts": {
+        "train_spider": 400,
+        "train_others": 0,
+        "dev": 70
+      },
+      "total": 470,
+      "percent_of_previous": 99.6,
+      "percent_of_original": 4.8
+    },
+    {
+      "stage": "N2. Verified",
+      "counts": {
+        "train_spider": 397,
+        "train_others": 0,
+        "dev": 70
+      },
+      "total": 467,
+      "percent_of_previous": 99.4,
+      "percent_of_original": 4.8
+    },
+    {
+      "stage": "N3. With positive partner (added)",
+      "counts": {
+        "train_spider": 353,
+        "train_others": 0,
+        "dev": 60
+      },
+      "total": 413,
+      "percent_of_previous": 88.4,
+      "percent_of_original": 4.3
+    }
+  ]
+}

@@ -1,0 +1,33 @@
+{
+  "model": "Qwen/Qwen2.5-7B-Instruct",
+  "mode": "pos",
+  "iteration": 0,
+  "test_file": "final_datasets_checked/pos_test.json",
+  "train_file": [
+    "final_datasets_checked/pos_train.json"
+  ],
+  "num_shots": 3,
+  "shot_strategy": "similar",
+  "shot_pool_size": 12,
+  "same_db_bonus": 0.1,
+  "exclude_same_db": false,
+  "seed": 42,
+  "examples": 475,
+  "empty_predictions": 0,
+  "prompts_too_long": 0,
+  "examples_with_fewer_shots": 1,
+  "exact_match": 46.95,
+  "execution_accuracy": 78.74,
+  "execution_errors": 28,
+  "returns_paired_answer_percent": 0.0,
+  "accuracy_by_source_dataset": {
+    "dev": {
+      "n": 64,
+      "accuracy": 76.56
+    },
+    "train_spider": {
+      "n": 411,
+      "accuracy": 79.08
+    }
+  }
+}

@@ -1,0 +1,1924 @@
+[
+  {
+    "id": "train_spider_1716",
+    "source_dataset": "train_spider",
+    "db_id": "epinions_1",
+    "source_type": "native_negative",
+    "question": "Find the names of users who did not leave any review.",
+    "sql": "SELECT name FROM useracct WHERE u_id NOT IN (SELECT u_id FROM review)",
+    "answer": [
+      [
+        "Terry"
+      ],
+      [
+        "Nancy"
+      ],
+      [
+        "Rosie"
+      ],
+      [
+        "Roxi"
+      ],
+      [
+        "Emily"
+      ]
+    ],
+    "answer_count": 5,
+    "question_negation_cues": [
+      "not"
+    ],
+    "sql_negation": [
+      "not_in_to_in"
+    ],
+    "negation_mismatch": null,
+    "positive_question": "Find the names of users who left some review.",
+    "positive_sql": "SELECT name FROM useracct WHERE u_id IN (SELECT u_id FROM review)",
+    "positive_answer": [
+      [
+        "Helen"
+      ],
+      [
+        "Mark"
+      ]
+    ],
+    "conversion": {
+      "question_conversion": "question_denegated",
+      "sql_conversion": "not_in_to_in"
+    },
+    "conversion_failed": null,
+    "drop_reason": "exact_duplicate"
+  },
+  {
+    "id": "train_spider_3084",
+    "source_dataset": "train_spider",
+    "db_id": "loan_1",
+    "source_type": "native_negative",
+    "question": "Find the average credit score of the customers who do not have any loan.",
+    "sql": "SELECT avg(credit_score) FROM customer WHERE cust_id NOT IN (SELECT cust_id FROM loan)",
+    "answer": [
+      [
+        "20.0"
+      ]
+    ],
+    "answer_count": 1,
+    "question_negation_cues": [
+      "not"
+    ],
+    "sql_negation": [
+      "not_in_to_in"
+    ],
+    "negation_mismatch": null,
+    "positive_question": "Find the average credit score of the customers who have some loan.",
+    "positive_sql": "SELECT avg(credit_score) FROM customer WHERE cust_id IN (SELECT cust_id FROM loan)",
+    "positive_answer": [
+      [
+        "120.0"
+      ]
+    ],
+    "conversion": {
+      "question_conversion": "question_denegated",
+      "sql_conversion": "not_in_to_in"
+    },
+    "conversion_failed": null,
+    "drop_reason": "exact_duplicate"
+  },
+  {
+    "id": "train_spider_5",
+    "source_dataset": "train_spider",
+    "db_id": "department_management",
+    "source_type": "native_negative",
+    "question": "What are the names of the heads who are born outside the California state?",
+    "sql": "SELECT name FROM head WHERE born_state != 'California'",
+    "answer": [
+      [
+        "Tiger Woods"
+      ],
+      [
+        "K. J. Choi"
+      ],
+      [
+        "Jeff Maggert"
+      ],
+      [
+        "Stewart Cink"
+      ],
+      [
+        "Pádraig Harrington"
+      ],
+      [
+        "Franklin Langham"
+      ]
+    ],
+    "answer_count": 6,
+    "question_negation_cues": [
+      "outside"
+    ],
+    "sql_negation": [
+      "not_equal_to_equal"
+    ],
+    "negation_mismatch": null,
+    "positive_question": "What are the names of the heads who are born in the California state?",
+    "positive_sql": "SELECT name FROM head WHERE born_state = 'California'",
+    "positive_answer": [
+      [
+        "Sergio García"
+      ],
+      [
+        "Dudley Hart"
+      ],
+      [
+        "Billy Mayfair"
+      ],
+      [
+        "Nick Faldo"
+      ]
+    ],
+    "conversion": {
+      "question_conversion": "question_denegated",
+      "sql_conversion": "not_equal_to_equal"
+    },
+    "conversion_failed": null,
+    "drop_reason": "native_question_without_negation_word"
+  },
+  {
+    "id": "train_spider_983",
+    "source_dataset": "train_spider",
+    "db_id": "university_basketball",
+    "source_type": "native_negative",
+    "question": "Find the founded year of the newest non public school.",
+    "sql": "SELECT founded FROM university WHERE affiliation != 'Public' ORDER BY founded DESC LIMIT 1",
+    "answer": [
+      [
+        "1866.0"
+      ]
+    ],
+    "answer_count": 1,
+    "question_negation_cues": [
+      "non"
+    ],
+    "sql_negation": [
+      "not_equal_to_equal"
+    ],
+    "negation_mismatch": null,
+    "positive_question": "Find the founded year of the newest public school.",
+    "positive_sql": "SELECT founded FROM university WHERE affiliation = 'Public' ORDER BY founded DESC LIMIT 1",
+    "positive_answer": [
+      [
+        "1957.0"
+      ]
+    ],
+    "conversion": {
+      "question_conversion": "question_denegated",
+      "sql_conversion": "not_equal_to_equal"
+    },
+    "conversion_failed": null,
+    "drop_reason": "native_question_without_negation_word"
+  },
+  {
+    "id": "train_spider_984",
+    "source_dataset": "train_spider",
+    "db_id": "university_basketball",
+    "source_type": "native_negative",
+    "question": "What is the founded year of the non public school that was founded most recently?",
+    "sql": "SELECT founded FROM university WHERE affiliation != 'Public' ORDER BY founded DESC LIMIT 1",
+    "answer": [
+      [
+        "1866.0"
+      ]
+    ],
+    "answer_count": 1,
+    "question_negation_cues": [
+      "non"
+    ],
+    "sql_negation": [
+      "not_equal_to_equal"
+    ],
+    "negation_mismatch": null,
+    "positive_question": "What is the founded year of the public school that was founded most recently?",
+    "positive_sql": "SELECT founded FROM university WHERE affiliation = 'Public' ORDER BY founded DESC LIMIT 1",
+    "positive_answer": [
+      [
+        "1957.0"
+      ]
+    ],
+    "conversion": {
+      "question_conversion": "question_denegated",
+      "sql_conversion": "not_equal_to_equal"
+    },
+    "conversion_failed": null,
+    "drop_reason": "native_question_without_negation_word"
+  },
+  {
+    "id": "train_spider_207",
+    "source_dataset": "train_spider",
+    "db_id": "bike_1",
+    "source_type": "native_negative",
+    "question": "What are the names of stations that are located in Palo Alto city but have never been the ending point of trips more than 100 times?",
+    "sql": "SELECT name FROM station WHERE city  =  \"Palo Alto\" EXCEPT SELECT end_station_name FROM trip GROUP BY end_station_name HAVING count(*)  >  100",
+    "answer": [
+      [
+        "California Ave Caltrain Station"
+      ],
+      [
+        "Cowper at University"
+      ],
+      [
+        "Palo Alto Caltrain Station"
+      ],
+      [
+        "Park at Olive"
+      ],
+      [
+        "University and Emerson"
+      ]
+    ],
+    "answer_count": 5,
+    "question_negation_cues": [
+      "never"
+    ],
+    "sql_negation": [
+      "except_to_intersect"
+    ],
+    "negation_mismatch": null,
+    "positive_question": null,
+    "positive_sql": null,
+    "positive_answer": null,
+    "conversion": null,
+    "conversion_failed": "empty_positive_answer",
+    "drop_reason": "native_not_converted:empty_positive_answer"
+  },
+  {
+    "id": "train_spider_208",
+    "source_dataset": "train_spider",
+    "db_id": "bike_1",
+    "source_type": "native_negative",
+    "question": "What are the names of the stations that are located in Palo Alto but have never been the ending point of the trips",
+    "sql": "SELECT name FROM station WHERE city  =  \"Palo Alto\" EXCEPT SELECT end_station_name FROM trip GROUP BY end_station_name HAVING count(*)  >  100",
+    "answer": [
+      [
+        "California Ave Caltrain Station"
+      ],
+      [
+        "Cowper at University"
+      ],
+      [
+        "Palo Alto Caltrain Station"
+      ],
+      [
+        "Park at Olive"
+      ],
+      [
+        "University and Emerson"
+      ]
+    ],
+    "answer_count": 5,
+    "question_negation_cues": [
+      "never"
+    ],
+    "sql_negation": [
+      "except_to_intersect"
+    ],
+    "negation_mismatch": null,
+    "positive_question": null,
+    "positive_sql": null,
+    "positive_answer": null,
+    "conversion": null,
+    "conversion_failed": "empty_positive_answer",
+    "drop_reason": "native_not_converted:empty_positive_answer"
+  },
+  {
+    "id": "train_spider_248",
+    "source_dataset": "train_spider",
+    "db_id": "musical",
+    "source_type": "native_negative",
+    "question": "What are the distinct nominees of the musicals with the award that is not \"Tony Award\"?",
+    "sql": "SELECT DISTINCT Nominee FROM musical WHERE Award != \"Tony Award\"",
+    "answer": [
+      [
+        "Cleavant Derricks"
+      ],
+      [
+        "Bob Fosse"
+      ]
+    ],
+    "answer_count": 2,
+    "question_negation_cues": [
+      "not"
+    ],
+    "sql_negation": [
+      "not_equal_to_equal"
+    ],
+    "negation_mismatch": null,
+    "positive_question": null,
+    "positive_sql": null,
+    "positive_answer": null,
+    "conversion": null,
+    "conversion_failed": "same_answer_after_conversion",
+    "drop_reason": "native_not_converted:same_answer_after_conversion"
+  },
+  {
+    "id": "train_spider_249",
+    "source_dataset": "train_spider",
+    "db_id": "musical",
+    "source_type": "native_negative",
+    "question": "Return the different nominees of musicals that have an award that is not the Tony Award.",
+    "sql": "SELECT DISTINCT Nominee FROM musical WHERE Award != \"Tony Award\"",
+    "answer": [
+      [
+        "Cleavant Derricks"
+      ],
+      [
+        "Bob Fosse"
+      ]
+    ],
+    "answer_count": 2,
+    "question_negation_cues": [
+      "not"
+    ],
+    "sql_negation": [
+      "not_equal_to_equal"
+    ],
+    "negation_mismatch": null,
+    "positive_question": null,
+    "positive_sql": null,
+    "positive_answer": null,
+    "conversion": null,
+    "conversion_failed": "same_answer_after_conversion",
+    "drop_reason": "native_not_converted:same_answer_after_conversion"
+  },
+  {
+    "id": "train_spider_523",
+    "source_dataset": "train_spider",
+    "db_id": "allergy_1",
+    "source_type": "native_negative",
+    "question": "Find the first name and gender of the student who has allergy to milk but not cat.",
+    "sql": "SELECT fname ,  sex FROM Student WHERE StuID IN (SELECT StuID FROM Has_allergy WHERE Allergy  =  \"Milk\" EXCEPT SELECT StuID FROM Has_allergy WHERE Allergy  =  \"Cat\")",
+    "answer": [
+      [
+        "Mark",
+        "M"
+      ]
+    ],
+    "answer_count": 1,
+    "question_negation_cues": [
+      "not"
+    ],
+    "sql_negation": [
+      "unsupported_except_structure"
+    ],
+    "negation_mismatch": null,
+    "positive_question": null,
+    "positive_sql": null,
+    "positive_answer": null,
+    "conversion": null,
+    "conversion_failed": "unsupported_except_structure",
+    "drop_reason": "native_not_converted:unsupported_except_structure"
+  },
+  {
+    "id": "train_spider_960",
+    "source_dataset": "train_spider",
+    "db_id": "medicine_enzyme_interaction",
+    "source_type": "native_negative",
+    "question": "How many medicines were not approved by the FDA?",
+    "sql": "SELECT count(*) FROM medicine WHERE FDA_approved  =  'No'",
+    "answer": [
+      [
+        "11"
+      ]
+    ],
+    "answer_count": 1,
+    "question_negation_cues": [
+      "not"
+    ],
+    "sql_negation": [],
+    "negation_mismatch": "question_only",
+    "positive_question": null,
+    "positive_sql": null,
+    "positive_answer": null,
+    "conversion": null,
+    "conversion_failed": "no_sql_negation_found",
+    "drop_reason": "native_not_converted:no_sql_negation_found"
+  },
+  {
+    "id": "train_spider_1040",
+    "source_dataset": "train_spider",
+    "db_id": "phone_1",
+    "source_type": "native_negative",
+    "question": "List the hardware model name for the phons that were produced by \"Nokia Corporation\" but whose screen mode type is not Text.",
+    "sql": "SELECT DISTINCT T2.Hardware_Model_name FROM screen_mode AS T1 JOIN phone AS T2 ON T1.Graphics_mode = T2.screen_mode WHERE t2.Company_name  =  \"Nokia Corporation\" AND T1.Type != \"Text\";",
+    "answer": [
+      [
+        "Lumia 920, Lumia 820, Lumia 620"
+      ],
+      [
+        "Nokia 700"
+      ]
+    ],
+    "answer_count": 2,
+    "question_negation_cues": [
+      "not"
+    ],
+    "sql_negation": [
+      "not_equal_to_equal"
+    ],
+    "negation_mismatch": null,
+    "positive_question": null,
+    "positive_sql": null,
+    "positive_answer": null,
+    "conversion": null,
+    "conversion_failed": "empty_positive_answer",
+    "drop_reason": "native_not_converted:empty_positive_answer"
+  },
+  {
+    "id": "train_spider_1046",
+    "source_dataset": "train_spider",
+    "db_id": "phone_1",
+    "source_type": "native_negative",
+    "question": "How many models do not have the wifi function?",
+    "sql": "SELECT count(*) FROM chip_model WHERE wifi  =  'No'",
+    "answer": [
+      [
+        "7"
+      ]
+    ],
+    "answer_count": 1,
+    "question_negation_cues": [
+      "not"
+    ],
+    "sql_negation": [],
+    "negation_mismatch": "question_only",
+    "positive_question": null,
+    "positive_sql": null,
+    "positive_answer": null,
+    "conversion": null,
+    "conversion_failed": "no_sql_negation_found",
+    "drop_reason": "native_not_converted:no_sql_negation_found"
+  },
+  {
+    "id": "train_spider_1047",
+    "source_dataset": "train_spider",
+    "db_id": "phone_1",
+    "source_type": "native_negative",
+    "question": "Count the number of chip model that do not have wifi.",
+    "sql": "SELECT count(*) FROM chip_model WHERE wifi  =  'No'",
+    "answer": [
+      [
+        "7"
+      ]
+    ],
+    "answer_count": 1,
+    "question_negation_cues": [
+      "not"
+    ],
+    "sql_negation": [],
+    "negation_mismatch": "question_only",
+    "positive_question": null,
+    "positive_sql": null,
+    "positive_answer": null,
+    "conversion": null,
+    "conversion_failed": "no_sql_negation_found",
+    "drop_reason": "native_not_converted:no_sql_negation_found"
+  },
+  {
+    "id": "train_spider_1480",
+    "source_dataset": "train_spider",
+    "db_id": "college_2",
+    "source_type": "native_negative",
+    "question": "Find courses that ran in Fall 2009 but not in Spring 2010.",
+    "sql": "SELECT course_id FROM SECTION WHERE semester  =  'Fall' AND YEAR  =  2009 EXCEPT SELECT course_id FROM SECTION WHERE semester  =  'Spring' AND YEAR  =  2010",
+    "answer": [
+      [
+        "105"
+      ],
+      [
+        "237"
+      ],
+      [
+        "242"
+      ],
+      [
+        "304"
+      ],
+      [
+        "334"
+      ],
+      [
+        "486"
+      ],
+      [
+        "960"
+      ]
+    ],
+    "answer_count": 7,
+    "question_negation_cues": [
+      "not"
+    ],
+    "sql_negation": [
+      "except_to_intersect"
+    ],
+    "negation_mismatch": null,
+    "positive_question": null,
+    "positive_sql": null,
+    "positive_answer": null,
+    "conversion": null,
+    "conversion_failed": "empty_positive_answer",
+    "drop_reason": "native_not_converted:empty_positive_answer"
+  },
+  {
+    "id": "train_spider_1481",
+    "source_dataset": "train_spider",
+    "db_id": "college_2",
+    "source_type": "native_negative",
+    "question": "What are the ids of courses offered in Fall of 2009 but not in Spring of 2010?",
+    "sql": "SELECT course_id FROM SECTION WHERE semester  =  'Fall' AND YEAR  =  2009 EXCEPT SELECT course_id FROM SECTION WHERE semester  =  'Spring' AND YEAR  =  2010",
+    "answer": [
+      [
+        "105"
+      ],
+      [
+        "237"
+      ],
+      [
+        "242"
+      ],
+      [
+        "304"
+      ],
+      [
+        "334"
+      ],
+      [
+        "486"
+      ],
+      [
+        "960"
+      ]
+    ],
+    "answer_count": 7,
+    "question_negation_cues": [
+      "not"
+    ],
+    "sql_negation": [
+      "except_to_intersect"
+    ],
+    "negation_mismatch": null,
+    "positive_question": null,
+    "positive_sql": null,
+    "positive_answer": null,
+    "conversion": null,
+    "conversion_failed": "empty_positive_answer",
+    "drop_reason": "native_not_converted:empty_positive_answer"
+  },
+  {
+    "id": "train_spider_2173",
+    "source_dataset": "train_spider",
+    "db_id": "formula_1",
+    "source_type": "native_negative",
+    "question": "How many drivers did not participate in the races held in 2009?",
+    "sql": "SELECT count(DISTINCT driverId) FROM results WHERE raceId NOT IN( SELECT raceId FROM races WHERE YEAR != 2009 )",
+    "answer": [
+      [
+        "25"
+      ]
+    ],
+    "answer_count": 1,
+    "question_negation_cues": [
+      "not"
+    ],
+    "sql_negation": [
+      "not_equal_to_equal",
+      "not_in_to_in"
+    ],
+    "negation_mismatch": null,
+    "positive_question": null,
+    "positive_sql": null,
+    "positive_answer": null,
+    "conversion": null,
+    "conversion_failed": "same_answer_after_conversion",
+    "drop_reason": "native_not_converted:same_answer_after_conversion"
+  },
+  {
+    "id": "train_spider_2174",
+    "source_dataset": "train_spider",
+    "db_id": "formula_1",
+    "source_type": "native_negative",
+    "question": "How many drivers did not race in 2009?",
+    "sql": "SELECT count(DISTINCT driverId) FROM results WHERE raceId NOT IN( SELECT raceId FROM races WHERE YEAR != 2009 )",
+    "answer": [
+      [
+        "25"
+      ]
+    ],
+    "answer_count": 1,
+    "question_negation_cues": [
+      "not"
+    ],
+    "sql_negation": [
+      "not_equal_to_equal",
+      "not_in_to_in"
+    ],
+    "negation_mismatch": null,
+    "positive_question": null,
+    "positive_sql": null,
+    "positive_answer": null,
+    "conversion": null,
+    "conversion_failed": "same_answer_after_conversion",
+    "drop_reason": "native_not_converted:same_answer_after_conversion"
+  },
+  {
+    "id": "train_spider_2461",
+    "source_dataset": "train_spider",
+    "db_id": "movie_1",
+    "source_type": "native_negative",
+    "question": "What are the different names of all reviewers whose ratings do not have a date field?",
+    "sql": "SELECT DISTINCT name FROM Reviewer AS T1 JOIN Rating AS T2 ON T1.rID  =  T2.rID WHERE ratingDate  =  \"null\"",
+    "answer": [],
+    "answer_count": 0,
+    "question_negation_cues": [
+      "not"
+    ],
+    "sql_negation": [],
+    "negation_mismatch": "question_only",
+    "positive_question": null,
+    "positive_sql": null,
+    "positive_answer": null,
+    "conversion": null,
+    "conversion_failed": "no_sql_negation_found",
+    "drop_reason": "native_not_converted:no_sql_negation_found"
+  },
+  {
+    "id": "train_spider_2651",
+    "source_dataset": "train_spider",
+    "db_id": "local_govt_mdm",
+    "source_type": "native_negative",
+    "question": "What are the renting arrears tax ids related to the customer master index whose detail is not 'Schmidt, Kertzmann and Lubowitz'?",
+    "sql": "SELECT T1.council_tax_id FROM Rent_Arrears AS T1 JOIN CMI_Cross_References AS T2 ON T1.cmi_cross_ref_id  =  T2.cmi_cross_ref_id JOIN Customer_Master_Index AS T3 ON T3.master_customer_id  =  T2.master_customer_id WHERE T3.cmi_details != 'Schmidt ,  Kertzmann and Lubowitz'",
+    "answer": [
+      [
+        "1"
+      ],
+      [
+        "2"
+      ],
+      [
+        "6"
+      ],
+      [
+        "7"
+      ]
+    ],
+    "answer_count": 4,
+    "question_negation_cues": [
+      "not"
+    ],
+    "sql_negation": [
+      "not_equal_to_equal"
+    ],
+    "negation_mismatch": null,
+    "positive_question": null,
+    "positive_sql": null,
+    "positive_answer": null,
+    "conversion": null,
+    "conversion_failed": "empty_positive_answer",
+    "drop_reason": "native_not_converted:empty_positive_answer"
+  },
+  {
+    "id": "train_spider_3275",
+    "source_dataset": "train_spider",
+    "db_id": "college_1",
+    "source_type": "native_negative",
+    "question": "What is the first names of the professors from the history department who do not teach a class.",
+    "sql": "SELECT T1.emp_fname FROM employee AS T1 JOIN professor AS T2 ON T1.emp_num  =  T2.emp_num JOIN department AS T3 ON T2.dept_code  =  T3.dept_code WHERE T3.dept_name  =  'History' EXCEPT SELECT T4.emp_fname FROM employee AS T4 JOIN CLASS AS T5 ON T4.emp_num  =  T5.prof_num",
+    "answer": [
+      [
+        "James"
+      ],
+      [
+        "Ronald"
+      ]
+    ],
+    "answer_count": 2,
+    "question_negation_cues": [
+      "not"
+    ],
+    "sql_negation": [
+      "except_to_intersect"
+    ],
+    "negation_mismatch": null,
+    "positive_question": null,
+    "positive_sql": null,
+    "positive_answer": null,
+    "conversion": null,
+    "conversion_failed": "empty_positive_answer",
+    "drop_reason": "native_not_converted:empty_positive_answer"
+  },
+  {
+    "id": "train_spider_3276",
+    "source_dataset": "train_spider",
+    "db_id": "college_1",
+    "source_type": "native_negative",
+    "question": "What are the first names of all history professors who do not teach?",
+    "sql": "SELECT T1.emp_fname FROM employee AS T1 JOIN professor AS T2 ON T1.emp_num  =  T2.emp_num JOIN department AS T3 ON T2.dept_code  =  T3.dept_code WHERE T3.dept_name  =  'History' EXCEPT SELECT T4.emp_fname FROM employee AS T4 JOIN CLASS AS T5 ON T4.emp_num  =  T5.prof_num",
+    "answer": [
+      [
+        "James"
+      ],
+      [
+        "Ronald"
+      ]
+    ],
+    "answer_count": 2,
+    "question_negation_cues": [
+      "not"
+    ],
+    "sql_negation": [
+      "except_to_intersect"
+    ],
+    "negation_mismatch": null,
+    "positive_question": null,
+    "positive_sql": null,
+    "positive_answer": null,
+    "conversion": null,
+    "conversion_failed": "empty_positive_answer",
+    "drop_reason": "native_not_converted:empty_positive_answer"
+  },
+  {
+    "id": "train_spider_3411",
+    "source_dataset": "train_spider",
+    "db_id": "hr_1",
+    "source_type": "native_negative",
+    "question": "Return all the information for all employees without any department number.",
+    "sql": "SELECT * FROM employees WHERE department_id  =  \"null\"",
+    "answer": [],
+    "answer_count": 0,
+    "question_negation_cues": [
+      "without"
+    ],
+    "sql_negation": [],
+    "negation_mismatch": "question_only",
+    "positive_question": null,
+    "positive_sql": null,
+    "positive_answer": null,
+    "conversion": null,
+    "conversion_failed": "no_sql_negation_found",
+    "drop_reason": "native_not_converted:no_sql_negation_found"
+  },
+  {
+    "id": "train_spider_3412",
+    "source_dataset": "train_spider",
+    "db_id": "hr_1",
+    "source_type": "native_negative",
+    "question": "What are all the employees without a department number?",
+    "sql": "SELECT * FROM employees WHERE department_id  =  \"null\"",
+    "answer": [],
+    "answer_count": 0,
+    "question_negation_cues": [
+      "without"
+    ],
+    "sql_negation": [],
+    "negation_mismatch": "question_only",
+    "positive_question": null,
+    "positive_sql": null,
+    "positive_answer": null,
+    "conversion": null,
+    "conversion_failed": "no_sql_negation_found",
+    "drop_reason": "native_not_converted:no_sql_negation_found"
+  },
+  {
+    "id": "train_spider_3425",
+    "source_dataset": "train_spider",
+    "db_id": "hr_1",
+    "source_type": "native_negative",
+    "question": "What are the full name (first and last name) and salary for all employees who does not have any value for commission?",
+    "sql": "SELECT first_name ,  last_name ,  salary FROM  employees WHERE commission_pct  =  \"null\"",
+    "answer": [],
+    "answer_count": 0,
+    "question_negation_cues": [
+      "not"
+    ],
+    "sql_negation": [],
+    "negation_mismatch": "question_only",
+    "positive_question": null,
+    "positive_sql": null,
+    "positive_answer": null,
+    "conversion": null,
+    "conversion_failed": "no_sql_negation_found",
+    "drop_reason": "native_not_converted:no_sql_negation_found"
+  },
+  {
+    "id": "train_spider_3445",
+    "source_dataset": "train_spider",
+    "db_id": "hr_1",
+    "source_type": "native_negative",
+    "question": "display the emails of the employees who have no commission percentage and salary within the range 7000 to 12000 and works in that department which number is 50.",
+    "sql": "SELECT email FROM employees WHERE commission_pct  =  \"null\" AND salary BETWEEN 7000 AND 12000 AND department_id = 50",
+    "answer": [],
+    "answer_count": 0,
+    "question_negation_cues": [
+      "no"
+    ],
+    "sql_negation": [],
+    "negation_mismatch": "question_only",
+    "positive_question": null,
+    "positive_sql": null,
+    "positive_answer": null,
+    "conversion": null,
+    "conversion_failed": "no_sql_negation_found",
+    "drop_reason": "native_not_converted:no_sql_negation_found"
+  },
+  {
+    "id": "train_spider_3625",
+    "source_dataset": "train_spider",
+    "db_id": "music_1",
+    "source_type": "native_negative",
+    "question": "Find the names of the artists who have produced English songs but have never received rating higher than 8.",
+    "sql": "SELECT DISTINCT artist_name FROM song WHERE languages  =  \"english\" EXCEPT SELECT DISTINCT artist_name FROM song WHERE rating  >  8",
+    "answer": [
+      [
+        "Enrique"
+      ],
+      [
+        "Michel"
+      ]
+    ],
+    "answer_count": 2,
+    "question_negation_cues": [
+      "never"
+    ],
+    "sql_negation": [
+      "except_to_intersect"
+    ],
+    "negation_mismatch": null,
+    "positive_question": null,
+    "positive_sql": null,
+    "positive_answer": null,
+    "conversion": null,
+    "conversion_failed": "empty_positive_answer",
+    "drop_reason": "native_not_converted:empty_positive_answer"
+  },
+  {
+    "id": "train_spider_3626",
+    "source_dataset": "train_spider",
+    "db_id": "music_1",
+    "source_type": "native_negative",
+    "question": "What are the names of the different artists that have produced a song in English but have never receieved a rating higher than 8?",
+    "sql": "SELECT DISTINCT artist_name FROM song WHERE languages  =  \"english\" EXCEPT SELECT DISTINCT artist_name FROM song WHERE rating  >  8",
+    "answer": [
+      [
+        "Enrique"
+      ],
+      [
+        "Michel"
+      ]
+    ],
+    "answer_count": 2,
+    "question_negation_cues": [
+      "never"
+    ],
+    "sql_negation": [
+      "except_to_intersect"
+    ],
+    "negation_mismatch": null,
+    "positive_question": null,
+    "positive_sql": null,
+    "positive_answer": null,
+    "conversion": null,
+    "conversion_failed": "empty_positive_answer",
+    "drop_reason": "native_not_converted:empty_positive_answer"
+  },
+  {
+    "id": "train_spider_3627",
+    "source_dataset": "train_spider",
+    "db_id": "music_1",
+    "source_type": "native_negative",
+    "question": "Find the names of the artists who are from Bangladesh and have never received rating higher than 7.",
+    "sql": "SELECT DISTINCT artist_name FROM artist WHERE country  =  \"Bangladesh\" EXCEPT SELECT DISTINCT artist_name FROM song WHERE rating  >  7",
+    "answer": [
+      [
+        "Farida"
+      ],
+      [
+        "Prity"
+      ]
+    ],
+    "answer_count": 2,
+    "question_negation_cues": [
+      "never"
+    ],
+    "sql_negation": [
+      "except_to_intersect"
+    ],
+    "negation_mismatch": null,
+    "positive_question": null,
+    "positive_sql": null,
+    "positive_answer": null,
+    "conversion": null,
+    "conversion_failed": "empty_positive_answer",
+    "drop_reason": "native_not_converted:empty_positive_answer"
+  },
+  {
+    "id": "train_spider_3628",
+    "source_dataset": "train_spider",
+    "db_id": "music_1",
+    "source_type": "native_negative",
+    "question": "What are the names of the different artists from Bangladesh who never received a rating higher than a 7?",
+    "sql": "SELECT DISTINCT artist_name FROM artist WHERE country  =  \"Bangladesh\" EXCEPT SELECT DISTINCT artist_name FROM song WHERE rating  >  7",
+    "answer": [
+      [
+        "Farida"
+      ],
+      [
+        "Prity"
+      ]
+    ],
+    "answer_count": 2,
+    "question_negation_cues": [
+      "never"
+    ],
+    "sql_negation": [
+      "except_to_intersect"
+    ],
+    "negation_mismatch": null,
+    "positive_question": null,
+    "positive_sql": null,
+    "positive_answer": null,
+    "conversion": null,
+    "conversion_failed": "empty_positive_answer",
+    "drop_reason": "native_not_converted:empty_positive_answer"
+  },
+  {
+    "id": "train_spider_4078",
+    "source_dataset": "train_spider",
+    "db_id": "student_1",
+    "source_type": "native_negative",
+    "question": "Find the last names of the students in third grade that are not taught by COVIN JEROME.",
+    "sql": "SELECT DISTINCT T1.lastname FROM list AS T1 JOIN teachers AS T2 ON T1.classroom  =  T2.classroom WHERE T1.grade  =  3 AND T2.firstname != \"COVIN\" AND T2.lastname != \"JEROME\"",
+    "answer": [
+      [
+        "AREHART"
+      ],
+      [
+        "GROENEWEG"
+      ],
+      [
+        "NABOZNY"
+      ],
+      [
+        "PINNELL"
+      ],
+      [
+        "SANTORY"
+      ],
+      [
+        "VANDERWOUDE"
+      ]
+    ],
+    "answer_count": 6,
+    "question_negation_cues": [
+      "not"
+    ],
+    "sql_negation": [
+      "not_equal_to_equal"
+    ],
+    "negation_mismatch": null,
+    "positive_question": null,
+    "positive_sql": null,
+    "positive_answer": null,
+    "conversion": null,
+    "conversion_failed": "empty_positive_answer",
+    "drop_reason": "native_not_converted:empty_positive_answer"
+  },
+  {
+    "id": "train_spider_4079",
+    "source_dataset": "train_spider",
+    "db_id": "student_1",
+    "source_type": "native_negative",
+    "question": "Which students in third grade are not taught by teacher COVIN JEROME? Give me the last names of the students.",
+    "sql": "SELECT DISTINCT T1.lastname FROM list AS T1 JOIN teachers AS T2 ON T1.classroom  =  T2.classroom WHERE T1.grade  =  3 AND T2.firstname != \"COVIN\" AND T2.lastname != \"JEROME\"",
+    "answer": [
+      [
+        "AREHART"
+      ],
+      [
+        "GROENEWEG"
+      ],
+      [
+        "NABOZNY"
+      ],
+      [
+        "PINNELL"
+      ],
+      [
+        "SANTORY"
+      ],
+      [
+        "VANDERWOUDE"
+      ]
+    ],
+    "answer_count": 6,
+    "question_negation_cues": [
+      "not"
+    ],
+    "sql_negation": [
+      "not_equal_to_equal"
+    ],
+    "negation_mismatch": null,
+    "positive_question": null,
+    "positive_sql": null,
+    "positive_answer": null,
+    "conversion": null,
+    "conversion_failed": "empty_positive_answer",
+    "drop_reason": "native_not_converted:empty_positive_answer"
+  },
+  {
+    "id": "train_spider_4446",
+    "source_dataset": "train_spider",
+    "db_id": "network_2",
+    "source_type": "native_negative",
+    "question": "Find the name of the person who has friends with age above 40 but not under age 30?",
+    "sql": "SELECT T1.name FROM Person AS T1 JOIN PersonFriend AS T2 ON T1.name  =  T2.name WHERE T2.friend IN (SELECT name FROM Person WHERE age  >  40) EXCEPT SELECT T1.name FROM Person AS T1 JOIN PersonFriend AS T2 ON T1.name  =  T2.name WHERE T2.friend IN (SELECT name FROM Person WHERE age  <  30)",
+    "answer": [
+      [
+        "Bob"
+      ]
+    ],
+    "answer_count": 1,
+    "question_negation_cues": [
+      "not"
+    ],
+    "sql_negation": [
+      "except_to_intersect"
+    ],
+    "negation_mismatch": null,
+    "positive_question": null,
+    "positive_sql": null,
+    "positive_answer": null,
+    "conversion": null,
+    "conversion_failed": "empty_positive_answer",
+    "drop_reason": "native_not_converted:empty_positive_answer"
+  },
+  {
+    "id": "train_spider_4447",
+    "source_dataset": "train_spider",
+    "db_id": "network_2",
+    "source_type": "native_negative",
+    "question": "What are the names of the people who are older 40 but no friends under age 30?",
+    "sql": "SELECT T1.name FROM Person AS T1 JOIN PersonFriend AS T2 ON T1.name  =  T2.name WHERE T2.friend IN (SELECT name FROM Person WHERE age  >  40) EXCEPT SELECT T1.name FROM Person AS T1 JOIN PersonFriend AS T2 ON T1.name  =  T2.name WHERE T2.friend IN (SELECT name FROM Person WHERE age  <  30)",
+    "answer": [
+      [
+        "Bob"
+      ]
+    ],
+    "answer_count": 1,
+    "question_negation_cues": [
+      "no"
+    ],
+    "sql_negation": [
+      "except_to_intersect"
+    ],
+    "negation_mismatch": null,
+    "positive_question": null,
+    "positive_sql": null,
+    "positive_answer": null,
+    "conversion": null,
+    "conversion_failed": "empty_positive_answer",
+    "drop_reason": "native_not_converted:empty_positive_answer"
+  },
+  {
+    "id": "train_spider_4516",
+    "source_dataset": "train_spider",
+    "db_id": "document_management",
+    "source_type": "native_negative",
+    "question": "Return the codes of the document types that do not have a total access count of over 10000.",
+    "sql": "SELECT document_type_code FROM documents GROUP BY document_type_code HAVING sum(access_count)  >  10000",
+    "answer": [
+      [
+        "Advertisement"
+      ],
+      [
+        "Book"
+      ],
+      [
+        "CV"
+      ],
+      [
+        "Paper"
+      ]
+    ],
+    "answer_count": 4,
+    "question_negation_cues": [
+      "not"
+    ],
+    "sql_negation": [],
+    "negation_mismatch": "question_only",
+    "positive_question": null,
+    "positive_sql": null,
+    "positive_answer": null,
+    "conversion": null,
+    "conversion_failed": "no_sql_negation_found",
+    "drop_reason": "native_not_converted:no_sql_negation_found"
+  },
+  {
+    "id": "train_spider_4789",
+    "source_dataset": "train_spider",
+    "db_id": "department_store",
+    "source_type": "native_negative",
+    "question": "Find the name and gender of the staff who has been assigned the job of Sales Person but never Clerical Staff.",
+    "sql": "SELECT T1.staff_name ,  T1.staff_gender FROM staff AS T1 JOIN Staff_Department_Assignments AS T2 ON T1.staff_id  =  T2.staff_id WHERE T2.job_title_code  =  \"Sales Person\" EXCEPT SELECT T1.staff_name ,  T1.staff_gender FROM staff AS T1 JOIN Staff_Department_Assignments AS T2 ON T1.staff_id  =  T2.staff_id WHERE T2.job_title_code  =  \"Clerical Staff\"",
+    "answer": [
+      [
+        "Melody",
+        "1"
+      ],
+      [
+        "Sabrina",
+        "1"
+      ],
+      [
+        "Zakary",
+        "1"
+      ]
+    ],
+    "answer_count": 3,
+    "question_negation_cues": [
+      "never"
+    ],
+    "sql_negation": [
+      "except_to_intersect"
+    ],
+    "negation_mismatch": null,
+    "positive_question": null,
+    "positive_sql": null,
+    "positive_answer": null,
+    "conversion": null,
+    "conversion_failed": "empty_positive_answer",
+    "drop_reason": "native_not_converted:empty_positive_answer"
+  },
+  {
+    "id": "train_spider_4790",
+    "source_dataset": "train_spider",
+    "db_id": "department_store",
+    "source_type": "native_negative",
+    "question": "What are the names and genders of staff who have held the title Sales Person, but never Clerical Staff?",
+    "sql": "SELECT T1.staff_name ,  T1.staff_gender FROM staff AS T1 JOIN Staff_Department_Assignments AS T2 ON T1.staff_id  =  T2.staff_id WHERE T2.job_title_code  =  \"Sales Person\" EXCEPT SELECT T1.staff_name ,  T1.staff_gender FROM staff AS T1 JOIN Staff_Department_Assignments AS T2 ON T1.staff_id  =  T2.staff_id WHERE T2.job_title_code  =  \"Clerical Staff\"",
+    "answer": [
+      [
+        "Melody",
+        "1"
+      ],
+      [
+        "Sabrina",
+        "1"
+      ],
+      [
+        "Zakary",
+        "1"
+      ]
+    ],
+    "answer_count": 3,
+    "question_negation_cues": [
+      "never"
+    ],
+    "sql_negation": [
+      "except_to_intersect"
+    ],
+    "negation_mismatch": null,
+    "positive_question": null,
+    "positive_sql": null,
+    "positive_answer": null,
+    "conversion": null,
+    "conversion_failed": "empty_positive_answer",
+    "drop_reason": "native_not_converted:empty_positive_answer"
+  },
+  {
+    "id": "train_spider_4938",
+    "source_dataset": "train_spider",
+    "db_id": "store_product",
+    "source_type": "native_negative",
+    "question": "Find the name of the products that are not using the most frequently-used max page size.",
+    "sql": "SELECT product FROM product WHERE product != (SELECT max_page_size FROM product GROUP BY max_page_size ORDER BY count(*) DESC LIMIT 1)",
+    "answer": [
+      [
+        "Fujitsu fi-6130 A4 Series Scanner"
+      ],
+      [
+        "Plustek MobileOffice D28 Corporate"
+      ],
+      [
+        "Xerox Travel Scanner 100"
+      ],
+      [
+        "ScanShell 3000DN"
+      ],
+      [
+        "Canon imageFORMULA P-150"
+      ],
+      [
+        "Canon DR-2080C"
+      ]
+    ],
+    "answer_count": 6,
+    "question_negation_cues": [
+      "not"
+    ],
+    "sql_negation": [
+      "not_equal_to_equal"
+    ],
+    "negation_mismatch": null,
+    "positive_question": null,
+    "positive_sql": null,
+    "positive_answer": null,
+    "conversion": null,
+    "conversion_failed": "empty_positive_answer",
+    "drop_reason": "native_not_converted:empty_positive_answer"
+  },
+  {
+    "id": "train_spider_4939",
+    "source_dataset": "train_spider",
+    "db_id": "store_product",
+    "source_type": "native_negative",
+    "question": "What are the names of all products that are not the most frequently-used maximum page size?",
+    "sql": "SELECT product FROM product WHERE product != (SELECT max_page_size FROM product GROUP BY max_page_size ORDER BY count(*) DESC LIMIT 1)",
+    "answer": [
+      [
+        "Fujitsu fi-6130 A4 Series Scanner"
+      ],
+      [
+        "Plustek MobileOffice D28 Corporate"
+      ],
+      [
+        "Xerox Travel Scanner 100"
+      ],
+      [
+        "ScanShell 3000DN"
+      ],
+      [
+        "Canon imageFORMULA P-150"
+      ],
+      [
+        "Canon DR-2080C"
+      ]
+    ],
+    "answer_count": 6,
+    "question_negation_cues": [
+      "not"
+    ],
+    "sql_negation": [
+      "not_equal_to_equal"
+    ],
+    "negation_mismatch": null,
+    "positive_question": null,
+    "positive_sql": null,
+    "positive_answer": null,
+    "conversion": null,
+    "conversion_failed": "empty_positive_answer",
+    "drop_reason": "native_not_converted:empty_positive_answer"
+  },
+  {
+    "id": "train_spider_5012",
+    "source_dataset": "train_spider",
+    "db_id": "soccer_2",
+    "source_type": "native_negative",
+    "question": "Find the average hours for the students whose tryout decision is no.",
+    "sql": "SELECT avg(T1.HS) FROM player AS T1 JOIN tryout AS T2 ON T1.pID  =  T2.pID WHERE T2.decision  =  'no'",
+    "answer": [
+      [
+        "925.0"
+      ]
+    ],
+    "answer_count": 1,
+    "question_negation_cues": [
+      "no"
+    ],
+    "sql_negation": [],
+    "negation_mismatch": "question_only",
+    "positive_question": null,
+    "positive_sql": null,
+    "positive_answer": null,
+    "conversion": null,
+    "conversion_failed": "unsupported_question_negation",
+    "drop_reason": "native_not_converted:unsupported_question_negation"
+  },
+  {
+    "id": "train_spider_5036",
+    "source_dataset": "train_spider",
+    "db_id": "soccer_2",
+    "source_type": "native_negative",
+    "question": "How many states that have some college students playing in the mid position but not in the goalie position.",
+    "sql": "SELECT COUNT(*) FROM (SELECT T1.state FROM college AS T1 JOIN tryout AS T2 ON T1.cName  =  T2.cName WHERE T2.pPos  =  'mid' EXCEPT SELECT T1.state FROM college AS T1 JOIN tryout AS T2 ON T1.cName  =  T2.cName WHERE T2.pPos  =  'goalie')",
+    "answer": [
+      [
+        "1"
+      ]
+    ],
+    "answer_count": 1,
+    "question_negation_cues": [
+      "not"
+    ],
+    "sql_negation": [
+      "unsupported_except_structure"
+    ],
+    "negation_mismatch": null,
+    "positive_question": null,
+    "positive_sql": null,
+    "positive_answer": null,
+    "conversion": null,
+    "conversion_failed": "unsupported_except_structure",
+    "drop_reason": "native_not_converted:unsupported_except_structure"
+  },
+  {
+    "id": "train_spider_5037",
+    "source_dataset": "train_spider",
+    "db_id": "soccer_2",
+    "source_type": "native_negative",
+    "question": "What is the count of states with college students playing in the mid position but not as goalies?",
+    "sql": "SELECT COUNT(*) FROM (SELECT T1.state FROM college AS T1 JOIN tryout AS T2 ON T1.cName  =  T2.cName WHERE T2.pPos  =  'mid' EXCEPT SELECT T1.state FROM college AS T1 JOIN tryout AS T2 ON T1.cName  =  T2.cName WHERE T2.pPos  =  'goalie')",
+    "answer": [
+      [
+        "1"
+      ]
+    ],
+    "answer_count": 1,
+    "question_negation_cues": [
+      "not"
+    ],
+    "sql_negation": [
+      "unsupported_except_structure"
+    ],
+    "negation_mismatch": null,
+    "positive_question": null,
+    "positive_sql": null,
+    "positive_answer": null,
+    "conversion": null,
+    "conversion_failed": "unsupported_except_structure",
+    "drop_reason": "native_not_converted:unsupported_except_structure"
+  },
+  {
+    "id": "train_spider_5496",
+    "source_dataset": "train_spider",
+    "db_id": "voter_2",
+    "source_type": "native_negative",
+    "question": "Find the distinct last names of all the students who have president votes and whose advisor is not 2192.",
+    "sql": "SELECT DISTINCT T1.LName FROM STUDENT AS T1 JOIN VOTING_RECORD AS T2 ON T1.StuID  =  PRESIDENT_Vote EXCEPT SELECT DISTINCT LName FROM STUDENT WHERE Advisor  =  \"2192\"",
+    "answer": [
+      [
+        "Kumar"
+      ],
+      [
+        "Norris"
+      ],
+      [
+        "Prater"
+      ]
+    ],
+    "answer_count": 3,
+    "question_negation_cues": [
+      "not"
+    ],
+    "sql_negation": [
+      "except_to_intersect"
+    ],
+    "negation_mismatch": null,
+    "positive_question": null,
+    "positive_sql": null,
+    "positive_answer": null,
+    "conversion": null,
+    "conversion_failed": "empty_positive_answer",
+    "drop_reason": "native_not_converted:empty_positive_answer"
+  },
+  {
+    "id": "train_spider_5497",
+    "source_dataset": "train_spider",
+    "db_id": "voter_2",
+    "source_type": "native_negative",
+    "question": "What are the distinct last names of the students who have president votes but do not have 2192 as the advisor?",
+    "sql": "SELECT DISTINCT T1.LName FROM STUDENT AS T1 JOIN VOTING_RECORD AS T2 ON T1.StuID  =  PRESIDENT_Vote EXCEPT SELECT DISTINCT LName FROM STUDENT WHERE Advisor  =  \"2192\"",
+    "answer": [
+      [
+        "Kumar"
+      ],
+      [
+        "Norris"
+      ],
+      [
+        "Prater"
+      ]
+    ],
+    "answer_count": 3,
+    "question_negation_cues": [
+      "not"
+    ],
+    "sql_negation": [
+      "except_to_intersect"
+    ],
+    "negation_mismatch": null,
+    "positive_question": null,
+    "positive_sql": null,
+    "positive_answer": null,
+    "conversion": null,
+    "conversion_failed": "empty_positive_answer",
+    "drop_reason": "native_not_converted:empty_positive_answer"
+  },
+  {
+    "id": "train_spider_5588",
+    "source_dataset": "train_spider",
+    "db_id": "products_gen_characteristics",
+    "source_type": "native_negative",
+    "question": "Find the product names that are colored 'white' but do not have unit of measurement \"Handful\".",
+    "sql": "SELECT t1.product_name FROM products AS t1 JOIN ref_product_categories AS t2 ON t1.product_category_code  =  t2.product_category_code JOIN ref_colors AS t3 ON t1.color_code  =  t3.color_code WHERE t3.color_description  =  \"white\" AND t2.unit_of_measure != \"Handful\"",
+    "answer": [
+      [
+        "peper"
+      ],
+      [
+        "catnip"
+      ],
+      [
+        "laurel"
+      ]
+    ],
+    "answer_count": 3,
+    "question_negation_cues": [
+      "not"
+    ],
+    "sql_negation": [
+      "not_equal_to_equal"
+    ],
+    "negation_mismatch": null,
+    "positive_question": null,
+    "positive_sql": null,
+    "positive_answer": null,
+    "conversion": null,
+    "conversion_failed": "empty_positive_answer",
+    "drop_reason": "native_not_converted:empty_positive_answer"
+  },
+  {
+    "id": "train_spider_5589",
+    "source_dataset": "train_spider",
+    "db_id": "products_gen_characteristics",
+    "source_type": "native_negative",
+    "question": "What are the names of products that are not 'white' in color and are not measured by the unit 'Handful'?",
+    "sql": "SELECT t1.product_name FROM products AS t1 JOIN ref_product_categories AS t2 ON t1.product_category_code  =  t2.product_category_code JOIN ref_colors AS t3 ON t1.color_code  =  t3.color_code WHERE t3.color_description  =  \"white\" AND t2.unit_of_measure != \"Handful\"",
+    "answer": [
+      [
+        "peper"
+      ],
+      [
+        "catnip"
+      ],
+      [
+        "laurel"
+      ]
+    ],
+    "answer_count": 3,
+    "question_negation_cues": [
+      "not",
+      "not"
+    ],
+    "sql_negation": [
+      "not_equal_to_equal"
+    ],
+    "negation_mismatch": null,
+    "positive_question": null,
+    "positive_sql": null,
+    "positive_answer": null,
+    "conversion": null,
+    "conversion_failed": "empty_positive_answer",
+    "drop_reason": "native_not_converted:empty_positive_answer"
+  },
+  {
+    "id": "train_spider_5635",
+    "source_dataset": "train_spider",
+    "db_id": "railway",
+    "source_type": "native_negative",
+    "question": "What is the maximum level of managers in countries that are not \"Australia\"?",
+    "sql": "SELECT max(LEVEL) FROM manager WHERE Country != \"Australia\t\"",
+    "answer": [
+      [
+        "12"
+      ]
+    ],
+    "answer_count": 1,
+    "question_negation_cues": [
+      "not"
+    ],
+    "sql_negation": [
+      "not_equal_to_equal"
+    ],
+    "negation_mismatch": null,
+    "positive_question": null,
+    "positive_sql": null,
+    "positive_answer": null,
+    "conversion": null,
+    "conversion_failed": "null_only_positive_answer",
+    "drop_reason": "native_not_converted:null_only_positive_answer"
+  },
+  {
+    "id": "train_spider_5965",
+    "source_dataset": "train_spider",
+    "db_id": "cre_Theme_park",
+    "source_type": "native_negative",
+    "question": "What are the names of tourist attraction that Alison visited but Rosalind did not visit?",
+    "sql": "SELECT T1.Name FROM Tourist_Attractions AS T1 JOIN VISITORS AS T2 JOIN VISITS AS T3 ON T1.Tourist_Attraction_ID  =  T3.Tourist_Attraction_ID AND T2.Tourist_ID  =  T3.Tourist_ID WHERE T2.Tourist_Details  =  \"Alison\" EXCEPT SELECT T1.Name FROM Tourist_Attractions AS T1 JOIN VISITORS AS T2 JOIN VISITS AS T3 ON T1.Tourist_Attraction_ID  =  T3.Tourist_Attraction_ID AND T2.Tourist_ID  =  T3.Tourist_ID WHERE T2.Tourist_Details  =  \"Rosalind\"",
+    "answer": [
+      [
+        "US museum"
+      ],
+      [
+        "jungle cruise"
+      ]
+    ],
+    "answer_count": 2,
+    "question_negation_cues": [
+      "not"
+    ],
+    "sql_negation": [
+      "except_to_intersect"
+    ],
+    "negation_mismatch": null,
+    "positive_question": null,
+    "positive_sql": null,
+    "positive_answer": null,
+    "conversion": null,
+    "conversion_failed": "empty_positive_answer",
+    "drop_reason": "native_not_converted:empty_positive_answer"
+  },
+  {
+    "id": "train_spider_5966",
+    "source_dataset": "train_spider",
+    "db_id": "cre_Theme_park",
+    "source_type": "native_negative",
+    "question": "Find the the names of the tourist attractions that the tourist named Alison visited but Rosalind did not visit.",
+    "sql": "SELECT T1.Name FROM Tourist_Attractions AS T1 JOIN VISITORS AS T2 JOIN VISITS AS T3 ON T1.Tourist_Attraction_ID  =  T3.Tourist_Attraction_ID AND T2.Tourist_ID  =  T3.Tourist_ID WHERE T2.Tourist_Details  =  \"Alison\" EXCEPT SELECT T1.Name FROM Tourist_Attractions AS T1 JOIN VISITORS AS T2 JOIN VISITS AS T3 ON T1.Tourist_Attraction_ID  =  T3.Tourist_Attraction_ID AND T2.Tourist_ID  =  T3.Tourist_ID WHERE T2.Tourist_Details  =  \"Rosalind\"",
+    "answer": [
+      [
+        "US museum"
+      ],
+      [
+        "jungle cruise"
+      ]
+    ],
+    "answer_count": 2,
+    "question_negation_cues": [
+      "not"
+    ],
+    "sql_negation": [
+      "except_to_intersect"
+    ],
+    "negation_mismatch": null,
+    "positive_question": null,
+    "positive_sql": null,
+    "positive_answer": null,
+    "conversion": null,
+    "conversion_failed": "empty_positive_answer",
+    "drop_reason": "native_not_converted:empty_positive_answer"
+  },
+  {
+    "id": "dev_65",
+    "source_dataset": "dev",
+    "db_id": "pets_1",
+    "source_type": "native_negative",
+    "question": "Find the first name and age of students who have a dog but do not have a cat as a pet.",
+    "sql": "SELECT T1.fname ,  T1.age FROM student AS T1 JOIN has_pet AS T2 ON T1.stuid  =  T2.stuid JOIN pets AS T3 ON T3.petid  =  T2.petid WHERE T3.pettype  =  'dog' AND T1.stuid NOT IN (SELECT T1.stuid FROM student AS T1 JOIN has_pet AS T2 ON T1.stuid  =  T2.stuid JOIN pets AS T3 ON T3.petid  =  T2.petid WHERE T3.pettype  =  'cat')",
+    "answer": [
+      [
+        "Tracy",
+        "19"
+      ],
+      [
+        "Tracy",
+        "19"
+      ]
+    ],
+    "answer_count": 2,
+    "question_negation_cues": [
+      "not"
+    ],
+    "sql_negation": [
+      "not_in_to_in"
+    ],
+    "negation_mismatch": null,
+    "positive_question": null,
+    "positive_sql": null,
+    "positive_answer": null,
+    "conversion": null,
+    "conversion_failed": "empty_positive_answer",
+    "drop_reason": "native_not_converted:empty_positive_answer"
+  },
+  {
+    "id": "dev_66",
+    "source_dataset": "dev",
+    "db_id": "pets_1",
+    "source_type": "native_negative",
+    "question": "What is the first name of every student who has a dog but does not have a cat?",
+    "sql": "SELECT T1.fname ,  T1.age FROM student AS T1 JOIN has_pet AS T2 ON T1.stuid  =  T2.stuid JOIN pets AS T3 ON T3.petid  =  T2.petid WHERE T3.pettype  =  'dog' AND T1.stuid NOT IN (SELECT T1.stuid FROM student AS T1 JOIN has_pet AS T2 ON T1.stuid  =  T2.stuid JOIN pets AS T3 ON T3.petid  =  T2.petid WHERE T3.pettype  =  'cat')",
+    "answer": [
+      [
+        "Tracy",
+        "19"
+      ],
+      [
+        "Tracy",
+        "19"
+      ]
+    ],
+    "answer_count": 2,
+    "question_negation_cues": [
+      "not"
+    ],
+    "sql_negation": [
+      "not_in_to_in"
+    ],
+    "negation_mismatch": null,
+    "positive_question": null,
+    "positive_sql": null,
+    "positive_answer": null,
+    "conversion": null,
+    "conversion_failed": "empty_positive_answer",
+    "drop_reason": "native_not_converted:empty_positive_answer"
+  },
+  {
+    "id": "dev_167",
+    "source_dataset": "dev",
+    "db_id": "car_1",
+    "source_type": "native_negative",
+    "question": "Among the cars with more than lowest horsepower, which ones do not have more than 3 cylinders? List the car makeid and make name.",
+    "sql": "SELECT T2.MakeId ,  T2.Make FROM CARS_DATA AS T1 JOIN CAR_NAMES AS T2 ON T1.Id  =  T2.MakeId WHERE T1.Horsepower  >  (SELECT min(Horsepower) FROM CARS_DATA) AND T1.Cylinders  <=  3;",
+    "answer": [
+      [
+        "79",
+        "mazda rx2 coupe"
+      ],
+      [
+        "119",
+        "mazda rx3"
+      ],
+      [
+        "251",
+        "mazda rx-4"
+      ]
+    ],
+    "answer_count": 3,
+    "question_negation_cues": [
+      "not"
+    ],
+    "sql_negation": [],
+    "negation_mismatch": "question_only",
+    "positive_question": null,
+    "positive_sql": null,
+    "positive_answer": null,
+    "conversion": null,
+    "conversion_failed": "no_sql_negation_found",
+    "drop_reason": "native_not_converted:no_sql_negation_found"
+  },
+  {
+    "id": "dev_168",
+    "source_dataset": "dev",
+    "db_id": "car_1",
+    "source_type": "native_negative",
+    "question": "Among the cars that do not have the minimum horsepower, what are the make ids and names of al those with less than 4 cylinders?",
+    "sql": "SELECT T2.MakeId ,  T2.Make FROM CARS_DATA AS T1 JOIN CAR_NAMES AS T2 ON T1.Id  =  T2.MakeId WHERE T1.Horsepower  >  (SELECT min(Horsepower) FROM CARS_DATA) AND T1.Cylinders  <=  3;",
+    "answer": [
+      [
+        "79",
+        "mazda rx2 coupe"
+      ],
+      [
+        "119",
+        "mazda rx3"
+      ],
+      [
+        "251",
+        "mazda rx-4"
+      ]
+    ],
+    "answer_count": 3,
+    "question_negation_cues": [
+      "not"
+    ],
+    "sql_negation": [],
+    "negation_mismatch": "question_only",
+    "positive_question": null,
+    "positive_sql": null,
+    "positive_answer": null,
+    "conversion": null,
+    "conversion_failed": "no_sql_negation_found",
+    "drop_reason": "native_not_converted:no_sql_negation_found"
+  },
+  {
+    "id": "dev_387",
+    "source_dataset": "dev",
+    "db_id": "course_teach",
+    "source_type": "native_negative",
+    "question": "List the name of teachers whose hometown is not \"Little Lever Urban District\".",
+    "sql": "SELECT Name FROM teacher WHERE Hometown != \"Little Lever Urban Distric\"",
+    "answer": [
+      [
+        "Joseph Huts"
+      ],
+      [
+        "Gustaaf Deloor"
+      ],
+      [
+        "Vicente Carretero"
+      ],
+      [
+        "John Deloor"
+      ],
+      [
+        "Kearsley Brown"
+      ],
+      [
+        "Anne Walker"
+      ],
+      [
+        "Lucy Wong"
+      ]
+    ],
+    "answer_count": 7,
+    "question_negation_cues": [
+      "not"
+    ],
+    "sql_negation": [
+      "not_equal_to_equal"
+    ],
+    "negation_mismatch": null,
+    "positive_question": null,
+    "positive_sql": null,
+    "positive_answer": null,
+    "conversion": null,
+    "conversion_failed": "empty_positive_answer",
+    "drop_reason": "native_not_converted:empty_positive_answer"
+  },
+  {
+    "id": "dev_388",
+    "source_dataset": "dev",
+    "db_id": "course_teach",
+    "source_type": "native_negative",
+    "question": "What are the names of the teachers whose hometown is not \"Little Lever Urban District\"?",
+    "sql": "SELECT Name FROM teacher WHERE Hometown != \"Little Lever Urban Distric\"",
+    "answer": [
+      [
+        "Joseph Huts"
+      ],
+      [
+        "Gustaaf Deloor"
+      ],
+      [
+        "Vicente Carretero"
+      ],
+      [
+        "John Deloor"
+      ],
+      [
+        "Kearsley Brown"
+      ],
+      [
+        "Anne Walker"
+      ],
+      [
+        "Lucy Wong"
+      ]
+    ],
+    "answer_count": 7,
+    "question_negation_cues": [
+      "not"
+    ],
+    "sql_negation": [
+      "not_equal_to_equal"
+    ],
+    "negation_mismatch": null,
+    "positive_question": null,
+    "positive_sql": null,
+    "positive_answer": null,
+    "conversion": null,
+    "conversion_failed": "empty_positive_answer",
+    "drop_reason": "native_not_converted:empty_positive_answer"
+  },
+  {
+    "id": "dev_413",
+    "source_dataset": "dev",
+    "db_id": "museum_visit",
+    "source_type": "native_negative",
+    "question": "What is the average age of the visitors whose membership level is not higher than 4?",
+    "sql": "SELECT avg(age) FROM visitor WHERE Level_of_membership  <=  4",
+    "answer": [
+      [
+        "36.0"
+      ]
+    ],
+    "answer_count": 1,
+    "question_negation_cues": [
+      "not"
+    ],
+    "sql_negation": [],
+    "negation_mismatch": "question_only",
+    "positive_question": null,
+    "positive_sql": null,
+    "positive_answer": null,
+    "conversion": null,
+    "conversion_failed": "no_sql_negation_found",
+    "drop_reason": "native_not_converted:no_sql_negation_found"
+  },
+  {
+    "id": "dev_427",
+    "source_dataset": "dev",
+    "db_id": "museum_visit",
+    "source_type": "native_negative",
+    "question": "Find the number of visitors who did not visit any museum opened after 2010.",
+    "sql": "SELECT count(*) FROM visitor WHERE id NOT IN (SELECT t2.visitor_id FROM museum AS t1 JOIN visit AS t2 ON t1.Museum_ID  =  t2.Museum_ID WHERE t1.open_year  >  2010)",
+    "answer": [
+      [
+        "3"
+      ]
+    ],
+    "answer_count": 1,
+    "question_negation_cues": [
+      "not"
+    ],
+    "sql_negation": [
+      "not_in_to_in"
+    ],
+    "negation_mismatch": null,
+    "positive_question": null,
+    "positive_sql": null,
+    "positive_answer": null,
+    "conversion": null,
+    "conversion_failed": "same_answer_after_conversion",
+    "drop_reason": "native_not_converted:same_answer_after_conversion"
+  },
+  {
+    "id": "dev_984",
+    "source_dataset": "dev",
+    "db_id": "dog_kennels",
+    "source_type": "native_negative",
+    "question": "List the dog name, age and weight of the dogs who have been abandoned? 1 stands for yes, and 0 stands for no.",
+    "sql": "SELECT name ,  age ,  weight FROM Dogs WHERE abandoned_yn  =  1",
+    "answer": [
+      [
+        "Kacey",
+        "6",
+        "7.57"
+      ],
+      [
+        "Lyric",
+        "4",
+        "4.36"
+      ],
+      [
+        "Evangeline",
+        "1",
+        "4.01"
+      ]
+    ],
+    "answer_count": 3,
+    "question_negation_cues": [
+      "no"
+    ],
+    "sql_negation": [],
+    "negation_mismatch": "question_only",
+    "positive_question": null,
+    "positive_sql": null,
+    "positive_answer": null,
+    "conversion": null,
+    "conversion_failed": "unsupported_question_negation",
+    "drop_reason": "native_not_converted:unsupported_question_negation"
+  },
+  {
+    "id": "dev_985",
+    "source_dataset": "dev",
+    "db_id": "dog_kennels",
+    "source_type": "native_negative",
+    "question": "What are the dog name, age and weight of the dogs that were abandoned? Note that 1 stands for yes, and 0 stands for no in the tables.",
+    "sql": "SELECT name ,  age ,  weight FROM Dogs WHERE abandoned_yn  =  1",
+    "answer": [
+      [
+        "Kacey",
+        "6",
+        "7.57"
+      ],
+      [
+        "Lyric",
+        "4",
+        "4.36"
+      ],
+      [
+        "Evangeline",
+        "1",
+        "4.01"
+      ]
+    ],
+    "answer_count": 3,
+    "question_negation_cues": [
+      "no"
+    ],
+    "sql_negation": [],
+    "negation_mismatch": "question_only",
+    "positive_question": null,
+    "positive_sql": null,
+    "positive_answer": null,
+    "conversion": null,
+    "conversion_failed": "no_sql_negation_found",
+    "drop_reason": "native_not_converted:no_sql_negation_found"
+  }
+]

@@ -1,0 +1,33 @@
+{
+  "model": "meta-llama/Llama-3.1-8B-Instruct",
+  "mode": "pos",
+  "iteration": 1,
+  "test_file": "final_datasets_checked/pos_test.json",
+  "train_file": [
+    "final_datasets_checked/pos_train.json"
+  ],
+  "num_shots": 3,
+  "shot_strategy": "similar",
+  "shot_pool_size": 12,
+  "same_db_bonus": 0.1,
+  "exclude_same_db": false,
+  "seed": 42,
+  "examples": 475,
+  "empty_predictions": 0,
+  "prompts_too_long": 0,
+  "examples_with_fewer_shots": 0,
+  "exact_match": 37.47,
+  "execution_accuracy": 73.89,
+  "execution_errors": 25,
+  "returns_paired_answer_percent": 0.0,
+  "accuracy_by_source_dataset": {
+    "dev": {
+      "n": 64,
+      "accuracy": 68.75
+    },
+    "train_spider": {
+      "n": 411,
+      "accuracy": 74.7
+    }
+  }
+}

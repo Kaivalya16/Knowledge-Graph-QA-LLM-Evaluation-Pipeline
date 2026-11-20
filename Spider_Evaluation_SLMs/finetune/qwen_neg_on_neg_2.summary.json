@@ -1,0 +1,98 @@
+{
+  "input_file": "final_datasets_checked/neg_test.json",
+  "adapter_dir": "finetuned_models/qwen_neg_2",
+  "mode": "neg",
+  "examples": 475,
+  "empty_predictions": 0,
+  "skipped_long_prompts": 0,
+  "execution_accuracy": 83.16,
+  "execution_errors": 19,
+  "returns_paired_answer": 4,
+  "returns_paired_answer_percent": 0.84,
+  "accuracy_by_negation_type": {
+    "at_least_to_not_at_least": {
+      "n": 7,
+      "accuracy": 85.71
+    },
+    "at_most_to_not_at_most": {
+      "n": 2,
+      "accuracy": 50.0
+    },
+    "between_to_not_between": {
+      "n": 6,
+      "accuracy": 100.0
+    },
+    "entity_to_not_entity": {
+      "n": 6,
+      "accuracy": 50.0
+    },
+    "equal_to_not_equal": {
+      "n": 176,
+      "accuracy": 78.98
+    },
+    "greater_to_not_greater": {
+      "n": 87,
+      "accuracy": 87.36
+    },
+    "in_to_not_in": {
+      "n": 3,
+      "accuracy": 100.0
+    },
+    "less_to_not_less": {
+      "n": 40,
+      "accuracy": 90.0
+    },
+    "like_to_not_like": {
+      "n": 21,
+      "accuracy": 90.48
+    }
+  },
+  "accuracy_by_question_rule": {
+    "between": {
+      "n": 6,
+      "accuracy": 100.0
+    },
+    "comparison": {
+      "n": 136,
+      "accuracy": 87.5
+    },
+    "contrast": {
+      "n": 63,
+      "accuracy": 85.71
+    },
+    "coordination": {
+      "n": 1,
+      "accuracy": 100.0
+    },
+    "copula": {
+      "n": 19,
+      "accuracy": 84.21
+    },
+    "like": {
+      "n": 21,
+      "accuracy": 90.48
+    },
+    "participle": {
+      "n": 18,
+      "accuracy": 72.22
+    },
+    "preposition": {
+      "n": 79,
+      "accuracy": 72.15
+    },
+    "relative_clause": {
+      "n": 5,
+      "accuracy": 80.0
+    }
+  },
+  "accuracy_by_source_dataset": {
+    "dev": {
+      "n": 64,
+      "accuracy": 84.38
+    },
+    "train_spider": {
+      "n": 411,
+      "accuracy": 82.97
+    }
+  }
+}

@@ -1,0 +1,104 @@
+{
+  "per_split": {
+    "train_spider": {
+      "status": "ok",
+      "pairs": 1460
+    },
+    "train_others": {
+      "status": "empty",
+      "pairs": 0
+    },
+    "dev": {
+      "status": "ok",
+      "pairs": 183
+    }
+  },
+  "total_pairs": 1643,
+  "native_negatives": {
+    "per_split": {
+      "train_spider": 402,
+      "train_others": 0,
+      "dev": 70
+    },
+    "total": 472
+  },
+  "negation_types": {
+    "between_to_not_between": 28,
+    "equal_to_not_equal": 931,
+    "greater_to_not_greater": 376,
+    "like_to_not_like": 78,
+    "less_to_not_less": 158,
+    "at_least_to_not_at_least": 30,
+    "in_to_not_in": 7,
+    "entity_to_not_entity": 30,
+    "at_most_to_not_at_most": 5
+  },
+  "question_rules": {
+    "between": 28,
+    "contrast": 277,
+    "copula": 85,
+    "comparison": 569,
+    "like": 71,
+    "preposition": 337,
+    "coordination": 171,
+    "participle": 84,
+    "relative_clause": 21
+  },
+  "funnel": [
+    {
+      "stage": "0. Original Spider",
+      "counts": {
+        "train_spider": 7000,
+        "train_others": 1659,
+        "dev": 1034
+      },
+      "total": 9693,
+      "percent_of_previous": null,
+      "percent_of_original": 100.0
+    },
+    {
+      "stage": "1. Canonical positives",
+      "counts": {
+        "train_spider": 6218,
+        "train_others": 0,
+        "dev": 891
+      },
+      "total": 7109,
+      "percent_of_previous": 73.3,
+      "percent_of_original": 73.3
+    },
+    {
+      "stage": "2. Questions with >=1 negation candidate",
+      "counts": {
+        "train_spider": 2263,
+        "train_others": 0,
+        "dev": 324
+      },
+      "total": 2587,
+      "percent_of_previous": 36.4,
+      "percent_of_original": 26.7
+    },
+    {
+      "stage": "3. Validated pairs (one per question)",
+      "counts": {
+        "train_spider": 1460,
+        "train_others": 0,
+        "dev": 183
+      },
+      "total": 1643,
+      "percent_of_previous": 63.5,
+      "percent_of_original": 17.0
+    },
+    {
+      "stage": "4. Merged pairs",
+      "counts": {
+        "train_spider": 1460,
+        "train_others": 0,
+        "dev": 183
+      },
+      "total": 1643,
+      "percent_of_previous": 100.0,
+      "percent_of_original": 17.0
+    }
+  ]
+}

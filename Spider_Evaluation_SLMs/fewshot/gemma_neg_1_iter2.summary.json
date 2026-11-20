@@ -1,0 +1,109 @@
+{
+  "model": "google/gemma-2-9b-it",
+  "mode": "neg",
+  "iteration": 2,
+  "test_file": "final_datasets_checked/neg_test.json",
+  "train_file": [
+    "final_datasets_checked/neg_train.json"
+  ],
+  "num_shots": 3,
+  "shot_strategy": "similar",
+  "shot_pool_size": 12,
+  "same_db_bonus": 0.1,
+  "exclude_same_db": false,
+  "seed": 42,
+  "examples": 475,
+  "empty_predictions": 0,
+  "prompts_too_long": 0,
+  "examples_with_fewer_shots": 1,
+  "exact_match": 33.68,
+  "execution_accuracy": 74.32,
+  "execution_errors": 25,
+  "returns_paired_answer_percent": 1.26,
+  "accuracy_by_negation_type": {
+    "at_least_to_not_at_least": {
+      "n": 7,
+      "accuracy": 71.43
+    },
+    "at_most_to_not_at_most": {
+      "n": 2,
+      "accuracy": 50.0
+    },
+    "between_to_not_between": {
+      "n": 6,
+      "accuracy": 100.0
+    },
+    "entity_to_not_entity": {
+      "n": 6,
+      "accuracy": 50.0
+    },
+    "equal_to_not_equal": {
+      "n": 176,
+      "accuracy": 69.32
+    },
+    "greater_to_not_greater": {
+      "n": 87,
+      "accuracy": 80.46
+    },
+    "in_to_not_in": {
+      "n": 3,
+      "accuracy": 100.0
+    },
+    "less_to_not_less": {
+      "n": 40,
+      "accuracy": 85.0
+    },
+    "like_to_not_like": {
+      "n": 21,
+      "accuracy": 85.71
+    }
+  },
+  "accuracy_by_question_rule": {
+    "between": {
+      "n": 6,
+      "accuracy": 100.0
+    },
+    "comparison": {
+      "n": 136,
+      "accuracy": 80.88
+    },
+    "contrast": {
+      "n": 63,
+      "accuracy": 71.43
+    },
+    "coordination": {
+      "n": 1,
+      "accuracy": 100.0
+    },
+    "copula": {
+      "n": 19,
+      "accuracy": 78.95
+    },
+    "like": {
+      "n": 21,
+      "accuracy": 85.71
+    },
+    "participle": {
+      "n": 18,
+      "accuracy": 61.11
+    },
+    "preposition": {
+      "n": 79,
+      "accuracy": 64.56
+    },
+    "relative_clause": {
+      "n": 5,
+      "accuracy": 100.0
+    }
+  },
+  "accuracy_by_source_dataset": {
+    "dev": {
+      "n": 64,
+      "accuracy": 79.69
+    },
+    "train_spider": {
+      "n": 411,
+      "accuracy": 73.48
+    }
+  }
+}

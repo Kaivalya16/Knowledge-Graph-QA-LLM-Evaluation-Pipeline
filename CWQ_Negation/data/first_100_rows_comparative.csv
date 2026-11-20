@@ -1,0 +1,2575 @@
+id,original_question,negated_question,answers,sparql,negated_sparql
+24317,"What winner of the Puerto Rican governor election held position from after January 2, 2009?","What winner of the Puerto Rican governor election held position not from after January 2 , 2009 ?",['Alejandro García Padilla'],"PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+PREFIX ns: <http://rdf.freebase.com/ns/>
+SELECT DISTINCT ?x
+WHERE {
+FILTER (?x != ns:m.05r7t)
+ns:m.05r7t ns:government.governmental_jurisdiction.governing_officials ?y .
+?y ns:government.government_position_held.office_holder ?x .
+?y ns:government.government_position_held.basic_title ns:m.0fkvn .
+?x ns:government.politician.government_positions_held ?c .
+?c ns:government.government_position_held.from ?num .
+FILTER (STR(?num) > ""2009-01-02"") . 
+}","PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+PREFIX ns: <http://rdf.freebase.com/ns/>
+SELECT DISTINCT ?x
+WHERE {
+FILTER (?x != ns:m.05r7t)
+ns:m.05r7t ns:government.governmental_jurisdiction.governing_officials ?y .
+?y ns:government.government_position_held.office_holder ?x .
+?y ns:government.government_position_held.basic_title ns:m.0fkvn .
+?x ns:government.politician.government_positions_held ?c .
+?c ns:government.government_position_held.from ?num .
+FILTER (STR(?num) <= ""2009-01-02"") . 
+}"
+24318,"Who was the Soviet Leader during WWII that held his governmental position after September 14, 1953?","Who was the Soviet Leader during WWII that held his governmental position not after September 14 , 1953 ?",['Leonid Brezhnev'],"PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+PREFIX ns: <http://rdf.freebase.com/ns/>
+SELECT DISTINCT ?x
+WHERE {
+FILTER (?x != ns:m.05vz3zq)
+ns:m.05vz3zq ns:government.governmental_jurisdiction.governing_officials ?y .
+?y ns:government.government_position_held.office_holder ?x .
+?x ns:military.military_person.participated_in_conflicts ns:m.081pw .
+?x ns:government.politician.government_positions_held ?c .
+?c ns:government.government_position_held.from ?num .
+FILTER (STR(?num) > ""1953-09-14"") . 
+}","PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+PREFIX ns: <http://rdf.freebase.com/ns/>
+SELECT DISTINCT ?x
+WHERE {
+FILTER (?x != ns:m.05vz3zq)
+ns:m.05vz3zq ns:government.governmental_jurisdiction.governing_officials ?y .
+?y ns:government.government_position_held.office_holder ?x .
+?x ns:military.military_person.participated_in_conflicts ns:m.081pw .
+?x ns:government.politician.government_positions_held ?c .
+?c ns:government.government_position_held.from ?num .
+FILTER (STR(?num) <= ""1953-09-14"") . 
+}"
+24319,"What museum established before September 16, 1893 is a good hang out in Chicago?","What museum not established before September 16 , 1893 is a good hang out in Chicago ?",['Art Institute of Chicago'],"PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+PREFIX ns: <http://rdf.freebase.com/ns/>
+SELECT DISTINCT ?x
+WHERE {
+FILTER (?x != ns:m.01_d4)
+ns:m.01_d4 ns:travel.travel_destination.tourist_attractions ?x .
+?x ns:architecture.museum.established ?num .
+FILTER (STR(?num) < ""1893-09-16"") . 
+}","PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+PREFIX ns: <http://rdf.freebase.com/ns/>
+SELECT DISTINCT ?x
+WHERE {
+FILTER (?x != ns:m.01_d4)
+ns:m.01_d4 ns:travel.travel_destination.tourist_attractions ?x .
+?x ns:architecture.museum.established ?num .
+FILTER (STR(?num) >= ""1893-09-16"") . 
+}"
+24320,"Who held his governmental position from June 25, 1993 and was Canadian Prime Minister in 1993?","Who held his governmental position not from June 25 , 1993 and was Canadian Prime Minister in 1993 ?",['Jean Chrétien'],"PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+PREFIX ns: <http://rdf.freebase.com/ns/>
+SELECT DISTINCT ?x
+WHERE {
+FILTER (?x != ns:m.060m4)
+ns:m.060m4 ns:government.government_office_or_title.office_holders ?y .
+?y ns:government.government_position_held.office_holder ?x .
+FILTER(NOT EXISTS {?y ns:government.government_position_held.from ?sk0} || 
+EXISTS {?y ns:government.government_position_held.from ?sk1 . 
+FILTER(STR(?sk1) <= ""1993-12-31"") })
+FILTER(NOT EXISTS {?y ns:government.government_position_held.to ?sk2} || 
+EXISTS {?y ns:government.government_position_held.to ?sk3 . 
+FILTER(STR(?sk3) >= ""1993-01-01"") })
+?x ns:government.politician.government_positions_held ?c .
+?c ns:government.government_position_held.from ?num .
+FILTER (STR(?num) > ""1993-06-25"") . 
+}","PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+PREFIX ns: <http://rdf.freebase.com/ns/>
+SELECT DISTINCT ?x
+WHERE {
+FILTER (?x != ns:m.060m4)
+ns:m.060m4 ns:government.government_office_or_title.office_holders ?y .
+?y ns:government.government_position_held.office_holder ?x .
+FILTER(NOT EXISTS {?y ns:government.government_position_held.from ?sk0} || 
+EXISTS {?y ns:government.government_position_held.from ?sk1 . 
+FILTER(STR(?sk1) > ""1993-12-31"") })
+FILTER(NOT EXISTS {?y ns:government.government_position_held.to ?sk2} || 
+EXISTS {?y ns:government.government_position_held.to ?sk3 . 
+FILTER(STR(?sk3) < ""1993-01-01"") })
+?x ns:government.politician.government_positions_held ?c .
+?c ns:government.government_position_held.from ?num .
+FILTER (STR(?num) <= ""1993-06-25"") . 
+}"
+24321,Who won the noble peace prize in 2007 and held his governmental position from 1-3-1977?,Who won the noble peace prize in 2007 and held his governmental position not from 1 - 3 - 1977 ?,['Al Gore'],"PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+PREFIX ns: <http://rdf.freebase.com/ns/>
+SELECT DISTINCT ?x
+WHERE {
+FILTER (?x != ns:m.05f3q)
+ns:m.05f3q ns:award.award_category.winners ?y .
+?y ns:award.award_honor.award_winner ?x .
+FILTER(NOT EXISTS {?y ns:award.award_honor.year ?sk0} || 
+EXISTS {?y ns:award.award_honor.year ?sk1 . 
+FILTER(STR(?sk1) >= ""2007-01-01"") })
+FILTER(NOT EXISTS {?y ns:award.award_honor.year ?sk2} || 
+EXISTS {?y ns:award.award_honor.year ?sk3 . 
+FILTER(STR(?sk3) <= ""2007-12-31"") })
+?x ns:government.politician.government_positions_held ?c .
+?c ns:government.government_position_held.from ?num .
+FILTER (STR(?num) > ""1977-01-03"") . 
+}","PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+PREFIX ns: <http://rdf.freebase.com/ns/>
+SELECT DISTINCT ?x
+WHERE {
+FILTER (?x != ns:m.05f3q)
+ns:m.05f3q ns:award.award_category.winners ?y .
+?y ns:award.award_honor.award_winner ?x .
+FILTER(NOT EXISTS {?y ns:award.award_honor.year ?sk0} || 
+EXISTS {?y ns:award.award_honor.year ?sk1 . 
+FILTER(STR(?sk1) >= ""2007-01-01"") })
+FILTER(NOT EXISTS {?y ns:award.award_honor.year ?sk2} || 
+EXISTS {?y ns:award.award_honor.year ?sk3 . 
+FILTER(STR(?sk3) <= ""2007-12-31"") })
+?x ns:government.politician.government_positions_held ?c .
+?c ns:government.government_position_held.from ?num .
+FILTER (STR(?num) <= ""1977-01-03"") . 
+}"
+24322,Who founded the Federal Reserve Board and held his position in the government beginning 1929-01-01?,Who founded the Federal Reserve Board and held his position in the government not beginning 1929 - 01 - 01 ?,['Franklin D. Roosevelt'],"PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+PREFIX ns: <http://rdf.freebase.com/ns/>
+SELECT DISTINCT ?x
+WHERE {
+FILTER (?x != ns:m.02xmb)
+ns:m.02xmb ns:organization.organization.founders ?x .
+?x ns:government.politician.government_positions_held ?c .
+?c ns:government.government_position_held.from ?num .
+FILTER (STR(?num) > ""1929-01-01"") . 
+}","PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+PREFIX ns: <http://rdf.freebase.com/ns/>
+SELECT DISTINCT ?x
+WHERE {
+FILTER (?x != ns:m.02xmb)
+ns:m.02xmb ns:organization.organization.founders ?x .
+?x ns:government.politician.government_positions_held ?c .
+?c ns:government.government_position_held.from ?num .
+FILTER (STR(?num) <= ""1929-01-01"") . 
+}"
+24323,Who was the prime minister in Japan in 2012 and held the position after 9-2-11?,Who was the prime minister in Japan in 2012 and held the position not after 9 - 2 - 11 ?,['Shinzō Abe'],"PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+PREFIX ns: <http://rdf.freebase.com/ns/>
+SELECT DISTINCT ?x
+WHERE {
+FILTER (?x != ns:m.03_3d)
+ns:m.03_3d ns:government.governmental_jurisdiction.governing_officials ?y .
+?y ns:government.government_position_held.office_holder ?x .
+?y ns:government.government_position_held.basic_title ns:m.060bp .
+FILTER(NOT EXISTS {?y ns:government.government_position_held.from ?sk0} || 
+EXISTS {?y ns:government.government_position_held.from ?sk1 . 
+FILTER(STR(?sk1) <= ""2012-12-31"") })
+FILTER(NOT EXISTS {?y ns:government.government_position_held.to ?sk2} || 
+EXISTS {?y ns:government.government_position_held.to ?sk3 . 
+FILTER(STR(?sk3) >= ""2012-01-01"") })
+?x ns:government.politician.government_positions_held ?c .
+?c ns:government.government_position_held.from ?num .
+FILTER (STR(?num) > ""2011-09-02"") . 
+}","PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+PREFIX ns: <http://rdf.freebase.com/ns/>
+SELECT DISTINCT ?x
+WHERE {
+FILTER (?x != ns:m.03_3d)
+ns:m.03_3d ns:government.governmental_jurisdiction.governing_officials ?y .
+?y ns:government.government_position_held.office_holder ?x .
+?y ns:government.government_position_held.basic_title ns:m.060bp .
+FILTER(NOT EXISTS {?y ns:government.government_position_held.from ?sk0} || 
+EXISTS {?y ns:government.government_position_held.from ?sk1 . 
+FILTER(STR(?sk1) <= ""2012-12-31"") })
+FILTER(NOT EXISTS {?y ns:government.government_position_held.to ?sk2} || 
+EXISTS {?y ns:government.government_position_held.to ?sk3 . 
+FILTER(STR(?sk3) >= ""2012-01-01"") })
+?x ns:government.politician.government_positions_held ?c .
+?c ns:government.government_position_held.from ?num .
+FILTER (STR(?num) <= ""2011-09-02"") . 
+}"
+24324,"Who held his governmental position from January 5, 1983 and was the 2010 senator of Connecticut?","Who held his governmental position not from January 5 , 1983 and was the 2010 senator of Connecticut ?",['Joe Lieberman'],"PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+PREFIX ns: <http://rdf.freebase.com/ns/>
+SELECT DISTINCT ?x
+WHERE {
+FILTER (?x != ns:m.01x73)
+ns:m.01x73 ns:government.political_district.representatives ?y .
+?y ns:government.government_position_held.office_holder ?x .
+?y ns:government.government_position_held.office_position_or_title ns:m.02_7l8y .
+FILTER(NOT EXISTS {?y ns:government.government_position_held.from ?sk0} || 
+EXISTS {?y ns:government.government_position_held.from ?sk1 . 
+FILTER(STR(?sk1) <= ""2010-12-31"") })
+FILTER(NOT EXISTS {?y ns:government.government_position_held.to ?sk2} || 
+EXISTS {?y ns:government.government_position_held.to ?sk3 . 
+FILTER(STR(?sk3) >= ""2010-01-01"") })
+?x ns:government.politician.government_positions_held ?c .
+?c ns:government.government_position_held.from ?num .
+FILTER (STR(?num) > ""1983-01-05"") . 
+}","PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+PREFIX ns: <http://rdf.freebase.com/ns/>
+SELECT DISTINCT ?x
+WHERE {
+FILTER (?x != ns:m.01x73)
+ns:m.01x73 ns:government.political_district.representatives ?y .
+?y ns:government.government_position_held.office_holder ?x .
+?y ns:government.government_position_held.office_position_or_title ns:m.02_7l8y .
+FILTER(NOT EXISTS {?y ns:government.government_position_held.from ?sk0} || 
+EXISTS {?y ns:government.government_position_held.from ?sk1 . 
+FILTER(STR(?sk1) <= ""2010-12-31"") })
+FILTER(NOT EXISTS {?y ns:government.government_position_held.to ?sk2} || 
+EXISTS {?y ns:government.government_position_held.to ?sk3 . 
+FILTER(STR(?sk3) >= ""2010-01-01"") })
+?x ns:government.politician.government_positions_held ?c .
+?c ns:government.government_position_held.from ?num .
+FILTER (STR(?num) <= ""1983-01-05"") . 
+}"
+24325,"What 2013 Virginia Senators held their governmental position from after January 14, 2006?","What 2013 Virginia Senators held their governmental position not from after January 14 , 2006 ?","['Mark Warner', 'Jim Webb', 'Tim Kaine']","PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+PREFIX ns: <http://rdf.freebase.com/ns/>
+SELECT DISTINCT ?x
+WHERE {
+FILTER (?x != ns:m.07z1m)
+ns:m.07z1m ns:government.political_district.representatives ?y .
+?y ns:government.government_position_held.office_holder ?x .
+?y ns:government.government_position_held.governmental_body ns:m.07t58 .
+FILTER(NOT EXISTS {?y ns:government.government_position_held.from ?sk0} || 
+EXISTS {?y ns:government.government_position_held.from ?sk1 . 
+FILTER(STR(?sk1) <= ""2013-12-31"") })
+FILTER(NOT EXISTS {?y ns:government.government_position_held.to ?sk2} || 
+EXISTS {?y ns:government.government_position_held.to ?sk3 . 
+FILTER(STR(?sk3) >= ""2013-01-01"") })
+?x ns:government.politician.government_positions_held ?c .
+?c ns:government.government_position_held.from ?num .
+FILTER (STR(?num) > ""2006-01-14"") . 
+}","PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+PREFIX ns: <http://rdf.freebase.com/ns/>
+SELECT DISTINCT ?x
+WHERE {
+FILTER (?x != ns:m.07z1m)
+ns:m.07z1m ns:government.political_district.representatives ?y .
+?y ns:government.government_position_held.office_holder ?x .
+?y ns:government.government_position_held.governmental_body ns:m.07t58 .
+FILTER(NOT EXISTS {?y ns:government.government_position_held.from ?sk0} || 
+EXISTS {?y ns:government.government_position_held.from ?sk1 . 
+FILTER(STR(?sk1) <= ""2013-12-31"") })
+FILTER(NOT EXISTS {?y ns:government.government_position_held.to ?sk2} || 
+EXISTS {?y ns:government.government_position_held.to ?sk3 . 
+FILTER(STR(?sk3) >= ""2013-01-01"") })
+?x ns:government.politician.government_positions_held ?c .
+?c ns:government.government_position_held.from ?num .
+FILTER (STR(?num) <= ""2006-01-14"") . 
+}"
+24326,Which zoo opened before 1940 and is a tourist attraction in Bangkok?,Which zoo did not open before 1940 and is a tourist attraction in Bangkok ?,['Dusit Zoo'],"PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+PREFIX ns: <http://rdf.freebase.com/ns/>
+SELECT DISTINCT ?x
+WHERE {
+FILTER (?x != ns:m.0fn2g)
+ns:m.0fn2g ns:travel.travel_destination.tourist_attractions ?x .
+?x ns:zoos.zoo.opened ?num .
+FILTER (STR(?num) < ""1940"") . 
+}","PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+PREFIX ns: <http://rdf.freebase.com/ns/>
+SELECT DISTINCT ?x
+WHERE {
+FILTER (?x != ns:m.0fn2g)
+ns:m.0fn2g ns:travel.travel_destination.tourist_attractions ?x .
+?x ns:zoos.zoo.opened ?num .
+FILTER (STR(?num) >= ""1940"") . 
+}"
+24327,What is there to do in San Diego for fun that is a zoo that opened after 1915?,What is there to do in San Diego for fun that is a zoo that did not open after 1915 ?,"['SeaWorld San Diego', 'San Diego Zoo Safari Park']","PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+PREFIX ns: <http://rdf.freebase.com/ns/>
+SELECT DISTINCT ?x
+WHERE {
+FILTER (?x != ns:m.071vr)
+ns:m.071vr ns:travel.travel_destination.tourist_attractions ?x .
+?x ns:zoos.zoo.opened ?num .
+FILTER (STR(?num) > ""1915"") . 
+}","PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+PREFIX ns: <http://rdf.freebase.com/ns/>
+SELECT DISTINCT ?x
+WHERE {
+FILTER (?x != ns:m.071vr)
+ns:m.071vr ns:travel.travel_destination.tourist_attractions ?x .
+?x ns:zoos.zoo.opened ?num .
+FILTER (STR(?num) <= ""1915"") . 
+}"
+24328,"What Vice President held governmental position from March 4, 1861?","What Vice President held governmental position not from March 4 , 1861 ?","['Andrew Johnson', 'Hannibal Hamlin']","PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+PREFIX ns: <http://rdf.freebase.com/ns/>
+SELECT DISTINCT ?x
+WHERE {
+FILTER (?x != ns:m.0gzh)
+ns:m.0gzh ns:government.us_president.vice_president ?x .
+?x ns:government.politician.government_positions_held ?c .
+?c ns:government.government_position_held.from ?num .
+FILTER (STR(?num) < ""1861-03-04"") . 
+}","PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+PREFIX ns: <http://rdf.freebase.com/ns/>
+SELECT DISTINCT ?x
+WHERE {
+FILTER (?x != ns:m.0gzh)
+ns:m.0gzh ns:government.us_president.vice_president ?x .
+?x ns:government.politician.government_positions_held ?c .
+?c ns:government.government_position_held.from ?num .
+FILTER (STR(?num) >= ""1861-03-04"") . 
+}"
+24329,"Who did the Cleveland Cavaliers draft, which is the pro athlete who started his sports career on, or after the year of 2003?","Who did the Cleveland Cavaliers draft , which is the pro athlete who started his sports career on , or not after the year of 2003 ?","['JJ Hickson', 'Shannon Brown', 'Luke Jackson']","PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+PREFIX ns: <http://rdf.freebase.com/ns/>
+SELECT DISTINCT ?x
+WHERE {
+FILTER (?x != ns:m.0jm7n)
+ns:m.0jm7n ns:sports.professional_sports_team.draft_picks ?y .
+?y ns:sports.sports_league_draft_pick.player ?x .
+?x ns:sports.pro_athlete.career_start ?num .
+FILTER (STR(?num) > ""2003"") . 
+}","PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+PREFIX ns: <http://rdf.freebase.com/ns/>
+SELECT DISTINCT ?x
+WHERE {
+FILTER (?x != ns:m.0jm7n)
+ns:m.0jm7n ns:sports.professional_sports_team.draft_picks ?y .
+?y ns:sports.sports_league_draft_pick.player ?x .
+?x ns:sports.pro_athlete.career_start ?num .
+FILTER (STR(?num) <= ""2003"") . 
+}"
+24330,What is a place to travel around Sydney and a zoo that opened after 1972?,What is a place to travel around Sydney and a zoo that did not open after 1972 ?,['Wild Life Sydney'],"PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+PREFIX ns: <http://rdf.freebase.com/ns/>
+SELECT DISTINCT ?x
+WHERE {
+FILTER (?x != ns:m.06y57)
+ns:m.06y57 ns:travel.travel_destination.tourist_attractions ?x .
+?x ns:zoos.zoo.opened ?num .
+FILTER (STR(?num) > ""1972"") . 
+}","PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+PREFIX ns: <http://rdf.freebase.com/ns/>
+SELECT DISTINCT ?x
+WHERE {
+FILTER (?x != ns:m.06y57)
+ns:m.06y57 ns:travel.travel_destination.tourist_attractions ?x .
+?x ns:zoos.zoo.opened ?num .
+FILTER (STR(?num) <= ""1972"") . 
+}"
+24331,Which museum that was founded before 1893-09-16 is a good place to visit in downtown Chicago?,Which museum that was not founded before 1893 - 09 - 16 is a good place to visit in downtown Chicago ?,['Art Institute of Chicago'],"PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+PREFIX ns: <http://rdf.freebase.com/ns/>
+SELECT DISTINCT ?x
+WHERE {
+FILTER (?x != ns:m.01_d4)
+ns:m.01_d4 ns:travel.travel_destination.tourist_attractions ?x .
+?x ns:location.location.containedby ns:m.01_d4 .
+?x ns:architecture.museum.established ?num .
+FILTER (STR(?num) < ""1893-09-16"") . 
+}","PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+PREFIX ns: <http://rdf.freebase.com/ns/>
+SELECT DISTINCT ?x
+WHERE {
+FILTER (?x != ns:m.01_d4)
+ns:m.01_d4 ns:travel.travel_destination.tourist_attractions ?x .
+?x ns:location.location.containedby ns:m.01_d4 .
+?x ns:architecture.museum.established ?num .
+FILTER (STR(?num) >= ""1893-09-16"") . 
+}"
+24332,"Who held his governmental position from June 25, 1993 and was Canadian prime minister in 1993?","Who held his governmental position not from June 25 , 1993 and was Canadian prime minister in 1993 ?","['Jean Chrétien', 'Alexander Mackenzie', 'Brian Mulroney']","PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+PREFIX ns: <http://rdf.freebase.com/ns/>
+SELECT DISTINCT ?x
+WHERE {
+FILTER (?x != ns:m.060m4)
+ns:m.060m4 ns:government.government_office_or_title.office_holders ?y .
+?y ns:government.government_position_held.office_holder ?x .
+FILTER(NOT EXISTS {?y ns:government.government_position_held.from ?sk0} || 
+EXISTS {?y ns:government.government_position_held.from ?sk1 . 
+FILTER(STR(?sk1) <= ""1993-12-31"") })
+FILTER(NOT EXISTS {?y ns:government.government_position_held.to ?sk2} || 
+EXISTS {?y ns:government.government_position_held.to ?sk3 . 
+FILTER(STR(?sk3) >= ""1993-01-01"") })
+?x ns:government.politician.government_positions_held ?c .
+?c ns:government.government_position_held.from ?num .
+FILTER (STR(?num) < ""1993-06-25"") . 
+}","PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+PREFIX ns: <http://rdf.freebase.com/ns/>
+SELECT DISTINCT ?x
+WHERE {
+FILTER (?x != ns:m.060m4)
+ns:m.060m4 ns:government.government_office_or_title.office_holders ?y .
+?y ns:government.government_position_held.office_holder ?x .
+FILTER(NOT EXISTS {?y ns:government.government_position_held.from ?sk0} || 
+EXISTS {?y ns:government.government_position_held.from ?sk1 . 
+FILTER(STR(?sk1) > ""1993-12-31"") })
+FILTER(NOT EXISTS {?y ns:government.government_position_held.to ?sk2} || 
+EXISTS {?y ns:government.government_position_held.to ?sk3 . 
+FILTER(STR(?sk3) < ""1993-01-01"") })
+?x ns:government.politician.government_positions_held ?c .
+?c ns:government.government_position_held.from ?num .
+FILTER (STR(?num) >= ""1993-06-25"") . 
+}"
+24333,Who are three of the most influential Palestinian relative to the  Israeli Palestinian conflict since 1981?,Who are three of the most influential Palestinian relative to the    Israeli Palestinian conflict not since 1981 ?,"['Mahmoud Abbas', 'Yasser Arafat', 'Hanan Ashrawi', 'Abdullah of Saudi Arabia', 'Ariel Sharon', 'Colin Powell', 'Yitzhak Rabin', 'Shimon Peres']","PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+PREFIX ns: <http://rdf.freebase.com/ns/>
+SELECT DISTINCT ?x
+WHERE {
+FILTER (?x != ns:m.0cj5y)
+ns:m.0cj5y ns:time.event.people_involved ?x .
+?x ns:government.politician.government_positions_held ?c .
+?c ns:government.government_position_held.from ?num .
+FILTER (STR(?num) > ""1981"") . 
+}","PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+PREFIX ns: <http://rdf.freebase.com/ns/>
+SELECT DISTINCT ?x
+WHERE {
+FILTER (?x != ns:m.0cj5y)
+ns:m.0cj5y ns:time.event.people_involved ?x .
+?x ns:government.politician.government_positions_held ?c .
+?c ns:government.government_position_held.from ?num .
+FILTER (STR(?num) <= ""1981"") . 
+}"
+24334,"What British General held his governmental position from September 12, 1786 and was in theRevolutionary War?","What British General held his governmental position not from September 12 , 1786 and was in theRevolutionary War ?","['Charles Cornwallis, 1st Marquess Cornwallis']","PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+PREFIX ns: <http://rdf.freebase.com/ns/>
+SELECT DISTINCT ?x
+WHERE {
+FILTER (?x != ns:m.0jnh)
+ns:m.0jnh ns:military.military_conflict.commanders ?y .
+?y ns:military.military_command.military_commander ?x .
+?x ns:people.person.nationality ns:m.014tss .
+?x ns:government.politician.government_positions_held ?c .
+?c ns:government.government_position_held.from ?num .
+FILTER (STR(?num) > ""1786-09-12"") . 
+}","PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+PREFIX ns: <http://rdf.freebase.com/ns/>
+SELECT DISTINCT ?x
+WHERE {
+FILTER (?x != ns:m.0jnh)
+ns:m.0jnh ns:military.military_conflict.commanders ?y .
+?y ns:military.military_command.military_commander ?x .
+?x ns:people.person.nationality ns:m.014tss .
+?x ns:government.politician.government_positions_held ?c .
+?c ns:government.government_position_held.from ?num .
+FILTER (STR(?num) <= ""1786-09-12"") . 
+}"
+24335,Who were Vice-President for Nixon that held his government position from 1965?,Who were Vice - President for Nixon that held his government position not from 1965 ?,"['Spiro Agnew', 'Gerald Ford']","PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+PREFIX ns: <http://rdf.freebase.com/ns/>
+SELECT DISTINCT ?x
+WHERE {
+FILTER (?x != ns:m.06c97)
+ns:m.06c97 ns:government.us_president.vice_president ?x .
+?x ns:government.politician.government_positions_held ?c .
+?c ns:government.government_position_held.from ?num .
+FILTER (STR(?num) > ""1965"") . 
+}","PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+PREFIX ns: <http://rdf.freebase.com/ns/>
+SELECT DISTINCT ?x
+WHERE {
+FILTER (?x != ns:m.06c97)
+ns:m.06c97 ns:government.us_president.vice_president ?x .
+?x ns:government.politician.government_positions_held ?c .
+?c ns:government.government_position_held.from ?num .
+FILTER (STR(?num) <= ""1965"") . 
+}"
+24336,"Who held his governmental position from November 27, 2001 and rules Denmark right now?","Who held his governmental position not from November 27 , 2001 and rules Denmark right now ?","['Margrethe Vestager', 'Helle Thorning-Schmidt']","PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+PREFIX ns: <http://rdf.freebase.com/ns/>
+SELECT DISTINCT ?x
+WHERE {
+FILTER (?x != ns:m.0k6nt)
+ns:m.0k6nt ns:government.governmental_jurisdiction.governing_officials ?y .
+?y ns:government.government_position_held.office_holder ?x .
+FILTER(NOT EXISTS {?y ns:government.government_position_held.from ?sk0} || 
+EXISTS {?y ns:government.government_position_held.from ?sk1 . 
+FILTER(STR(?sk1) <= ""2015-08-10"") })
+FILTER(NOT EXISTS {?y ns:government.government_position_held.to ?sk2} || 
+EXISTS {?y ns:government.government_position_held.to ?sk3 . 
+FILTER(STR(?sk3) >= ""2015-08-10"") })
+?x ns:government.politician.government_positions_held ?c .
+?c ns:government.government_position_held.from ?num .
+FILTER (STR(?num) > ""2001-11-27"") . 
+}","PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+PREFIX ns: <http://rdf.freebase.com/ns/>
+SELECT DISTINCT ?x
+WHERE {
+FILTER (?x != ns:m.0k6nt)
+ns:m.0k6nt ns:government.governmental_jurisdiction.governing_officials ?y .
+?y ns:government.government_position_held.office_holder ?x .
+FILTER(NOT EXISTS {?y ns:government.government_position_held.from ?sk0} || 
+EXISTS {?y ns:government.government_position_held.from ?sk1 . 
+FILTER(STR(?sk1) <= ""2015-08-10"") })
+FILTER(NOT EXISTS {?y ns:government.government_position_held.to ?sk2} || 
+EXISTS {?y ns:government.government_position_held.to ?sk3 . 
+FILTER(STR(?sk3) >= ""2015-08-10"") })
+?x ns:government.politician.government_positions_held ?c .
+?c ns:government.government_position_held.from ?num .
+FILTER (STR(?num) <= ""2001-11-27"") . 
+}"
+24337,Who did Kim Karsashian date that started his athletic career after 2004?,Who did Kim Karsashian date that did not start his athletic career after 2004 ?,['Reggie Bush'],"PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+PREFIX ns: <http://rdf.freebase.com/ns/>
+SELECT DISTINCT ?x
+WHERE {
+FILTER (?x != ns:m.0261x8t)
+ns:m.0261x8t ns:base.popstra.celebrity.dated ?y .
+?y ns:base.popstra.dated.participant ?x .
+?x ns:sports.pro_athlete.sports_played_professionally ?c .
+?c ns:sports.pro_sports_played.career_start ?num .
+FILTER (STR(?num) > ""2004"") . 
+}","PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+PREFIX ns: <http://rdf.freebase.com/ns/>
+SELECT DISTINCT ?x
+WHERE {
+FILTER (?x != ns:m.0261x8t)
+ns:m.0261x8t ns:base.popstra.celebrity.dated ?y .
+?y ns:base.popstra.dated.participant ?x .
+?x ns:sports.pro_athlete.sports_played_professionally ?c .
+?c ns:sports.pro_sports_played.career_start ?num .
+FILTER (STR(?num) <= ""2004"") . 
+}"
+24338,"What senator of Virginia in 2013 held his governmental position before January 14, 2006?","What senator of Virginia in 2013 held his governmental position not before January 14 , 2006 ?",['Jim Webb'],"PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+PREFIX ns: <http://rdf.freebase.com/ns/>
+SELECT DISTINCT ?x
+WHERE {
+FILTER (?x != ns:m.07z1m)
+ns:m.07z1m ns:government.political_district.representatives ?y .
+?y ns:government.government_position_held.office_holder ?x .
+?y ns:government.government_position_held.governmental_body ns:m.07t58 .
+FILTER(NOT EXISTS {?y ns:government.government_position_held.from ?sk0} || 
+EXISTS {?y ns:government.government_position_held.from ?sk1 . 
+FILTER(STR(?sk1) <= ""2013-12-31"") })
+FILTER(NOT EXISTS {?y ns:government.government_position_held.to ?sk2} || 
+EXISTS {?y ns:government.government_position_held.to ?sk3 . 
+FILTER(STR(?sk3) >= ""2013-01-01"") })
+?x ns:government.politician.government_positions_held ?c .
+?c ns:government.government_position_held.from ?num .
+FILTER (STR(?num) < ""2006-01-14"") . 
+}","PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+PREFIX ns: <http://rdf.freebase.com/ns/>
+SELECT DISTINCT ?x
+WHERE {
+FILTER (?x != ns:m.07z1m)
+ns:m.07z1m ns:government.political_district.representatives ?y .
+?y ns:government.government_position_held.office_holder ?x .
+?y ns:government.government_position_held.governmental_body ns:m.07t58 .
+FILTER(NOT EXISTS {?y ns:government.government_position_held.from ?sk0} || 
+EXISTS {?y ns:government.government_position_held.from ?sk1 . 
+FILTER(STR(?sk1) <= ""2013-12-31"") })
+FILTER(NOT EXISTS {?y ns:government.government_position_held.to ?sk2} || 
+EXISTS {?y ns:government.government_position_held.to ?sk3 . 
+FILTER(STR(?sk3) >= ""2013-01-01"") })
+?x ns:government.politician.government_positions_held ?c .
+?c ns:government.government_position_held.from ?num .
+FILTER (STR(?num) >= ""2006-01-14"") . 
+}"
+24339,Who holds the position of Georgia governor and took that position after 2003-01-13?,Who holds the position of Georgia governor and took that position not after 2003 - 01 - 13 ?,['Nathan Deal'],"PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+PREFIX ns: <http://rdf.freebase.com/ns/>
+SELECT DISTINCT ?x
+WHERE {
+FILTER (?x != ns:m.0d0x8)
+ns:m.0d0x8 ns:government.governmental_jurisdiction.governing_officials ?y .
+?y ns:government.government_position_held.office_holder ?x .
+?y ns:government.government_position_held.basic_title ns:m.0fkvn .
+FILTER(NOT EXISTS {?y ns:government.government_position_held.from ?sk0} || 
+EXISTS {?y ns:government.government_position_held.from ?sk1 . 
+FILTER(STR(?sk1) <= ""2011-12-31"") })
+FILTER(NOT EXISTS {?y ns:government.government_position_held.to ?sk2} || 
+EXISTS {?y ns:government.government_position_held.to ?sk3 . 
+FILTER(STR(?sk3) >= ""2011-01-01"") })
+?x ns:government.politician.government_positions_held ?c .
+?c ns:government.government_position_held.from ?num .
+FILTER (STR(?num) > ""2003-01-13"") . 
+}","PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+PREFIX ns: <http://rdf.freebase.com/ns/>
+SELECT DISTINCT ?x
+WHERE {
+FILTER (?x != ns:m.0d0x8)
+ns:m.0d0x8 ns:government.governmental_jurisdiction.governing_officials ?y .
+?y ns:government.government_position_held.office_holder ?x .
+?y ns:government.government_position_held.basic_title ns:m.0fkvn .
+FILTER(NOT EXISTS {?y ns:government.government_position_held.from ?sk0} || 
+EXISTS {?y ns:government.government_position_held.from ?sk1 . 
+FILTER(STR(?sk1) <= ""2011-12-31"") })
+FILTER(NOT EXISTS {?y ns:government.government_position_held.to ?sk2} || 
+EXISTS {?y ns:government.government_position_held.to ?sk3 . 
+FILTER(STR(?sk3) >= ""2011-01-01"") })
+?x ns:government.politician.government_positions_held ?c .
+?c ns:government.government_position_held.from ?num .
+FILTER (STR(?num) <= ""2003-01-13"") . 
+}"
+24340,"What zoo which opened before May 30, 1030 is a good Chicago hangout?","What zoo which did not open before May 30 , 1030 is a good Chicago hangout ?",['Lincoln Park Zoo'],"PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+PREFIX ns: <http://rdf.freebase.com/ns/>
+SELECT DISTINCT ?x
+WHERE {
+FILTER (?x != ns:m.01_d4)
+ns:m.01_d4 ns:travel.travel_destination.tourist_attractions ?x .
+?x ns:zoos.zoo.opened ?num .
+FILTER (STR(?num) < ""1930-05-30"") . 
+}","PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+PREFIX ns: <http://rdf.freebase.com/ns/>
+SELECT DISTINCT ?x
+WHERE {
+FILTER (?x != ns:m.01_d4)
+ns:m.01_d4 ns:travel.travel_destination.tourist_attractions ?x .
+?x ns:zoos.zoo.opened ?num .
+FILTER (STR(?num) >= ""1930-05-30"") . 
+}"
+24341,What zoo in Chicago opened after 1868?,What zoo in Chicago did not open after 1868 ?,"['Brookfield Zoo', 'Shedd Aquarium']","PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+PREFIX ns: <http://rdf.freebase.com/ns/>
+SELECT DISTINCT ?x
+WHERE {
+FILTER (?x != ns:m.01_d4)
+ns:m.01_d4 ns:travel.travel_destination.tourist_attractions ?x .
+?x ns:zoos.zoo.opened ?num .
+FILTER (STR(?num) > ""1868"") . 
+}","PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+PREFIX ns: <http://rdf.freebase.com/ns/>
+SELECT DISTINCT ?x
+WHERE {
+FILTER (?x != ns:m.01_d4)
+ns:m.01_d4 ns:travel.travel_destination.tourist_attractions ?x .
+?x ns:zoos.zoo.opened ?num .
+FILTER (STR(?num) <= ""1868"") . 
+}"
+24342,Which zoo opened in 1940 and can be visited on a day outing to Bangkok?,Which zoo opened in 1940 and Ca n't be visited on a day outing to Bangkok ?,['Safari World'],"PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+PREFIX ns: <http://rdf.freebase.com/ns/>
+SELECT DISTINCT ?x
+WHERE {
+FILTER (?x != ns:m.0fn2g)
+ns:m.0fn2g ns:travel.travel_destination.tourist_attractions ?x .
+?x ns:zoos.zoo.opened ?num .
+FILTER (STR(?num) > ""1940"") . 
+}","PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+PREFIX ns: <http://rdf.freebase.com/ns/>
+SELECT DISTINCT ?x
+WHERE {
+FILTER (?x != ns:m.0fn2g)
+ns:m.0fn2g ns:travel.travel_destination.tourist_attractions ?x .
+?x ns:zoos.zoo.opened ?num .
+FILTER (STR(?num) > ""1940"") . 
+}"
+24343,Who held his governmental position before 1981 and was in the Israeli Palestine Conflict?,Who held his governmental position not before 1981 and was in the Israeli Palestine Conflict ?,"['Yasser Arafat', 'Hussein of Jordan', 'Chaim Weizmann', 'Anwar Sadat', 'Menachem Begin', 'David Ben-Gurion', 'Yitzhak Rabin', 'Shimon Peres']","PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+PREFIX ns: <http://rdf.freebase.com/ns/>
+SELECT DISTINCT ?x
+WHERE {
+FILTER (?x != ns:m.0cj5y)
+ns:m.0cj5y ns:time.event.people_involved ?x .
+?x ns:government.politician.government_positions_held ?c .
+?c ns:government.government_position_held.from ?num .
+FILTER (STR(?num) < ""1981"") . 
+}","PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+PREFIX ns: <http://rdf.freebase.com/ns/>
+SELECT DISTINCT ?x
+WHERE {
+FILTER (?x != ns:m.0cj5y)
+ns:m.0cj5y ns:time.event.people_involved ?x .
+?x ns:government.politician.government_positions_held ?c .
+?c ns:government.government_position_held.from ?num .
+FILTER (STR(?num) >= ""1981"") . 
+}"
+24344,Who is the Arizona state senator who started in government after 01-03-1953?,Who is the Arizona state senator who did not start in government after 01 - 03 - 1953 ?,"['Ernest McFarland', 'John McCain', 'Barry Goldwater', 'Jon Kyl', 'Dennis DeConcini', 'Paul Fannin', 'Jeff Flake']","PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+PREFIX ns: <http://rdf.freebase.com/ns/>
+SELECT DISTINCT ?x
+WHERE {
+FILTER (?x != ns:m.0vmt)
+ns:m.0vmt ns:government.political_district.representatives ?y .
+?y ns:government.government_position_held.office_holder ?x .
+?y ns:government.government_position_held.office_position_or_title ns:m.02_7l8y .
+?x ns:government.politician.government_positions_held ?c .
+?c ns:government.government_position_held.from ?num .
+FILTER (STR(?num) > ""1953-01-03"") . 
+}","PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+PREFIX ns: <http://rdf.freebase.com/ns/>
+SELECT DISTINCT ?x
+WHERE {
+FILTER (?x != ns:m.0vmt)
+ns:m.0vmt ns:government.political_district.representatives ?y .
+?y ns:government.government_position_held.office_holder ?x .
+?y ns:government.government_position_held.office_position_or_title ns:m.02_7l8y .
+?x ns:government.politician.government_positions_held ?c .
+?c ns:government.government_position_held.from ?num .
+FILTER (STR(?num) <= ""1953-01-03"") . 
+}"
+24345,Which man was in position as a senator in Kansas in 2013 and gained that post before 1997-01-03?,Which man was in position as a senator in Kansas in 2013 and did not gain that post before 1997 - 01 - 03 ?,['Pat Roberts'],"PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+PREFIX ns: <http://rdf.freebase.com/ns/>
+SELECT DISTINCT ?x
+WHERE {
+FILTER (?x != ns:m.0488g)
+ns:m.0488g ns:government.political_district.representatives ?y .
+?y ns:government.government_position_held.office_holder ?x .
+?y ns:government.government_position_held.basic_title ns:m.048zv9l .
+FILTER(NOT EXISTS {?y ns:government.government_position_held.from ?sk0} || 
+EXISTS {?y ns:government.government_position_held.from ?sk1 . 
+FILTER(STR(?sk1) <= ""2013-12-31"") })
+FILTER(NOT EXISTS {?y ns:government.government_position_held.to ?sk2} || 
+EXISTS {?y ns:government.government_position_held.to ?sk3 . 
+FILTER(STR(?sk3) >= ""2013-01-01"") })
+?x ns:government.politician.government_positions_held ?c .
+?c ns:government.government_position_held.from ?num .
+FILTER (STR(?num) < ""1997-01-03"") . 
+}","PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+PREFIX ns: <http://rdf.freebase.com/ns/>
+SELECT DISTINCT ?x
+WHERE {
+FILTER (?x != ns:m.0488g)
+ns:m.0488g ns:government.political_district.representatives ?y .
+?y ns:government.government_position_held.office_holder ?x .
+?y ns:government.government_position_held.basic_title ns:m.048zv9l .
+FILTER(NOT EXISTS {?y ns:government.government_position_held.from ?sk0} || 
+EXISTS {?y ns:government.government_position_held.from ?sk1 . 
+FILTER(STR(?sk1) <= ""2013-12-31"") })
+FILTER(NOT EXISTS {?y ns:government.government_position_held.to ?sk2} || 
+EXISTS {?y ns:government.government_position_held.to ?sk3 . 
+FILTER(STR(?sk3) >= ""2013-01-01"") })
+?x ns:government.politician.government_positions_held ?c .
+?c ns:government.government_position_held.from ?num .
+FILTER (STR(?num) >= ""1997-01-03"") . 
+}"
+24346,What professional sport player who began playing prior to 2005 has been in a relationship with Kim Kardashian?,What professional sport player who began playing not prior to 2005 has been in a relationship with Kim Kardashian ?,['Ben Roethlisberger'],"PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+PREFIX ns: <http://rdf.freebase.com/ns/>
+SELECT DISTINCT ?x
+WHERE {
+FILTER (?x != ns:m.0261x8t)
+ns:m.0261x8t ns:base.popstra.celebrity.dated ?y .
+?y ns:base.popstra.dated.participant ?x .
+?x ns:sports.pro_athlete.career_start ?num .
+FILTER (STR(?num) < ""2005"") . 
+}","PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+PREFIX ns: <http://rdf.freebase.com/ns/>
+SELECT DISTINCT ?x
+WHERE {
+FILTER (?x != ns:m.0261x8t)
+ns:m.0261x8t ns:base.popstra.celebrity.dated ?y .
+?y ns:base.popstra.dated.participant ?x .
+?x ns:sports.pro_athlete.career_start ?num .
+FILTER (STR(?num) >= ""2005"") . 
+}"
+24347,Who held a government position after 06-08-2010 and was the prime minister of Japan in 2012?,Who held a government position not after 06 - 08 - 2010 and was the prime minister of Japan in 2012 ?,"['Shinzō Abe', 'Yoshihiko Noda']","PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+PREFIX ns: <http://rdf.freebase.com/ns/>
+SELECT DISTINCT ?x
+WHERE {
+FILTER (?x != ns:m.03_3d)
+ns:m.03_3d ns:government.governmental_jurisdiction.governing_officials ?y .
+?y ns:government.government_position_held.office_holder ?x .
+?y ns:government.government_position_held.basic_title ns:m.060bp .
+FILTER(NOT EXISTS {?y ns:government.government_position_held.from ?sk0} || 
+EXISTS {?y ns:government.government_position_held.from ?sk1 . 
+FILTER(STR(?sk1) <= ""2012-12-31"") })
+FILTER(NOT EXISTS {?y ns:government.government_position_held.to ?sk2} || 
+EXISTS {?y ns:government.government_position_held.to ?sk3 . 
+FILTER(STR(?sk3) >= ""2012-01-01"") })
+?x ns:government.politician.government_positions_held ?c .
+?c ns:government.government_position_held.from ?num .
+FILTER (STR(?num) > ""2010-06-08"") . 
+}","PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+PREFIX ns: <http://rdf.freebase.com/ns/>
+SELECT DISTINCT ?x
+WHERE {
+FILTER (?x != ns:m.03_3d)
+ns:m.03_3d ns:government.governmental_jurisdiction.governing_officials ?y .
+?y ns:government.government_position_held.office_holder ?x .
+?y ns:government.government_position_held.basic_title ns:m.060bp .
+FILTER(NOT EXISTS {?y ns:government.government_position_held.from ?sk0} || 
+EXISTS {?y ns:government.government_position_held.from ?sk1 . 
+FILTER(STR(?sk1) <= ""2012-12-31"") })
+FILTER(NOT EXISTS {?y ns:government.government_position_held.to ?sk2} || 
+EXISTS {?y ns:government.government_position_held.to ?sk3 . 
+FILTER(STR(?sk3) >= ""2012-01-01"") })
+?x ns:government.politician.government_positions_held ?c .
+?c ns:government.government_position_held.from ?num .
+FILTER (STR(?num) <= ""2010-06-08"") . 
+}"
+24348,Who are the players on the Toronto Maple Leafs that started their career after 2006?,Who are the players on the Toronto Maple Leafs that did not start their career after 2006 ?,"['Jake Gardiner', 'Daniel Winnik', 'Cody Franson', 'Mike Santorelli', 'Jonathan Bernier', ""Ryan O'Byrne"", 'James Reimer', 'David Clarkson', 'James van Riemsdyk']","PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+PREFIX ns: <http://rdf.freebase.com/ns/>
+SELECT DISTINCT ?x
+WHERE {
+FILTER (?x != ns:m.0j6tr)
+ns:m.0j6tr ns:sports.sports_team.roster ?y .
+?y ns:sports.sports_team_roster.player ?x .
+FILTER(NOT EXISTS {?y ns:sports.sports_team_roster.from ?sk0} || 
+EXISTS {?y ns:sports.sports_team_roster.from ?sk1 . 
+FILTER(STR(?sk1) <= ""2015-08-10"") })
+FILTER(NOT EXISTS {?y ns:sports.sports_team_roster.to ?sk2} || 
+EXISTS {?y ns:sports.sports_team_roster.to ?sk3 . 
+FILTER(STR(?sk3) >= ""2015-08-10"") })
+?x ns:sports.pro_athlete.career_start ?num .
+FILTER (STR(?num) > ""2006"") . 
+}","PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+PREFIX ns: <http://rdf.freebase.com/ns/>
+SELECT DISTINCT ?x
+WHERE {
+FILTER (?x != ns:m.0j6tr)
+ns:m.0j6tr ns:sports.sports_team.roster ?y .
+?y ns:sports.sports_team_roster.player ?x .
+FILTER(NOT EXISTS {?y ns:sports.sports_team_roster.from ?sk0} || 
+EXISTS {?y ns:sports.sports_team_roster.from ?sk1 . 
+FILTER(STR(?sk1) <= ""2015-08-10"") })
+FILTER(NOT EXISTS {?y ns:sports.sports_team_roster.to ?sk2} || 
+EXISTS {?y ns:sports.sports_team_roster.to ?sk3 . 
+FILTER(STR(?sk3) >= ""2015-08-10"") })
+?x ns:sports.pro_athlete.career_start ?num .
+FILTER (STR(?num) <= ""2006"") . 
+}"
+24349,What zoo that opened on or before 2003 is a Houston Texas tourist attraction?,What zoo that opened on or not before 2003 is a Houston Texas tourist attraction ?,['Houston Zoo'],"PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+PREFIX ns: <http://rdf.freebase.com/ns/>
+SELECT DISTINCT ?x
+WHERE {
+FILTER (?x != ns:m.03l2n)
+ns:m.03l2n ns:travel.travel_destination.tourist_attractions ?x .
+?x ns:zoos.zoo.opened ?num .
+FILTER (STR(?num) < ""2003"") . 
+}","PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+PREFIX ns: <http://rdf.freebase.com/ns/>
+SELECT DISTINCT ?x
+WHERE {
+FILTER (?x != ns:m.03l2n)
+ns:m.03l2n ns:travel.travel_destination.tourist_attractions ?x .
+?x ns:zoos.zoo.opened ?num .
+FILTER (STR(?num) >= ""2003"") . 
+}"
+24350,What pro athlete started his career on 1983 and is the Vancouver Canucks coach?,What pro athlete started his career on 1983 and Is n't the Vancouver Canucks coach ?,['John Tortorella'],"PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+PREFIX ns: <http://rdf.freebase.com/ns/>
+SELECT DISTINCT ?x
+WHERE {
+FILTER (?x != ns:m.0jnnx)
+ns:m.0jnnx ns:sports.sports_team.coaches ?y .
+?y ns:sports.sports_team_coach_tenure.coach ?x .
+?x ns:sports.pro_athlete.career_start ?num .
+FILTER (STR(?num) < ""1983"") . 
+}","PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+PREFIX ns: <http://rdf.freebase.com/ns/>
+SELECT DISTINCT ?x
+WHERE {
+FILTER (?x != ns:m.0jnnx)
+ns:m.0jnnx ns:sports.sports_team.coaches ?y .
+?y ns:sports.sports_team_coach_tenure.coach ?x .
+?x ns:sports.pro_athlete.career_start ?num .
+FILTER (STR(?num) < ""1983"") . 
+}"
+24351,"What 2013 Virginia senator held office from after January third, 2009?","What 2013 Virginia senator did not hold office from after January third , 2009 ?",['Tim Kaine'],"PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+PREFIX ns: <http://rdf.freebase.com/ns/>
+SELECT DISTINCT ?x
+WHERE {
+FILTER (?x != ns:m.07z1m)
+ns:m.07z1m ns:government.political_district.representatives ?y .
+?y ns:government.government_position_held.office_holder ?x .
+?y ns:government.government_position_held.governmental_body ns:m.07t58 .
+FILTER(NOT EXISTS {?y ns:government.government_position_held.from ?sk0} || 
+EXISTS {?y ns:government.government_position_held.from ?sk1 . 
+FILTER(STR(?sk1) <= ""2013-12-31"") })
+FILTER(NOT EXISTS {?y ns:government.government_position_held.to ?sk2} || 
+EXISTS {?y ns:government.government_position_held.to ?sk3 . 
+FILTER(STR(?sk3) >= ""2013-01-01"") })
+?x ns:government.politician.government_positions_held ?c .
+?c ns:government.government_position_held.from ?num .
+FILTER (STR(?num) > ""2009-01-03"") . 
+}","PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+PREFIX ns: <http://rdf.freebase.com/ns/>
+SELECT DISTINCT ?x
+WHERE {
+FILTER (?x != ns:m.07z1m)
+ns:m.07z1m ns:government.political_district.representatives ?y .
+?y ns:government.government_position_held.office_holder ?x .
+?y ns:government.government_position_held.governmental_body ns:m.07t58 .
+FILTER(NOT EXISTS {?y ns:government.government_position_held.from ?sk0} || 
+EXISTS {?y ns:government.government_position_held.from ?sk1 . 
+FILTER(STR(?sk1) <= ""2013-12-31"") })
+FILTER(NOT EXISTS {?y ns:government.government_position_held.to ?sk2} || 
+EXISTS {?y ns:government.government_position_held.to ?sk3 . 
+FILTER(STR(?sk3) >= ""2013-01-01"") })
+?x ns:government.politician.government_positions_held ?c .
+?c ns:government.government_position_held.from ?num .
+FILTER (STR(?num) <= ""2009-01-03"") . 
+}"
+24352,What is something good to visit in downtown Chicago and has a zoo that had its start after 1868?,What is something good to visit in downtown Chicago and has a zoo that did not have its start after 1868 ?,['Shedd Aquarium'],"PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+PREFIX ns: <http://rdf.freebase.com/ns/>
+SELECT DISTINCT ?x
+WHERE {
+FILTER (?x != ns:m.01_d4)
+ns:m.01_d4 ns:travel.travel_destination.tourist_attractions ?x .
+?x ns:location.location.containedby ns:m.01_d4 .
+?x ns:zoos.zoo.opened ?num .
+FILTER (STR(?num) > ""1868"") . 
+}","PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+PREFIX ns: <http://rdf.freebase.com/ns/>
+SELECT DISTINCT ?x
+WHERE {
+FILTER (?x != ns:m.01_d4)
+ns:m.01_d4 ns:travel.travel_destination.tourist_attractions ?x .
+?x ns:location.location.containedby ns:m.01_d4 .
+?x ns:zoos.zoo.opened ?num .
+FILTER (STR(?num) <= ""1868"") . 
+}"
+24353,Who did Baron de Montesquie influence that had his governmental position before 4-1-1785?,Who did Baron de Montesquie influence that had his governmental position not before 4 - 1 - 1785 ?,"['John Adams', 'Thomas Jefferson']","PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+PREFIX ns: <http://rdf.freebase.com/ns/>
+SELECT DISTINCT ?x
+WHERE {
+FILTER (?x != ns:m.0f9wd)
+ns:m.0f9wd ns:influence.influence_node.influenced ?x .
+?x ns:government.politician.government_positions_held ?c .
+?c ns:government.government_position_held.from ?num .
+FILTER (STR(?num) < ""1785-04-01"") . 
+}","PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+PREFIX ns: <http://rdf.freebase.com/ns/>
+SELECT DISTINCT ?x
+WHERE {
+FILTER (?x != ns:m.0f9wd)
+ns:m.0f9wd ns:influence.influence_node.influenced ?x .
+?x ns:government.politician.government_positions_held ?c .
+?c ns:government.government_position_held.from ?num .
+FILTER (STR(?num) >= ""1785-04-01"") . 
+}"
+24354,Who that was in a government position after 03-07-2001 was part of the Israeli-Palestinian conflict?,Who that was in a government position not after 03 - 07 - 2001 was part of the Israeli - Palestinian conflict ?,"['Abdullah of Saudi Arabia', 'Mahmoud Abbas', 'Shimon Peres']","PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+PREFIX ns: <http://rdf.freebase.com/ns/>
+SELECT DISTINCT ?x
+WHERE {
+FILTER (?x != ns:m.0cj5y)
+ns:m.0cj5y ns:time.event.people_involved ?x .
+?x ns:government.politician.government_positions_held ?c .
+?c ns:government.government_position_held.from ?num .
+FILTER (STR(?num) > ""2001-03-07"") . 
+}","PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+PREFIX ns: <http://rdf.freebase.com/ns/>
+SELECT DISTINCT ?x
+WHERE {
+FILTER (?x != ns:m.0cj5y)
+ns:m.0cj5y ns:time.event.people_involved ?x .
+?x ns:government.politician.government_positions_held ?c .
+?c ns:government.government_position_held.from ?num .
+FILTER (STR(?num) <= ""2001-03-07"") . 
+}"
+24355,What sea life zoo in Dallas that opened after 1888?,What sea life zoo in Dallas that did not open after 1888 ?,['Dallas World Aquarium'],"PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+PREFIX ns: <http://rdf.freebase.com/ns/>
+SELECT DISTINCT ?x
+WHERE {
+FILTER (?x != ns:m.0f2rq)
+ns:m.0f2rq ns:travel.travel_destination.tourist_attractions ?x .
+?x ns:zoos.zoo.opened ?num .
+FILTER (STR(?num) > ""1888"") . 
+}","PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+PREFIX ns: <http://rdf.freebase.com/ns/>
+SELECT DISTINCT ?x
+WHERE {
+FILTER (?x != ns:m.0f2rq)
+ns:m.0f2rq ns:travel.travel_destination.tourist_attractions ?x .
+?x ns:zoos.zoo.opened ?num .
+FILTER (STR(?num) <= ""1888"") . 
+}"
+24356,What pro athlete started his career on or before 2006 and is a player on the Toronto Maple Leafs?,What pro athlete started his career on or not before 2006 and is a player on the Toronto Maple Leafs ?,"['Stéphane Robidas', 'Joffrey Lupul', 'Jerred Smithson', 'Leo Komarov', 'Dion Phaneuf', 'Paul Ranger', 'Eric Brewer', 'Mark Owuya']","PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+PREFIX ns: <http://rdf.freebase.com/ns/>
+SELECT DISTINCT ?x
+WHERE {
+FILTER (?x != ns:m.0j6tr)
+ns:m.0j6tr ns:sports.sports_team.roster ?y .
+?y ns:sports.sports_team_roster.player ?x .
+FILTER(NOT EXISTS {?y ns:sports.sports_team_roster.from ?sk0} || 
+EXISTS {?y ns:sports.sports_team_roster.from ?sk1 . 
+FILTER(STR(?sk1) <= ""2015-08-10"") })
+FILTER(NOT EXISTS {?y ns:sports.sports_team_roster.to ?sk2} || 
+EXISTS {?y ns:sports.sports_team_roster.to ?sk3 . 
+FILTER(STR(?sk3) >= ""2015-08-10"") })
+?x ns:sports.pro_athlete.career_start ?num .
+FILTER (STR(?num) < ""2006"") . 
+}","PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+PREFIX ns: <http://rdf.freebase.com/ns/>
+SELECT DISTINCT ?x
+WHERE {
+FILTER (?x != ns:m.0j6tr)
+ns:m.0j6tr ns:sports.sports_team.roster ?y .
+?y ns:sports.sports_team_roster.player ?x .
+FILTER(NOT EXISTS {?y ns:sports.sports_team_roster.from ?sk0} || 
+EXISTS {?y ns:sports.sports_team_roster.from ?sk1 . 
+FILTER(STR(?sk1) <= ""2015-08-10"") })
+FILTER(NOT EXISTS {?y ns:sports.sports_team_roster.to ?sk2} || 
+EXISTS {?y ns:sports.sports_team_roster.to ?sk3 . 
+FILTER(STR(?sk3) >= ""2015-08-10"") })
+?x ns:sports.pro_athlete.career_start ?num .
+FILTER (STR(?num) >= ""2006"") . 
+}"
+24357,What attraction is considered a type of zoo and opened during 1915 in San Diego?,What attraction is considered a type of zoo and not open during 1915 in San Diego ?,['Birch Aquarium'],"PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+PREFIX ns: <http://rdf.freebase.com/ns/>
+SELECT DISTINCT ?x
+WHERE {
+FILTER (?x != ns:m.071vr)
+ns:m.071vr ns:travel.travel_destination.tourist_attractions ?x .
+?x ns:zoos.zoo.opened ?num .
+FILTER (STR(?num) < ""1915"") . 
+}","PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+PREFIX ns: <http://rdf.freebase.com/ns/>
+SELECT DISTINCT ?x
+WHERE {
+FILTER (?x != ns:m.071vr)
+ns:m.071vr ns:travel.travel_destination.tourist_attractions ?x .
+?x ns:zoos.zoo.opened ?num .
+FILTER (STR(?num) >= ""1915"") . 
+}"
+24358,What movies starring Selena Gomez that had television series that had less than 2 episodes?,What movies starring Selena Gomez that had television series that had not less than 2 episodes ?,['Wizards on Deck with Hannah Montana'],"PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+PREFIX ns: <http://rdf.freebase.com/ns/>
+SELECT DISTINCT ?x
+WHERE {
+FILTER (?x != ns:m.0gs6vr)
+ns:m.0gs6vr ns:film.actor.film ?y .
+?y ns:film.performance.film ?x .
+?x ns:tv.tv_series_episode.episode_number ?num .
+FILTER (xsd:integer(?num) < 2) . 
+}","PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+PREFIX ns: <http://rdf.freebase.com/ns/>
+SELECT DISTINCT ?x
+WHERE {
+FILTER (?x != ns:m.0gs6vr)
+ns:m.0gs6vr ns:film.actor.film ?y .
+?y ns:film.performance.film ?x .
+?x ns:tv.tv_series_episode.episode_number ?num .
+FILTER (xsd:integer(?num) < 2) . 
+}"
+24359,"When Andrew Jackson was President and held his governmental position from after 1823, who was the Secretary of State ?","When Andrew Jackson was President and held his governmental position not from after 1823 , who was the Secretary of State ?","['Martin Van Buren', 'Louis McLane', 'James Alexander Hamilton', 'Edward Livingston']","PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+PREFIX ns: <http://rdf.freebase.com/ns/>
+SELECT DISTINCT ?x
+WHERE {
+FILTER (?x != ns:m.0rlz)
+ns:m.0rlz ns:government.political_appointer.appointees ?y .
+?y ns:government.government_position_held.office_holder ?x .
+?y ns:government.government_position_held.basic_title ns:m.0789n .
+?x ns:government.politician.government_positions_held ?c .
+?c ns:government.government_position_held.from ?num .
+FILTER (STR(?num) > ""1823"") . 
+}","PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+PREFIX ns: <http://rdf.freebase.com/ns/>
+SELECT DISTINCT ?x
+WHERE {
+FILTER (?x != ns:m.0rlz)
+ns:m.0rlz ns:government.political_appointer.appointees ?y .
+?y ns:government.government_position_held.office_holder ?x .
+?y ns:government.government_position_held.basic_title ns:m.0789n .
+?x ns:government.politician.government_positions_held ?c .
+?c ns:government.government_position_held.from ?num .
+FILTER (STR(?num) <= ""1823"") . 
+}"
+24360,Which man held a post as senator from New Jersey since before 2006-01-18?,Which man did not hold a post as senator from New Jersey since before 2006 - 01 - 18 ?,['Bob Menendez'],"PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+PREFIX ns: <http://rdf.freebase.com/ns/>
+SELECT DISTINCT ?x
+WHERE {
+FILTER (?x != ns:m.05fjf)
+ns:m.05fjf ns:government.political_district.representatives ?y .
+?y ns:government.government_position_held.office_holder ?x .
+?y ns:government.government_position_held.basic_title ns:m.048zv9l .
+FILTER(NOT EXISTS {?y ns:government.government_position_held.from ?sk0} || 
+EXISTS {?y ns:government.government_position_held.from ?sk1 . 
+FILTER(STR(?sk1) <= ""2015-08-10"") })
+FILTER(NOT EXISTS {?y ns:government.government_position_held.to ?sk2} || 
+EXISTS {?y ns:government.government_position_held.to ?sk3 . 
+FILTER(STR(?sk3) >= ""2015-08-10"") })
+?x ns:government.politician.government_positions_held ?c .
+?c ns:government.government_position_held.from ?num .
+FILTER (STR(?num) < ""2006-01-18"") . 
+}","PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+PREFIX ns: <http://rdf.freebase.com/ns/>
+SELECT DISTINCT ?x
+WHERE {
+FILTER (?x != ns:m.05fjf)
+ns:m.05fjf ns:government.political_district.representatives ?y .
+?y ns:government.government_position_held.office_holder ?x .
+?y ns:government.government_position_held.basic_title ns:m.048zv9l .
+FILTER(NOT EXISTS {?y ns:government.government_position_held.from ?sk0} || 
+EXISTS {?y ns:government.government_position_held.from ?sk1 . 
+FILTER(STR(?sk1) <= ""2015-08-10"") })
+FILTER(NOT EXISTS {?y ns:government.government_position_held.to ?sk2} || 
+EXISTS {?y ns:government.government_position_held.to ?sk3 . 
+FILTER(STR(?sk3) >= ""2015-08-10"") })
+?x ns:government.politician.government_positions_held ?c .
+?c ns:government.government_position_held.from ?num .
+FILTER (STR(?num) >= ""2006-01-18"") . 
+}"
+24361,What player that started playing before 2008 did the Cleveland Cavaliers draft?,What player that started did not play before 2008 did the Cleveland Cavaliers draft ?,"['LeBron James', 'Shannon Brown', 'Luke Jackson']","PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+PREFIX ns: <http://rdf.freebase.com/ns/>
+SELECT DISTINCT ?x
+WHERE {
+FILTER (?x != ns:m.0jm7n)
+ns:m.0jm7n ns:sports.professional_sports_team.draft_picks ?y .
+?y ns:sports.sports_league_draft_pick.player ?x .
+?x ns:sports.pro_athlete.sports_played_professionally ?c .
+?c ns:sports.pro_sports_played.career_start ?num .
+FILTER (STR(?num) < ""2008"") . 
+}","PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+PREFIX ns: <http://rdf.freebase.com/ns/>
+SELECT DISTINCT ?x
+WHERE {
+FILTER (?x != ns:m.0jm7n)
+ns:m.0jm7n ns:sports.professional_sports_team.draft_picks ?y .
+?y ns:sports.sports_league_draft_pick.player ?x .
+?x ns:sports.pro_athlete.sports_played_professionally ?c .
+?c ns:sports.pro_sports_played.career_start ?num .
+FILTER (STR(?num) >= ""2008"") . 
+}"
+24362,"Who held their govermental position from January 3, 1983 and are the two current Illinois senators?","Who held their govermental position not from January 3 , 1983 and are the two current Illinois senators ?","['Mark Kirk', 'Dick Durbin']","PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+PREFIX ns: <http://rdf.freebase.com/ns/>
+SELECT DISTINCT ?x
+WHERE {
+FILTER (?x != ns:m.03v0t)
+ns:m.03v0t ns:government.political_district.representatives ?y .
+?y ns:government.government_position_held.office_holder ?x .
+?y ns:government.government_position_held.governmental_body ns:m.07t58 .
+FILTER(NOT EXISTS {?y ns:government.government_position_held.from ?sk0} || 
+EXISTS {?y ns:government.government_position_held.from ?sk1 . 
+FILTER(STR(?sk1) <= ""2015-08-10"") })
+FILTER(NOT EXISTS {?y ns:government.government_position_held.to ?sk2} || 
+EXISTS {?y ns:government.government_position_held.to ?sk3 . 
+FILTER(STR(?sk3) >= ""2015-08-10"") })
+?x ns:government.politician.government_positions_held ?c .
+?c ns:government.government_position_held.from ?num .
+FILTER (STR(?num) > ""1983-01-03"") . 
+}","PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+PREFIX ns: <http://rdf.freebase.com/ns/>
+SELECT DISTINCT ?x
+WHERE {
+FILTER (?x != ns:m.03v0t)
+ns:m.03v0t ns:government.political_district.representatives ?y .
+?y ns:government.government_position_held.office_holder ?x .
+?y ns:government.government_position_held.governmental_body ns:m.07t58 .
+FILTER(NOT EXISTS {?y ns:government.government_position_held.from ?sk0} || 
+EXISTS {?y ns:government.government_position_held.from ?sk1 . 
+FILTER(STR(?sk1) <= ""2015-08-10"") })
+FILTER(NOT EXISTS {?y ns:government.government_position_held.to ?sk2} || 
+EXISTS {?y ns:government.government_position_held.to ?sk3 . 
+FILTER(STR(?sk3) >= ""2015-08-10"") })
+?x ns:government.politician.government_positions_held ?c .
+?c ns:government.government_position_held.from ?num .
+FILTER (STR(?num) <= ""1983-01-03"") . 
+}"
+24363,"What is Charlotte, North Carolina known for, and is the museum that was established after 1981?","What is Charlotte , North Carolina known for , and is the museum that was not established after 1981 ?","['Carolinas Aviation Museum', 'Billy Graham Library']","PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+PREFIX ns: <http://rdf.freebase.com/ns/>
+SELECT DISTINCT ?x
+WHERE {
+FILTER (?x != ns:m.0fsb8)
+ns:m.0fsb8 ns:travel.travel_destination.tourist_attractions ?x .
+?x ns:architecture.museum.established ?num .
+FILTER (STR(?num) > ""1981"") . 
+}","PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+PREFIX ns: <http://rdf.freebase.com/ns/>
+SELECT DISTINCT ?x
+WHERE {
+FILTER (?x != ns:m.0fsb8)
+ns:m.0fsb8 ns:travel.travel_destination.tourist_attractions ?x .
+?x ns:architecture.museum.established ?num .
+FILTER (STR(?num) <= ""1981"") . 
+}"
+24364,"What zoo in Dallas, Tx opened before October 1992?","What zoo in Dallas , Tx did not open before October 1992 ?",['Dallas Zoo'],"PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+PREFIX ns: <http://rdf.freebase.com/ns/>
+SELECT DISTINCT ?x
+WHERE {
+FILTER (?x != ns:m.0f2rq)
+ns:m.0f2rq ns:travel.travel_destination.tourist_attractions ?x .
+?x ns:zoos.zoo.opened ?num .
+FILTER (STR(?num) < ""1992-10"") . 
+}","PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+PREFIX ns: <http://rdf.freebase.com/ns/>
+SELECT DISTINCT ?x
+WHERE {
+FILTER (?x != ns:m.0f2rq)
+ns:m.0f2rq ns:travel.travel_destination.tourist_attractions ?x .
+?x ns:zoos.zoo.opened ?num .
+FILTER (STR(?num) >= ""1992-10"") . 
+}"
+24365,What museum established after 1922 is fun to see in Philadelphia?,What museum not established after 1922 is fun to see in Philadelphia ?,['Pizza Brain'],"PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+PREFIX ns: <http://rdf.freebase.com/ns/>
+SELECT DISTINCT ?x
+WHERE {
+FILTER (?x != ns:m.0dclg)
+ns:m.0dclg ns:travel.travel_destination.tourist_attractions ?x .
+?x ns:architecture.museum.established ?num .
+FILTER (STR(?num) > ""1922"") . 
+}","PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+PREFIX ns: <http://rdf.freebase.com/ns/>
+SELECT DISTINCT ?x
+WHERE {
+FILTER (?x != ns:m.0dclg)
+ns:m.0dclg ns:travel.travel_destination.tourist_attractions ?x .
+?x ns:architecture.museum.established ?num .
+FILTER (STR(?num) <= ""1922"") . 
+}"
+24366,Who as of 2011 was the house speaker and had their previous governmental position after 1987-06-02?,Who as of 2011 was the house speaker and had their previous governmental position not after 1987 - 06 - 02 ?,"['John Boehner', 'Nancy Pelosi']","PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+PREFIX ns: <http://rdf.freebase.com/ns/>
+SELECT DISTINCT ?x
+WHERE {
+FILTER (?x != ns:m.0cgqx)
+ns:m.0cgqx ns:government.government_office_or_title.office_holders ?y .
+?y ns:government.government_position_held.office_holder ?x .
+FILTER(NOT EXISTS {?y ns:government.government_position_held.from ?sk0} || 
+EXISTS {?y ns:government.government_position_held.from ?sk1 . 
+FILTER(STR(?sk1) <= ""2011-12-31"") })
+FILTER(NOT EXISTS {?y ns:government.government_position_held.to ?sk2} || 
+EXISTS {?y ns:government.government_position_held.to ?sk3 . 
+FILTER(STR(?sk3) >= ""2011-01-01"") })
+?x ns:government.politician.government_positions_held ?c .
+?c ns:government.government_position_held.from ?num .
+FILTER (STR(?num) > ""1987-06-02"") . 
+}","PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+PREFIX ns: <http://rdf.freebase.com/ns/>
+SELECT DISTINCT ?x
+WHERE {
+FILTER (?x != ns:m.0cgqx)
+ns:m.0cgqx ns:government.government_office_or_title.office_holders ?y .
+?y ns:government.government_position_held.office_holder ?x .
+FILTER(NOT EXISTS {?y ns:government.government_position_held.from ?sk0} || 
+EXISTS {?y ns:government.government_position_held.from ?sk1 . 
+FILTER(STR(?sk1) <= ""2011-12-31"") })
+FILTER(NOT EXISTS {?y ns:government.government_position_held.to ?sk2} || 
+EXISTS {?y ns:government.government_position_held.to ?sk3 . 
+FILTER(STR(?sk3) >= ""2011-01-01"") })
+?x ns:government.politician.government_positions_held ?c .
+?c ns:government.government_position_held.from ?num .
+FILTER (STR(?num) <= ""1987-06-02"") . 
+}"
+24367,What pro athlete started his career on 2002 and was a 2012 Falcons quarterback?,What pro athlete started his career on 2002 and Was n't a 2012 Falcons quarterback ?,['Joey Harrington'],"PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+PREFIX ns: <http://rdf.freebase.com/ns/>
+SELECT DISTINCT ?x
+WHERE {
+FILTER (?x != ns:m.0wsr)
+ns:m.0wsr ns:sports.sports_team.roster ?y .
+?y ns:sports.sports_team_roster.player ?x .
+?y ns:sports.sports_team_roster.position ns:m.06b1q .
+FILTER(NOT EXISTS {?y ns:sports.sports_team_roster.from ?sk0} || 
+EXISTS {?y ns:sports.sports_team_roster.from ?sk1 . 
+FILTER(STR(?sk1) <= ""2012-12-31"") })
+FILTER(NOT EXISTS {?y ns:sports.sports_team_roster.to ?sk2} || 
+EXISTS {?y ns:sports.sports_team_roster.to ?sk3 . 
+FILTER(STR(?sk3) >= ""2012-01-01"") })
+?x ns:sports.pro_athlete.career_start ?num .
+FILTER (STR(?num) < ""2002"") . 
+}","PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+PREFIX ns: <http://rdf.freebase.com/ns/>
+SELECT DISTINCT ?x
+WHERE {
+FILTER (?x != ns:m.0wsr)
+ns:m.0wsr ns:sports.sports_team.roster ?y .
+?y ns:sports.sports_team_roster.player ?x .
+?y ns:sports.sports_team_roster.position ns:m.06b1q .
+FILTER(NOT EXISTS {?y ns:sports.sports_team_roster.from ?sk0} || 
+EXISTS {?y ns:sports.sports_team_roster.from ?sk1 . 
+FILTER(STR(?sk1) > ""2012-12-31"") })
+FILTER(NOT EXISTS {?y ns:sports.sports_team_roster.to ?sk2} || 
+EXISTS {?y ns:sports.sports_team_roster.to ?sk3 . 
+FILTER(STR(?sk3) < ""2012-01-01"") })
+?x ns:sports.pro_athlete.career_start ?num .
+FILTER (STR(?num) < ""2002"") . 
+}"
+24368,"Who held her governmental position from before October 3, 2011 and rules Denmark right now?","Who held her governmental position not from before October 3 , 2011 and rules Denmark right now ?","['Margrethe II of Denmark', 'Margrethe Vestager']","PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+PREFIX ns: <http://rdf.freebase.com/ns/>
+SELECT DISTINCT ?x
+WHERE {
+FILTER (?x != ns:m.0k6nt)
+ns:m.0k6nt ns:government.governmental_jurisdiction.governing_officials ?y .
+?y ns:government.government_position_held.office_holder ?x .
+FILTER(NOT EXISTS {?y ns:government.government_position_held.from ?sk0} || 
+EXISTS {?y ns:government.government_position_held.from ?sk1 . 
+FILTER(STR(?sk1) <= ""2015-08-10"") })
+FILTER(NOT EXISTS {?y ns:government.government_position_held.to ?sk2} || 
+EXISTS {?y ns:government.government_position_held.to ?sk3 . 
+FILTER(STR(?sk3) >= ""2015-08-10"") })
+?x ns:government.politician.government_positions_held ?c .
+?c ns:government.government_position_held.from ?num .
+FILTER (STR(?num) < ""2011-10-03"") . 
+}","PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+PREFIX ns: <http://rdf.freebase.com/ns/>
+SELECT DISTINCT ?x
+WHERE {
+FILTER (?x != ns:m.0k6nt)
+ns:m.0k6nt ns:government.governmental_jurisdiction.governing_officials ?y .
+?y ns:government.government_position_held.office_holder ?x .
+FILTER(NOT EXISTS {?y ns:government.government_position_held.from ?sk0} || 
+EXISTS {?y ns:government.government_position_held.from ?sk1 . 
+FILTER(STR(?sk1) <= ""2015-08-10"") })
+FILTER(NOT EXISTS {?y ns:government.government_position_held.to ?sk2} || 
+EXISTS {?y ns:government.government_position_held.to ?sk3 . 
+FILTER(STR(?sk3) >= ""2015-08-10"") })
+?x ns:government.politician.government_positions_held ?c .
+?c ns:government.government_position_held.from ?num .
+FILTER (STR(?num) >= ""2011-10-03"") . 
+}"
+24369,"What New Jersey Senator held his governmental position from January 18, 2006?","What New Jersey Senator held his governmental position not from January 18 , 2006 ?",['Cory Booker'],"PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+PREFIX ns: <http://rdf.freebase.com/ns/>
+SELECT DISTINCT ?x
+WHERE {
+FILTER (?x != ns:m.05fjf)
+ns:m.05fjf ns:government.political_district.representatives ?y .
+?y ns:government.government_position_held.office_holder ?x .
+?y ns:government.government_position_held.basic_title ns:m.048zv9l .
+FILTER(NOT EXISTS {?y ns:government.government_position_held.from ?sk0} || 
+EXISTS {?y ns:government.government_position_held.from ?sk1 . 
+FILTER(STR(?sk1) <= ""2015-08-10"") })
+FILTER(NOT EXISTS {?y ns:government.government_position_held.to ?sk2} || 
+EXISTS {?y ns:government.government_position_held.to ?sk3 . 
+FILTER(STR(?sk3) >= ""2015-08-10"") })
+?x ns:government.politician.government_positions_held ?c .
+?c ns:government.government_position_held.from ?num .
+FILTER (STR(?num) > ""2006-01-18"") . 
+}","PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+PREFIX ns: <http://rdf.freebase.com/ns/>
+SELECT DISTINCT ?x
+WHERE {
+FILTER (?x != ns:m.05fjf)
+ns:m.05fjf ns:government.political_district.representatives ?y .
+?y ns:government.government_position_held.office_holder ?x .
+?y ns:government.government_position_held.basic_title ns:m.048zv9l .
+FILTER(NOT EXISTS {?y ns:government.government_position_held.from ?sk0} || 
+EXISTS {?y ns:government.government_position_held.from ?sk1 . 
+FILTER(STR(?sk1) <= ""2015-08-10"") })
+FILTER(NOT EXISTS {?y ns:government.government_position_held.to ?sk2} || 
+EXISTS {?y ns:government.government_position_held.to ?sk3 . 
+FILTER(STR(?sk3) >= ""2015-08-10"") })
+?x ns:government.politician.government_positions_held ?c .
+?c ns:government.government_position_held.from ?num .
+FILTER (STR(?num) <= ""2006-01-18"") . 
+}"
+24370,What is the nationality of Nina Dobrev has the gdp real adjusted value that was once below 33351310952?,What is the nationality of Nina Dobrev has the gdp real adjusted value that was once not below 33351310952 ?,['Bulgaria'],"PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+PREFIX ns: <http://rdf.freebase.com/ns/>
+SELECT DISTINCT ?x
+WHERE {
+FILTER (?x != ns:m.027nwk2)
+ns:m.027nwk2 ns:people.person.nationality ?x .
+?x ns:location.statistical_region.gdp_real ?c .
+?c ns:measurement_unit.adjusted_money_value.adjusted_value ?num .
+FILTER (xsd:integer(?num) < 33351310952) . 
+}","PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+PREFIX ns: <http://rdf.freebase.com/ns/>
+SELECT DISTINCT ?x
+WHERE {
+FILTER (?x != ns:m.027nwk2)
+ns:m.027nwk2 ns:people.person.nationality ?x .
+?x ns:location.statistical_region.gdp_real ?c .
+?c ns:measurement_unit.adjusted_money_value.adjusted_value ?num .
+FILTER (xsd:integer(?num) >= 33351310952) . 
+}"
+24371,Which individuals were 2013 Virginia senators who held this government post since 2006-01-14?,Which individuals were 2013 Virginia senators who did not hold this government post since 2006 - 01 - 14 ?,"['Mark Warner', 'Jim Webb', 'Tim Kaine']","PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+PREFIX ns: <http://rdf.freebase.com/ns/>
+SELECT DISTINCT ?x
+WHERE {
+FILTER (?x != ns:m.07z1m)
+ns:m.07z1m ns:government.political_district.representatives ?y .
+?y ns:government.government_position_held.office_holder ?x .
+?y ns:government.government_position_held.governmental_body ns:m.07t58 .
+FILTER(NOT EXISTS {?y ns:government.government_position_held.from ?sk0} || 
+EXISTS {?y ns:government.government_position_held.from ?sk1 . 
+FILTER(STR(?sk1) <= ""2013-12-31"") })
+FILTER(NOT EXISTS {?y ns:government.government_position_held.to ?sk2} || 
+EXISTS {?y ns:government.government_position_held.to ?sk3 . 
+FILTER(STR(?sk3) >= ""2013-01-01"") })
+?x ns:government.politician.government_positions_held ?c .
+?c ns:government.government_position_held.from ?num .
+FILTER (STR(?num) > ""2006-01-14"") . 
+}","PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+PREFIX ns: <http://rdf.freebase.com/ns/>
+SELECT DISTINCT ?x
+WHERE {
+FILTER (?x != ns:m.07z1m)
+ns:m.07z1m ns:government.political_district.representatives ?y .
+?y ns:government.government_position_held.office_holder ?x .
+?y ns:government.government_position_held.governmental_body ns:m.07t58 .
+FILTER(NOT EXISTS {?y ns:government.government_position_held.from ?sk0} || 
+EXISTS {?y ns:government.government_position_held.from ?sk1 . 
+FILTER(STR(?sk1) <= ""2013-12-31"") })
+FILTER(NOT EXISTS {?y ns:government.government_position_held.to ?sk2} || 
+EXISTS {?y ns:government.government_position_held.to ?sk3 . 
+FILTER(STR(?sk3) >= ""2013-01-01"") })
+?x ns:government.politician.government_positions_held ?c .
+?c ns:government.government_position_held.from ?num .
+FILTER (STR(?num) <= ""2006-01-14"") . 
+}"
+24372,What senator from New Jersey has been in the position since 1993/01/03?,What senator from New Jersey has been in the position not since 1993/01/03 ?,"['Cory Booker', 'Bob Menendez']","PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+PREFIX ns: <http://rdf.freebase.com/ns/>
+SELECT DISTINCT ?x
+WHERE {
+FILTER (?x != ns:m.05fjf)
+ns:m.05fjf ns:government.political_district.representatives ?y .
+?y ns:government.government_position_held.office_holder ?x .
+?y ns:government.government_position_held.basic_title ns:m.048zv9l .
+FILTER(NOT EXISTS {?y ns:government.government_position_held.from ?sk0} || 
+EXISTS {?y ns:government.government_position_held.from ?sk1 . 
+FILTER(STR(?sk1) <= ""2015-08-10"") })
+FILTER(NOT EXISTS {?y ns:government.government_position_held.to ?sk2} || 
+EXISTS {?y ns:government.government_position_held.to ?sk3 . 
+FILTER(STR(?sk3) >= ""2015-08-10"") })
+?x ns:government.politician.government_positions_held ?c .
+?c ns:government.government_position_held.from ?num .
+FILTER (STR(?num) > ""1993-01-03"") . 
+}","PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+PREFIX ns: <http://rdf.freebase.com/ns/>
+SELECT DISTINCT ?x
+WHERE {
+FILTER (?x != ns:m.05fjf)
+ns:m.05fjf ns:government.political_district.representatives ?y .
+?y ns:government.government_position_held.office_holder ?x .
+?y ns:government.government_position_held.basic_title ns:m.048zv9l .
+FILTER(NOT EXISTS {?y ns:government.government_position_held.from ?sk0} || 
+EXISTS {?y ns:government.government_position_held.from ?sk1 . 
+FILTER(STR(?sk1) <= ""2015-08-10"") })
+FILTER(NOT EXISTS {?y ns:government.government_position_held.to ?sk2} || 
+EXISTS {?y ns:government.government_position_held.to ?sk3 . 
+FILTER(STR(?sk3) >= ""2015-08-10"") })
+?x ns:government.politician.government_positions_held ?c .
+?c ns:government.government_position_held.from ?num .
+FILTER (STR(?num) <= ""1993-01-03"") . 
+}"
+24373,"Who was vice president under Lincoln and held his governmental position before January 8, 1857?","Who was vice president under Lincoln and held his governmental position not before January 8 , 1857 ?","['Andrew Johnson', 'Hannibal Hamlin']","PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+PREFIX ns: <http://rdf.freebase.com/ns/>
+SELECT DISTINCT ?x
+WHERE {
+FILTER (?x != ns:m.0gzh)
+ns:m.0gzh ns:government.us_president.vice_president ?x .
+?x ns:government.politician.government_positions_held ?c .
+?c ns:government.government_position_held.from ?num .
+FILTER (STR(?num) < ""1857-01-08"") . 
+}","PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+PREFIX ns: <http://rdf.freebase.com/ns/>
+SELECT DISTINCT ?x
+WHERE {
+FILTER (?x != ns:m.0gzh)
+ns:m.0gzh ns:government.us_president.vice_president ?x .
+?x ns:government.politician.government_positions_held ?c .
+?c ns:government.government_position_held.from ?num .
+FILTER (STR(?num) >= ""1857-01-08"") . 
+}"
+24374,Who are the players on the Boston Celtics roster that started their professional career prior to 212?,Who are the players on the Boston Celtics roster that started their professional career not prior to 212 ?,"['Jeff Green', 'Evan Turner', 'Marcus Thornton', 'Brandon Bass', 'Gerald Wallace', 'Avery Bradley']","PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+PREFIX ns: <http://rdf.freebase.com/ns/>
+SELECT DISTINCT ?x
+WHERE {
+FILTER (?x != ns:m.0bwjj)
+ns:m.0bwjj ns:sports.sports_team.roster ?y .
+?y ns:sports.sports_team_roster.player ?x .
+FILTER(NOT EXISTS {?y ns:sports.sports_team_roster.from ?sk0} || 
+EXISTS {?y ns:sports.sports_team_roster.from ?sk1 . 
+FILTER(STR(?sk1) <= ""2015-08-10"") })
+FILTER(NOT EXISTS {?y ns:sports.sports_team_roster.to ?sk2} || 
+EXISTS {?y ns:sports.sports_team_roster.to ?sk3 . 
+FILTER(STR(?sk3) >= ""2015-08-10"") })
+?x ns:sports.pro_athlete.sports_played_professionally ?c .
+?c ns:sports.pro_sports_played.career_start ?num .
+FILTER (?num < ""2012"") . 
+}","PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+PREFIX ns: <http://rdf.freebase.com/ns/>
+SELECT DISTINCT ?x
+WHERE {
+FILTER (?x != ns:m.0bwjj)
+ns:m.0bwjj ns:sports.sports_team.roster ?y .
+?y ns:sports.sports_team_roster.player ?x .
+FILTER(NOT EXISTS {?y ns:sports.sports_team_roster.from ?sk0} || 
+EXISTS {?y ns:sports.sports_team_roster.from ?sk1 . 
+FILTER(STR(?sk1) <= ""2015-08-10"") })
+FILTER(NOT EXISTS {?y ns:sports.sports_team_roster.to ?sk2} || 
+EXISTS {?y ns:sports.sports_team_roster.to ?sk3 . 
+FILTER(STR(?sk3) >= ""2015-08-10"") })
+?x ns:sports.pro_athlete.sports_played_professionally ?c .
+?c ns:sports.pro_sports_played.career_start ?num .
+FILTER (?num >= ""2012"") . 
+}"
+24375,Which pro athletes started their careers before 2013 and are in the current Boston Celtics' roster?,Which pro athletes did not start their careers before 2013 and are in the current Boston Celtics ' roster ?,"['Jeff Green', 'Gerald Wallace', 'Brandon Bass', 'Avery Bradley']","PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+PREFIX ns: <http://rdf.freebase.com/ns/>
+SELECT DISTINCT ?x
+WHERE {
+FILTER (?x != ns:m.0bwjj)
+ns:m.0bwjj ns:sports.sports_team.roster ?y .
+?y ns:sports.sports_team_roster.player ?x .
+FILTER(NOT EXISTS {?y ns:sports.sports_team_roster.from ?sk0} || 
+EXISTS {?y ns:sports.sports_team_roster.from ?sk1 . 
+FILTER(STR(?sk1) <= ""2015-08-10"") })
+FILTER(NOT EXISTS {?y ns:sports.sports_team_roster.to ?sk2} || 
+EXISTS {?y ns:sports.sports_team_roster.to ?sk3 . 
+FILTER(STR(?sk3) >= ""2015-08-10"") })
+?x ns:sports.pro_athlete.career_start ?num .
+FILTER (STR(?num) < ""2013"") . 
+}","PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+PREFIX ns: <http://rdf.freebase.com/ns/>
+SELECT DISTINCT ?x
+WHERE {
+FILTER (?x != ns:m.0bwjj)
+ns:m.0bwjj ns:sports.sports_team.roster ?y .
+?y ns:sports.sports_team_roster.player ?x .
+FILTER(NOT EXISTS {?y ns:sports.sports_team_roster.from ?sk0} || 
+EXISTS {?y ns:sports.sports_team_roster.from ?sk1 . 
+FILTER(STR(?sk1) <= ""2015-08-10"") })
+FILTER(NOT EXISTS {?y ns:sports.sports_team_roster.to ?sk2} || 
+EXISTS {?y ns:sports.sports_team_roster.to ?sk3 . 
+FILTER(STR(?sk3) >= ""2015-08-10"") })
+?x ns:sports.pro_athlete.career_start ?num .
+FILTER (STR(?num) >= ""2013"") . 
+}"
+24376,Which player started his career after 2007 and is a Miami Dolphins quarterback?,Which player did not start his career after 2007 and is a Miami Dolphins quarterback ?,['Ryan Tannehill'],"PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+PREFIX ns: <http://rdf.freebase.com/ns/>
+SELECT DISTINCT ?x
+WHERE {
+FILTER (?x != ns:m.04vn5)
+ns:m.04vn5 ns:sports.sports_team.roster ?y .
+?y ns:sports.sports_team_roster.player ?x .
+?y ns:sports.sports_team_roster.position ns:m.06b1q .
+FILTER(NOT EXISTS {?y ns:sports.sports_team_roster.from ?sk0} || 
+EXISTS {?y ns:sports.sports_team_roster.from ?sk1 . 
+FILTER(STR(?sk1) <= ""2015-08-10"") })
+FILTER(NOT EXISTS {?y ns:sports.sports_team_roster.to ?sk2} || 
+EXISTS {?y ns:sports.sports_team_roster.to ?sk3 . 
+FILTER(STR(?sk3) >= ""2015-08-10"") })
+?x ns:sports.pro_athlete.sports_played_professionally ?c .
+?c ns:sports.pro_sports_played.career_start ?num .
+FILTER (STR(?num) > ""2007"") . 
+}","PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+PREFIX ns: <http://rdf.freebase.com/ns/>
+SELECT DISTINCT ?x
+WHERE {
+FILTER (?x != ns:m.04vn5)
+ns:m.04vn5 ns:sports.sports_team.roster ?y .
+?y ns:sports.sports_team_roster.player ?x .
+?y ns:sports.sports_team_roster.position ns:m.06b1q .
+FILTER(NOT EXISTS {?y ns:sports.sports_team_roster.from ?sk0} || 
+EXISTS {?y ns:sports.sports_team_roster.from ?sk1 . 
+FILTER(STR(?sk1) <= ""2015-08-10"") })
+FILTER(NOT EXISTS {?y ns:sports.sports_team_roster.to ?sk2} || 
+EXISTS {?y ns:sports.sports_team_roster.to ?sk3 . 
+FILTER(STR(?sk3) >= ""2015-08-10"") })
+?x ns:sports.pro_athlete.sports_played_professionally ?c .
+?c ns:sports.pro_sports_played.career_start ?num .
+FILTER (STR(?num) <= ""2007"") . 
+}"
+24377,"Which Colorado Representatives held the governmental position from January 3, 1999?","Which Colorado Representatives held the governmental position not from January 3 , 1999 ?","['Mark Udall', 'Michael Bennet']","PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+PREFIX ns: <http://rdf.freebase.com/ns/>
+SELECT DISTINCT ?x
+WHERE {
+FILTER (?x != ns:m.01n4w)
+ns:m.01n4w ns:government.political_district.representatives ?y .
+?y ns:government.government_position_held.office_holder ?x .
+FILTER(NOT EXISTS {?y ns:government.government_position_held.from ?sk0} || 
+EXISTS {?y ns:government.government_position_held.from ?sk1 . 
+FILTER(STR(?sk1) <= ""2015-08-10"") })
+FILTER(NOT EXISTS {?y ns:government.government_position_held.to ?sk2} || 
+EXISTS {?y ns:government.government_position_held.to ?sk3 . 
+FILTER(STR(?sk3) >= ""2015-08-10"") })
+?x ns:government.politician.government_positions_held ?c .
+?c ns:government.government_position_held.from ?num .
+FILTER (STR(?num) > ""1999-01-03"") . 
+}","PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+PREFIX ns: <http://rdf.freebase.com/ns/>
+SELECT DISTINCT ?x
+WHERE {
+FILTER (?x != ns:m.01n4w)
+ns:m.01n4w ns:government.political_district.representatives ?y .
+?y ns:government.government_position_held.office_holder ?x .
+FILTER(NOT EXISTS {?y ns:government.government_position_held.from ?sk0} || 
+EXISTS {?y ns:government.government_position_held.from ?sk1 . 
+FILTER(STR(?sk1) <= ""2015-08-10"") })
+FILTER(NOT EXISTS {?y ns:government.government_position_held.to ?sk2} || 
+EXISTS {?y ns:government.government_position_held.to ?sk3 . 
+FILTER(STR(?sk3) >= ""2015-08-10"") })
+?x ns:government.politician.government_positions_held ?c .
+?c ns:government.government_position_held.from ?num .
+FILTER (STR(?num) <= ""1999-01-03"") . 
+}"
+24378,Who is the senator of Kansas in 2013 that had his position after 1-3-1997?,Who is the senator of Kansas in 2013 that had his position not after 1 - 3 - 1997 ?,['Jerry Moran'],"PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+PREFIX ns: <http://rdf.freebase.com/ns/>
+SELECT DISTINCT ?x
+WHERE {
+FILTER (?x != ns:m.0488g)
+ns:m.0488g ns:government.political_district.representatives ?y .
+?y ns:government.government_position_held.office_holder ?x .
+?y ns:government.government_position_held.basic_title ns:m.048zv9l .
+FILTER(NOT EXISTS {?y ns:government.government_position_held.from ?sk0} || 
+EXISTS {?y ns:government.government_position_held.from ?sk1 . 
+FILTER(STR(?sk1) <= ""2013-12-31"") })
+FILTER(NOT EXISTS {?y ns:government.government_position_held.to ?sk2} || 
+EXISTS {?y ns:government.government_position_held.to ?sk3 . 
+FILTER(STR(?sk3) >= ""2013-01-01"") })
+?x ns:government.politician.government_positions_held ?c .
+?c ns:government.government_position_held.from ?num .
+FILTER (STR(?num) > ""1997-01-03"") . 
+}","PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+PREFIX ns: <http://rdf.freebase.com/ns/>
+SELECT DISTINCT ?x
+WHERE {
+FILTER (?x != ns:m.0488g)
+ns:m.0488g ns:government.political_district.representatives ?y .
+?y ns:government.government_position_held.office_holder ?x .
+?y ns:government.government_position_held.basic_title ns:m.048zv9l .
+FILTER(NOT EXISTS {?y ns:government.government_position_held.from ?sk0} || 
+EXISTS {?y ns:government.government_position_held.from ?sk1 . 
+FILTER(STR(?sk1) <= ""2013-12-31"") })
+FILTER(NOT EXISTS {?y ns:government.government_position_held.to ?sk2} || 
+EXISTS {?y ns:government.government_position_held.to ?sk3 . 
+FILTER(STR(?sk3) >= ""2013-01-01"") })
+?x ns:government.politician.government_positions_held ?c .
+?c ns:government.government_position_held.from ?num .
+FILTER (STR(?num) <= ""1997-01-03"") . 
+}"
+24379,"Who held their governmental position from after March 4, 1797 and were influenced by Baron de Montesquie?","Who held their governmental position not from after March 4 , 1797 and were influenced by Baron de Montesquie ?","['James Madison', 'Thomas Jefferson']","PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+PREFIX ns: <http://rdf.freebase.com/ns/>
+SELECT DISTINCT ?x
+WHERE {
+FILTER (?x != ns:m.0f9wd)
+ns:m.0f9wd ns:influence.influence_node.influenced ?x .
+?x ns:government.politician.government_positions_held ?c .
+?c ns:government.government_position_held.from ?num .
+FILTER (STR(?num) > ""1797-03-04"") . 
+}","PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+PREFIX ns: <http://rdf.freebase.com/ns/>
+SELECT DISTINCT ?x
+WHERE {
+FILTER (?x != ns:m.0f9wd)
+ns:m.0f9wd ns:influence.influence_node.influenced ?x .
+?x ns:government.politician.government_positions_held ?c .
+?c ns:government.government_position_held.from ?num .
+FILTER (STR(?num) <= ""1797-03-04"") . 
+}"
+24380,"What tourist attractions are there to visit  in San Diego California, ones which opened on after 1915?","What tourist attractions are there to visit    in San Diego California , ones which did not open on after 1915 ?","['SeaWorld San Diego', 'San Diego Zoo Safari Park']","PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+PREFIX ns: <http://rdf.freebase.com/ns/>
+SELECT DISTINCT ?x
+WHERE {
+FILTER (?x != ns:m.071vr)
+ns:m.071vr ns:travel.travel_destination.tourist_attractions ?x .
+?x ns:zoos.zoo.opened ?num .
+FILTER (STR(?num) > ""1915"") . 
+}","PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+PREFIX ns: <http://rdf.freebase.com/ns/>
+SELECT DISTINCT ?x
+WHERE {
+FILTER (?x != ns:m.071vr)
+ns:m.071vr ns:travel.travel_destination.tourist_attractions ?x .
+?x ns:zoos.zoo.opened ?num .
+FILTER (STR(?num) <= ""1915"") . 
+}"
+24381,Which players on the Toronto Maple Leafs started their careers after 2006?,Which players on the Toronto Maple Leafs did not start their careers after 2006 ?,"['Jake Gardiner', 'Daniel Winnik', 'Cody Franson', 'Mike Santorelli', 'Jonathan Bernier', ""Ryan O'Byrne"", 'James Reimer', 'David Clarkson', 'James van Riemsdyk']","PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+PREFIX ns: <http://rdf.freebase.com/ns/>
+SELECT DISTINCT ?x
+WHERE {
+FILTER (?x != ns:m.0j6tr)
+ns:m.0j6tr ns:sports.sports_team.roster ?y .
+?y ns:sports.sports_team_roster.player ?x .
+FILTER(NOT EXISTS {?y ns:sports.sports_team_roster.from ?sk0} || 
+EXISTS {?y ns:sports.sports_team_roster.from ?sk1 . 
+FILTER(STR(?sk1) <= ""2015-08-10"") })
+FILTER(NOT EXISTS {?y ns:sports.sports_team_roster.to ?sk2} || 
+EXISTS {?y ns:sports.sports_team_roster.to ?sk3 . 
+FILTER(STR(?sk3) >= ""2015-08-10"") })
+?x ns:sports.pro_athlete.sports_played_professionally ?c .
+?c ns:sports.pro_sports_played.career_start ?num .
+FILTER (STR(?num) > ""2006"") . 
+}","PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+PREFIX ns: <http://rdf.freebase.com/ns/>
+SELECT DISTINCT ?x
+WHERE {
+FILTER (?x != ns:m.0j6tr)
+ns:m.0j6tr ns:sports.sports_team.roster ?y .
+?y ns:sports.sports_team_roster.player ?x .
+FILTER(NOT EXISTS {?y ns:sports.sports_team_roster.from ?sk0} || 
+EXISTS {?y ns:sports.sports_team_roster.from ?sk1 . 
+FILTER(STR(?sk1) <= ""2015-08-10"") })
+FILTER(NOT EXISTS {?y ns:sports.sports_team_roster.to ?sk2} || 
+EXISTS {?y ns:sports.sports_team_roster.to ?sk3 . 
+FILTER(STR(?sk3) >= ""2015-08-10"") })
+?x ns:sports.pro_athlete.sports_played_professionally ?c .
+?c ns:sports.pro_sports_played.career_start ?num .
+FILTER (STR(?num) <= ""2006"") . 
+}"
+24382,What prime minister of Spian held another government position before 2004-04-16?,What prime minister of Spian held another government position not before 2004 - 04 - 16 ?,['Mariano Rajoy'],"PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+PREFIX ns: <http://rdf.freebase.com/ns/>
+SELECT DISTINCT ?x
+WHERE {
+FILTER (?x != ns:m.06mkj)
+ns:m.06mkj ns:government.governmental_jurisdiction.governing_officials ?y .
+?y ns:government.government_position_held.office_holder ?x .
+?y ns:government.government_position_held.basic_title ns:m.060bp .
+FILTER(NOT EXISTS {?y ns:government.government_position_held.from ?sk0} || 
+EXISTS {?y ns:government.government_position_held.from ?sk1 . 
+FILTER(STR(?sk1) <= ""2011-12-31"") })
+FILTER(NOT EXISTS {?y ns:government.government_position_held.to ?sk2} || 
+EXISTS {?y ns:government.government_position_held.to ?sk3 . 
+FILTER(STR(?sk3) >= ""2011-01-01"") })
+?x ns:government.politician.government_positions_held ?c .
+?c ns:government.government_position_held.from ?num .
+FILTER (STR(?num) < ""2004-04-16"") . 
+}","PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+PREFIX ns: <http://rdf.freebase.com/ns/>
+SELECT DISTINCT ?x
+WHERE {
+FILTER (?x != ns:m.06mkj)
+ns:m.06mkj ns:government.governmental_jurisdiction.governing_officials ?y .
+?y ns:government.government_position_held.office_holder ?x .
+?y ns:government.government_position_held.basic_title ns:m.060bp .
+FILTER(NOT EXISTS {?y ns:government.government_position_held.from ?sk0} || 
+EXISTS {?y ns:government.government_position_held.from ?sk1 . 
+FILTER(STR(?sk1) <= ""2011-12-31"") })
+FILTER(NOT EXISTS {?y ns:government.government_position_held.to ?sk2} || 
+EXISTS {?y ns:government.government_position_held.to ?sk3 . 
+FILTER(STR(?sk3) >= ""2011-01-01"") })
+?x ns:government.politician.government_positions_held ?c .
+?c ns:government.government_position_held.from ?num .
+FILTER (STR(?num) >= ""2004-04-16"") . 
+}"
+24383,Which man was in a government position since 2007-01-04 and was serving as governor of Georgia in 2011?,Which man was in a government position not since 2007 - 01 - 04 and was serving as governor of Georgia in 2011 ?,['Nathan Deal'],"PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+PREFIX ns: <http://rdf.freebase.com/ns/>
+SELECT DISTINCT ?x
+WHERE {
+FILTER (?x != ns:m.0d0x8)
+ns:m.0d0x8 ns:government.governmental_jurisdiction.governing_officials ?y .
+?y ns:government.government_position_held.office_holder ?x .
+?y ns:government.government_position_held.basic_title ns:m.0fkvn .
+FILTER(NOT EXISTS {?y ns:government.government_position_held.from ?sk0} || 
+EXISTS {?y ns:government.government_position_held.from ?sk1 . 
+FILTER(STR(?sk1) <= ""2011-12-31"") })
+FILTER(NOT EXISTS {?y ns:government.government_position_held.to ?sk2} || 
+EXISTS {?y ns:government.government_position_held.to ?sk3 . 
+FILTER(STR(?sk3) >= ""2011-01-01"") })
+?x ns:government.politician.government_positions_held ?c .
+?c ns:government.government_position_held.from ?num .
+FILTER (STR(?num) > ""2007-01-04"") . 
+}","PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+PREFIX ns: <http://rdf.freebase.com/ns/>
+SELECT DISTINCT ?x
+WHERE {
+FILTER (?x != ns:m.0d0x8)
+ns:m.0d0x8 ns:government.governmental_jurisdiction.governing_officials ?y .
+?y ns:government.government_position_held.office_holder ?x .
+?y ns:government.government_position_held.basic_title ns:m.0fkvn .
+FILTER(NOT EXISTS {?y ns:government.government_position_held.from ?sk0} || 
+EXISTS {?y ns:government.government_position_held.from ?sk1 . 
+FILTER(STR(?sk1) <= ""2011-12-31"") })
+FILTER(NOT EXISTS {?y ns:government.government_position_held.to ?sk2} || 
+EXISTS {?y ns:government.government_position_held.to ?sk3 . 
+FILTER(STR(?sk3) >= ""2011-01-01"") })
+?x ns:government.politician.government_positions_held ?c .
+?c ns:government.government_position_held.from ?num .
+FILTER (STR(?num) <= ""2007-01-04"") . 
+}"
+24384,Who was the President of Venezuela that held his government position from 2-2-1994?,Who was the President of Venezuela that held his government position not from 2 - 2 - 1994 ?,"['Nicolás Maduro', 'Hugo Chávez']","PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+PREFIX ns: <http://rdf.freebase.com/ns/>
+SELECT DISTINCT ?x
+WHERE {
+FILTER (?x != ns:m.07ylj)
+ns:m.07ylj ns:government.governmental_jurisdiction.governing_officials ?y .
+?y ns:government.government_position_held.office_holder ?x .
+?y ns:government.government_position_held.basic_title ns:m.060c4 .
+?x ns:government.politician.government_positions_held ?c .
+?c ns:government.government_position_held.from ?num .
+FILTER (STR(?num) > ""1994-02-02"") . 
+}","PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+PREFIX ns: <http://rdf.freebase.com/ns/>
+SELECT DISTINCT ?x
+WHERE {
+FILTER (?x != ns:m.07ylj)
+ns:m.07ylj ns:government.governmental_jurisdiction.governing_officials ?y .
+?y ns:government.government_position_held.office_holder ?x .
+?y ns:government.government_position_held.basic_title ns:m.060c4 .
+?x ns:government.politician.government_positions_held ?c .
+?c ns:government.government_position_held.from ?num .
+FILTER (STR(?num) <= ""1994-02-02"") . 
+}"
+24385,"Who held his governmental position from after April 16, 2004 and was Prime Minister of Spain in 2011?","Who held his governmental position not from after April 16 , 2004 and was Prime Minister of Spain in 2011 ?",['Mariano Rajoy'],"PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+PREFIX ns: <http://rdf.freebase.com/ns/>
+SELECT DISTINCT ?x
+WHERE {
+FILTER (?x != ns:m.06mkj)
+ns:m.06mkj ns:government.governmental_jurisdiction.governing_officials ?y .
+?y ns:government.government_position_held.office_holder ?x .
+?y ns:government.government_position_held.basic_title ns:m.060bp .
+FILTER(NOT EXISTS {?y ns:government.government_position_held.from ?sk0} || 
+EXISTS {?y ns:government.government_position_held.from ?sk1 . 
+FILTER(STR(?sk1) <= ""2011-12-31"") })
+FILTER(NOT EXISTS {?y ns:government.government_position_held.to ?sk2} || 
+EXISTS {?y ns:government.government_position_held.to ?sk3 . 
+FILTER(STR(?sk3) >= ""2011-01-01"") })
+?x ns:government.politician.government_positions_held ?c .
+?c ns:government.government_position_held.from ?num .
+FILTER (STR(?num) > ""2004-04-16"") . 
+}","PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+PREFIX ns: <http://rdf.freebase.com/ns/>
+SELECT DISTINCT ?x
+WHERE {
+FILTER (?x != ns:m.06mkj)
+ns:m.06mkj ns:government.governmental_jurisdiction.governing_officials ?y .
+?y ns:government.government_position_held.office_holder ?x .
+?y ns:government.government_position_held.basic_title ns:m.060bp .
+FILTER(NOT EXISTS {?y ns:government.government_position_held.from ?sk0} || 
+EXISTS {?y ns:government.government_position_held.from ?sk1 . 
+FILTER(STR(?sk1) <= ""2011-12-31"") })
+FILTER(NOT EXISTS {?y ns:government.government_position_held.to ?sk2} || 
+EXISTS {?y ns:government.government_position_held.to ?sk3 . 
+FILTER(STR(?sk3) >= ""2011-01-01"") })
+?x ns:government.politician.government_positions_held ?c .
+?c ns:government.government_position_held.from ?num .
+FILTER (STR(?num) <= ""2004-04-16"") . 
+}"
+24386,Who is currently playing for the Boston Celtics and started his career in 2013?,Who is currently playing for the Boston Celtics and Did n't start his career in 2013 ?,['Dwight Powell'],"PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+PREFIX ns: <http://rdf.freebase.com/ns/>
+SELECT DISTINCT ?x
+WHERE {
+FILTER (?x != ns:m.0bwjj)
+ns:m.0bwjj ns:sports.sports_team.roster ?y .
+?y ns:sports.sports_team_roster.player ?x .
+FILTER(NOT EXISTS {?y ns:sports.sports_team_roster.from ?sk0} || 
+EXISTS {?y ns:sports.sports_team_roster.from ?sk1 . 
+FILTER(STR(?sk1) <= ""2015-08-10"") })
+FILTER(NOT EXISTS {?y ns:sports.sports_team_roster.to ?sk2} || 
+EXISTS {?y ns:sports.sports_team_roster.to ?sk3 . 
+FILTER(STR(?sk3) >= ""2015-08-10"") })
+?x ns:sports.pro_athlete.career_start ?num .
+FILTER (STR(?num) > ""2013"") . 
+}","PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+PREFIX ns: <http://rdf.freebase.com/ns/>
+SELECT DISTINCT ?x
+WHERE {
+FILTER (?x != ns:m.0bwjj)
+ns:m.0bwjj ns:sports.sports_team.roster ?y .
+?y ns:sports.sports_team_roster.player ?x .
+FILTER(NOT EXISTS {?y ns:sports.sports_team_roster.from ?sk0} || 
+EXISTS {?y ns:sports.sports_team_roster.from ?sk1 . 
+FILTER(STR(?sk1) <= ""2015-08-10"") })
+FILTER(NOT EXISTS {?y ns:sports.sports_team_roster.to ?sk2} || 
+EXISTS {?y ns:sports.sports_team_roster.to ?sk3 . 
+FILTER(STR(?sk3) >= ""2015-08-10"") })
+?x ns:sports.pro_athlete.career_start ?num .
+FILTER (STR(?num) <= ""2013"") . 
+}"
+24387,What current senator of New Jersey began his governmental position after 2006-01-18?,What current senator of New Jersey began his governmental position not after 2006 - 01 - 18 ?,['Cory Booker'],"PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+PREFIX ns: <http://rdf.freebase.com/ns/>
+SELECT DISTINCT ?x
+WHERE {
+FILTER (?x != ns:m.05fjf)
+ns:m.05fjf ns:government.political_district.representatives ?y .
+?y ns:government.government_position_held.office_holder ?x .
+?y ns:government.government_position_held.governmental_body ns:m.07t58 .
+FILTER(NOT EXISTS {?y ns:government.government_position_held.from ?sk0} || 
+EXISTS {?y ns:government.government_position_held.from ?sk1 . 
+FILTER(STR(?sk1) <= ""2015-08-10"") })
+FILTER(NOT EXISTS {?y ns:government.government_position_held.to ?sk2} || 
+EXISTS {?y ns:government.government_position_held.to ?sk3 . 
+FILTER(STR(?sk3) >= ""2015-08-10"") })
+?x ns:government.politician.government_positions_held ?c .
+?c ns:government.government_position_held.from ?num .
+FILTER (STR(?num) > ""2006-01-18"") . 
+}","PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+PREFIX ns: <http://rdf.freebase.com/ns/>
+SELECT DISTINCT ?x
+WHERE {
+FILTER (?x != ns:m.05fjf)
+ns:m.05fjf ns:government.political_district.representatives ?y .
+?y ns:government.government_position_held.office_holder ?x .
+?y ns:government.government_position_held.governmental_body ns:m.07t58 .
+FILTER(NOT EXISTS {?y ns:government.government_position_held.from ?sk0} || 
+EXISTS {?y ns:government.government_position_held.from ?sk1 . 
+FILTER(STR(?sk1) <= ""2015-08-10"") })
+FILTER(NOT EXISTS {?y ns:government.government_position_held.to ?sk2} || 
+EXISTS {?y ns:government.government_position_held.to ?sk3 . 
+FILTER(STR(?sk3) >= ""2015-08-10"") })
+?x ns:government.politician.government_positions_held ?c .
+?c ns:government.government_position_held.from ?num .
+FILTER (STR(?num) <= ""2006-01-18"") . 
+}"
+24388,What zoo that opened on or before 1915 is one of the best things to do in San Diego?,What zoo that did not open on or before 1915 is one of the best things to do in San Diego ?,['Birch Aquarium'],"PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+PREFIX ns: <http://rdf.freebase.com/ns/>
+SELECT DISTINCT ?x
+WHERE {
+FILTER (?x != ns:m.071vr)
+ns:m.071vr ns:travel.travel_destination.tourist_attractions ?x .
+?x ns:zoos.zoo.opened ?num .
+FILTER (STR(?num) < ""1915"") . 
+}","PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+PREFIX ns: <http://rdf.freebase.com/ns/>
+SELECT DISTINCT ?x
+WHERE {
+FILTER (?x != ns:m.071vr)
+ns:m.071vr ns:travel.travel_destination.tourist_attractions ?x .
+?x ns:zoos.zoo.opened ?num .
+FILTER (STR(?num) >= ""1915"") . 
+}"
+24389,"Who held their governmental position from after January 3, 1969 and is State senator of Arizona?","Who held their governmental position not from after January 3 , 1969 and is State senator of Arizona ?","['Jon Kyl', 'Dennis DeConcini', 'Jeff Flake', 'John McCain']","PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+PREFIX ns: <http://rdf.freebase.com/ns/>
+SELECT DISTINCT ?x
+WHERE {
+FILTER (?x != ns:m.0vmt)
+ns:m.0vmt ns:government.political_district.representatives ?y .
+?y ns:government.government_position_held.office_holder ?x .
+?y ns:government.government_position_held.office_position_or_title ns:m.02_7l8y .
+?x ns:government.politician.government_positions_held ?c .
+?c ns:government.government_position_held.from ?num .
+FILTER (STR(?num) > ""1969-01-03"") . 
+}","PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+PREFIX ns: <http://rdf.freebase.com/ns/>
+SELECT DISTINCT ?x
+WHERE {
+FILTER (?x != ns:m.0vmt)
+ns:m.0vmt ns:government.political_district.representatives ?y .
+?y ns:government.government_position_held.office_holder ?x .
+?y ns:government.government_position_held.office_position_or_title ns:m.02_7l8y .
+?x ns:government.politician.government_positions_held ?c .
+?c ns:government.government_position_held.from ?num .
+FILTER (STR(?num) <= ""1969-01-03"") . 
+}"
+24390,Who currently plays for the Boston Celtics that started their career after 2001?,Who currently plays for the Boston Celtics that did not start their career after 2001 ?,"['Jeff Green', 'Erik Murphy', 'Dwight Powell', 'Rodney McGruder', 'Brandon Bass', 'Colton Iverson', 'Avery Bradley']","PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+PREFIX ns: <http://rdf.freebase.com/ns/>
+SELECT DISTINCT ?x
+WHERE {
+FILTER (?x != ns:m.0bwjj)
+ns:m.0bwjj ns:sports.sports_team.roster ?y .
+?y ns:sports.sports_team_roster.player ?x .
+FILTER(NOT EXISTS {?y ns:sports.sports_team_roster.from ?sk0} || 
+EXISTS {?y ns:sports.sports_team_roster.from ?sk1 . 
+FILTER(STR(?sk1) <= ""2015-08-10"") })
+FILTER(NOT EXISTS {?y ns:sports.sports_team_roster.to ?sk2} || 
+EXISTS {?y ns:sports.sports_team_roster.to ?sk3 . 
+FILTER(STR(?sk3) >= ""2015-08-10"") })
+?x ns:sports.pro_athlete.career_start ?num .
+FILTER (STR(?num) > ""2001"") . 
+}","PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+PREFIX ns: <http://rdf.freebase.com/ns/>
+SELECT DISTINCT ?x
+WHERE {
+FILTER (?x != ns:m.0bwjj)
+ns:m.0bwjj ns:sports.sports_team.roster ?y .
+?y ns:sports.sports_team_roster.player ?x .
+FILTER(NOT EXISTS {?y ns:sports.sports_team_roster.from ?sk0} || 
+EXISTS {?y ns:sports.sports_team_roster.from ?sk1 . 
+FILTER(STR(?sk1) <= ""2015-08-10"") })
+FILTER(NOT EXISTS {?y ns:sports.sports_team_roster.to ?sk2} || 
+EXISTS {?y ns:sports.sports_team_roster.to ?sk3 . 
+FILTER(STR(?sk3) >= ""2015-08-10"") })
+?x ns:sports.pro_athlete.career_start ?num .
+FILTER (STR(?num) <= ""2001"") . 
+}"
+24391,"Who held their governmental positions from before December 30, 1965 and were elected President of the Philippines?","Who held their governmental positions not from before December 30 , 1965 and were elected President of the Philippines ?","['Emilio Aguinaldo', 'Carlos P. Garcia', 'Manuel L. Quezon', 'Manuel Roxas', 'Diosdado Macapagal', 'Elpidio Quirino', 'José P. Laurel', 'Ramon Magsaysay', 'Sergio Osmeña']","PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+PREFIX ns: <http://rdf.freebase.com/ns/>
+SELECT DISTINCT ?x
+WHERE {
+FILTER (?x != ns:m.05v8c)
+ns:m.05v8c ns:government.governmental_jurisdiction.governing_officials ?y .
+?y ns:government.government_position_held.office_holder ?x .
+?y ns:government.government_position_held.basic_title ns:m.060c4 .
+?x ns:government.politician.government_positions_held ?c .
+?c ns:government.government_position_held.from ?num .
+FILTER (STR(?num) < ""1965-12-30"") . 
+}","PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+PREFIX ns: <http://rdf.freebase.com/ns/>
+SELECT DISTINCT ?x
+WHERE {
+FILTER (?x != ns:m.05v8c)
+ns:m.05v8c ns:government.governmental_jurisdiction.governing_officials ?y .
+?y ns:government.government_position_held.office_holder ?x .
+?y ns:government.government_position_held.basic_title ns:m.060c4 .
+?x ns:government.politician.government_positions_held ?c .
+?c ns:government.government_position_held.from ?num .
+FILTER (STR(?num) >= ""1965-12-30"") . 
+}"
+24392,"Who held his governmental position from before March 4, 1933 and started the Federal Reserve Board?","Who held his governmental position not from before March 4 , 1933 and started the Federal Reserve Board ?","['Woodrow Wilson', 'Franklin D. Roosevelt', 'Carter Glass']","PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+PREFIX ns: <http://rdf.freebase.com/ns/>
+SELECT DISTINCT ?x
+WHERE {
+FILTER (?x != ns:m.02xmb)
+ns:m.02xmb ns:organization.organization.founders ?x .
+?x ns:government.politician.government_positions_held ?c .
+?c ns:government.government_position_held.from ?num .
+FILTER (STR(?num) < ""1933-03-04"") . 
+}","PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+PREFIX ns: <http://rdf.freebase.com/ns/>
+SELECT DISTINCT ?x
+WHERE {
+FILTER (?x != ns:m.02xmb)
+ns:m.02xmb ns:organization.organization.founders ?x .
+?x ns:government.politician.government_positions_held ?c .
+?c ns:government.government_position_held.from ?num .
+FILTER (STR(?num) >= ""1933-03-04"") . 
+}"
+24393,"What New Jersey Senators held their governmental position from after January 3, 1993?","What New Jersey Senators held their governmental position not from after January 3 , 1993 ?","['Cory Booker', 'Bob Menendez']","PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+PREFIX ns: <http://rdf.freebase.com/ns/>
+SELECT DISTINCT ?x
+WHERE {
+FILTER (?x != ns:m.05fjf)
+ns:m.05fjf ns:government.political_district.representatives ?y .
+?y ns:government.government_position_held.office_holder ?x .
+?y ns:government.government_position_held.governmental_body ns:m.07t58 .
+FILTER(NOT EXISTS {?y ns:government.government_position_held.from ?sk0} || 
+EXISTS {?y ns:government.government_position_held.from ?sk1 . 
+FILTER(STR(?sk1) <= ""2015-08-10"") })
+FILTER(NOT EXISTS {?y ns:government.government_position_held.to ?sk2} || 
+EXISTS {?y ns:government.government_position_held.to ?sk3 . 
+FILTER(STR(?sk3) >= ""2015-08-10"") })
+?x ns:government.politician.government_positions_held ?c .
+?c ns:government.government_position_held.from ?num .
+FILTER (STR(?num) > ""1993-01-03"") . 
+}","PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+PREFIX ns: <http://rdf.freebase.com/ns/>
+SELECT DISTINCT ?x
+WHERE {
+FILTER (?x != ns:m.05fjf)
+ns:m.05fjf ns:government.political_district.representatives ?y .
+?y ns:government.government_position_held.office_holder ?x .
+?y ns:government.government_position_held.governmental_body ns:m.07t58 .
+FILTER(NOT EXISTS {?y ns:government.government_position_held.from ?sk0} || 
+EXISTS {?y ns:government.government_position_held.from ?sk1 . 
+FILTER(STR(?sk1) <= ""2015-08-10"") })
+FILTER(NOT EXISTS {?y ns:government.government_position_held.to ?sk2} || 
+EXISTS {?y ns:government.government_position_held.to ?sk3 . 
+FILTER(STR(?sk3) >= ""2015-08-10"") })
+?x ns:government.politician.government_positions_held ?c .
+?c ns:government.government_position_held.from ?num .
+FILTER (STR(?num) <= ""1993-01-03"") . 
+}"
+24394,What zoo that opened before 2003 is fun to see in Houston?,What zoo that did not open before 2003 is fun to see in Houston ?,['Houston Zoo'],"PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+PREFIX ns: <http://rdf.freebase.com/ns/>
+SELECT DISTINCT ?x
+WHERE {
+FILTER (?x != ns:m.03l2n)
+ns:m.03l2n ns:travel.travel_destination.tourist_attractions ?x .
+?x ns:zoos.zoo.opened ?num .
+FILTER (STR(?num) < ""2003"") . 
+}","PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+PREFIX ns: <http://rdf.freebase.com/ns/>
+SELECT DISTINCT ?x
+WHERE {
+FILTER (?x != ns:m.03l2n)
+ns:m.03l2n ns:travel.travel_destination.tourist_attractions ?x .
+?x ns:zoos.zoo.opened ?num .
+FILTER (STR(?num) >= ""2003"") . 
+}"
+24395,"Who held his governmental position after May 26, 1993 and Prime Minister of Pakistan in 1999?","Who held his governmental position not after May 26 , 1993 and Prime Minister of Pakistan in 1999 ?",['Nawaz Sharif'],"PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+PREFIX ns: <http://rdf.freebase.com/ns/>
+SELECT DISTINCT ?x
+WHERE {
+FILTER (?x != ns:m.02cd6_)
+ns:m.02cd6_ ns:government.government_office_or_title.office_holders ?y .
+?y ns:government.government_position_held.office_holder ?x .
+FILTER(NOT EXISTS {?y ns:government.government_position_held.from ?sk0} || 
+EXISTS {?y ns:government.government_position_held.from ?sk1 . 
+FILTER(STR(?sk1) <= ""1999-12-31"") })
+FILTER(NOT EXISTS {?y ns:government.government_position_held.to ?sk2} || 
+EXISTS {?y ns:government.government_position_held.to ?sk3 . 
+FILTER(STR(?sk3) >= ""1999-01-01"") })
+?x ns:government.politician.government_positions_held ?c .
+?c ns:government.government_position_held.from ?num .
+FILTER (STR(?num) > ""1993-05-26"") . 
+}","PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+PREFIX ns: <http://rdf.freebase.com/ns/>
+SELECT DISTINCT ?x
+WHERE {
+FILTER (?x != ns:m.02cd6_)
+ns:m.02cd6_ ns:government.government_office_or_title.office_holders ?y .
+?y ns:government.government_position_held.office_holder ?x .
+FILTER(NOT EXISTS {?y ns:government.government_position_held.from ?sk0} || 
+EXISTS {?y ns:government.government_position_held.from ?sk1 . 
+FILTER(STR(?sk1) <= ""1999-12-31"") })
+FILTER(NOT EXISTS {?y ns:government.government_position_held.to ?sk2} || 
+EXISTS {?y ns:government.government_position_held.to ?sk3 . 
+FILTER(STR(?sk3) >= ""1999-01-01"") })
+?x ns:government.politician.government_positions_held ?c .
+?c ns:government.government_position_held.from ?num .
+FILTER (STR(?num) <= ""1993-05-26"") . 
+}"
+24396,"Who did Baron de Montesquie influence that held his governmental position after April 1, 1785?","Who did Baron de Montesquie influence that held his governmental position not after April 1 , 1785 ?","['James Madison', 'John Adams', 'Thomas Jefferson']","PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+PREFIX ns: <http://rdf.freebase.com/ns/>
+SELECT DISTINCT ?x
+WHERE {
+FILTER (?x != ns:m.0f9wd)
+ns:m.0f9wd ns:influence.influence_node.influenced ?x .
+?x ns:government.politician.government_positions_held ?c .
+?c ns:government.government_position_held.from ?num .
+FILTER (STR(?num) > ""1785-04-01"") . 
+}","PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+PREFIX ns: <http://rdf.freebase.com/ns/>
+SELECT DISTINCT ?x
+WHERE {
+FILTER (?x != ns:m.0f9wd)
+ns:m.0f9wd ns:influence.influence_node.influenced ?x .
+?x ns:government.politician.government_positions_held ?c .
+?c ns:government.government_position_held.from ?num .
+FILTER (STR(?num) <= ""1785-04-01"") . 
+}"
+24397,Which country with a net migration number was less than -796462 borders the US?,Which country with a net migration number was not less than -796462 borders the US ?,['Mexico'],"PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+PREFIX ns: <http://rdf.freebase.com/ns/>
+SELECT DISTINCT ?x
+WHERE {
+FILTER (?x != ns:m.09c7w0)
+ns:m.09c7w0 ns:location.location.adjoin_s ?y .
+?y ns:location.adjoining_relationship.adjoins ?x .
+?x ns:common.topic.notable_types ns:m.01mp .
+?x ns:location.statistical_region.net_migration ?c .
+?c ns:measurement_unit.dated_integer.number ?num .
+FILTER (xsd:integer(?num) < -796462) . 
+}","PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+PREFIX ns: <http://rdf.freebase.com/ns/>
+SELECT DISTINCT ?x
+WHERE {
+FILTER (?x != ns:m.09c7w0)
+ns:m.09c7w0 ns:location.location.adjoin_s ?y .
+?y ns:location.adjoining_relationship.adjoins ?x .
+?x ns:common.topic.notable_types ns:m.01mp .
+?x ns:location.statistical_region.net_migration ?c .
+?c ns:measurement_unit.dated_integer.number ?num .
+FILTER (xsd:integer(?num) >= -796462) . 
+}"
+24398,"Who held his governmental position from after March 11, 1969 and won the presidential race in Venezuela?","Who held his governmental position not from after March 11 , 1969 and won the presidential race in Venezuela ?","['Rafael Caldera', 'Nicolás Maduro', 'Hugo Chávez', 'Luis Herrera Campins', 'Carlos Andrés Pérez', 'Jaime Lusinchi']","PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+PREFIX ns: <http://rdf.freebase.com/ns/>
+SELECT DISTINCT ?x
+WHERE {
+FILTER (?x != ns:m.07ylj)
+ns:m.07ylj ns:government.governmental_jurisdiction.governing_officials ?y .
+?y ns:government.government_position_held.office_holder ?x .
+?y ns:government.government_position_held.basic_title ns:m.060c4 .
+?x ns:government.politician.government_positions_held ?c .
+?c ns:government.government_position_held.from ?num .
+FILTER (STR(?num) > ""1969-03-11"") . 
+}","PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+PREFIX ns: <http://rdf.freebase.com/ns/>
+SELECT DISTINCT ?x
+WHERE {
+FILTER (?x != ns:m.07ylj)
+ns:m.07ylj ns:government.governmental_jurisdiction.governing_officials ?y .
+?y ns:government.government_position_held.office_holder ?x .
+?y ns:government.government_position_held.basic_title ns:m.060c4 .
+?x ns:government.politician.government_positions_held ?c .
+?c ns:government.government_position_held.from ?num .
+FILTER (STR(?num) <= ""1969-03-11"") . 
+}"
+24399,"With a GDP Real Adjusted Value of less than 34560039458, what country is Nina Dobrev's nationality?","With a GDP Real Adjusted Value of not less than 34560039458 , what country is Nina Dobrev 's nationality ?",['Bulgaria'],"PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+PREFIX ns: <http://rdf.freebase.com/ns/>
+SELECT DISTINCT ?x
+WHERE {
+FILTER (?x != ns:m.027nwk2)
+ns:m.027nwk2 ns:people.person.nationality ?x .
+?x ns:location.statistical_region.gdp_real ?c .
+?c ns:measurement_unit.adjusted_money_value.adjusted_value ?num .
+FILTER (xsd:integer(?num) < 34560039458) . 
+}","PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+PREFIX ns: <http://rdf.freebase.com/ns/>
+SELECT DISTINCT ?x
+WHERE {
+FILTER (?x != ns:m.027nwk2)
+ns:m.027nwk2 ns:people.person.nationality ?x .
+?x ns:location.statistical_region.gdp_real ?c .
+?c ns:measurement_unit.adjusted_money_value.adjusted_value ?num .
+FILTER (xsd:integer(?num) >= 34560039458) . 
+}"
+24400,Which of the two currently serving Illinois senators had not been yet elected prior to 1997-01-03?,Which of the two currently serving Illinois senators had not been yet elected not prior to 1997 - 01 - 03 ?,['Mark Kirk'],"PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+PREFIX ns: <http://rdf.freebase.com/ns/>
+SELECT DISTINCT ?x
+WHERE {
+FILTER (?x != ns:m.03v0t)
+ns:m.03v0t ns:government.political_district.representatives ?y .
+?y ns:government.government_position_held.office_holder ?x .
+?y ns:government.government_position_held.governmental_body ns:m.07t58 .
+FILTER(NOT EXISTS {?y ns:government.government_position_held.from ?sk0} || 
+EXISTS {?y ns:government.government_position_held.from ?sk1 . 
+FILTER(STR(?sk1) <= ""2015-08-10"") })
+FILTER(NOT EXISTS {?y ns:government.government_position_held.to ?sk2} || 
+EXISTS {?y ns:government.government_position_held.to ?sk3 . 
+FILTER(STR(?sk3) >= ""2015-08-10"") })
+?x ns:government.politician.government_positions_held ?c .
+?c ns:government.government_position_held.from ?num .
+FILTER (STR(?num) > ""1997-01-03"") . 
+}","PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+PREFIX ns: <http://rdf.freebase.com/ns/>
+SELECT DISTINCT ?x
+WHERE {
+FILTER (?x != ns:m.03v0t)
+ns:m.03v0t ns:government.political_district.representatives ?y .
+?y ns:government.government_position_held.office_holder ?x .
+?y ns:government.government_position_held.governmental_body ns:m.07t58 .
+FILTER(NOT EXISTS {?y ns:government.government_position_held.from ?sk0} || 
+EXISTS {?y ns:government.government_position_held.from ?sk1 . 
+FILTER(STR(?sk1) <= ""2015-08-10"") })
+FILTER(NOT EXISTS {?y ns:government.government_position_held.to ?sk2} || 
+EXISTS {?y ns:government.government_position_held.to ?sk3 . 
+FILTER(STR(?sk3) >= ""2015-08-10"") })
+?x ns:government.politician.government_positions_held ?c .
+?c ns:government.government_position_held.from ?num .
+FILTER (STR(?num) <= ""1997-01-03"") . 
+}"
+24401,What was the Wright Brothers' plane called and which model of aircraft went on its initial flight post 1902-09-19?,What was the Wright Brothers ' plane called and which model of aircraft went on its initial flight not post 1902 - 09 - 19 ?,"['Wright Model B', 'Wright Model C']","PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+PREFIX ns: <http://rdf.freebase.com/ns/>
+SELECT DISTINCT ?x
+WHERE {
+FILTER (?x != ns:m.0fzv_)
+ns:m.0fzv_ ns:aviation.aircraft_manufacturer.aircraft_models_made ?x .
+?x ns:aviation.aircraft_model.maiden_flight ?num .
+FILTER (STR(?num) > ""1902-09-19"") . 
+}","PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+PREFIX ns: <http://rdf.freebase.com/ns/>
+SELECT DISTINCT ?x
+WHERE {
+FILTER (?x != ns:m.0fzv_)
+ns:m.0fzv_ ns:aviation.aircraft_manufacturer.aircraft_models_made ?x .
+?x ns:aviation.aircraft_model.maiden_flight ?num .
+FILTER (STR(?num) <= ""1902-09-19"") . 
+}"
+24402,"Who held their governmental position from before January 3, 2011 and were Speakers of the House of Representatives in 2011?","Who held their governmental position not from before January 3 , 2011 and were Speakers of the House of Representatives in 2011 ?","['John Boehner', 'Nancy Pelosi']","PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+PREFIX ns: <http://rdf.freebase.com/ns/>
+SELECT DISTINCT ?x
+WHERE {
+FILTER (?x != ns:m.0cgqx)
+ns:m.0cgqx ns:government.government_office_or_title.office_holders ?y .
+?y ns:government.government_position_held.office_holder ?x .
+FILTER(NOT EXISTS {?y ns:government.government_position_held.from ?sk0} || 
+EXISTS {?y ns:government.government_position_held.from ?sk1 . 
+FILTER(STR(?sk1) <= ""2011-12-31"") })
+FILTER(NOT EXISTS {?y ns:government.government_position_held.to ?sk2} || 
+EXISTS {?y ns:government.government_position_held.to ?sk3 . 
+FILTER(STR(?sk3) >= ""2011-01-01"") })
+?x ns:government.politician.government_positions_held ?c .
+?c ns:government.government_position_held.from ?num .
+FILTER (STR(?num) < ""2011-01-03"") . 
+}","PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+PREFIX ns: <http://rdf.freebase.com/ns/>
+SELECT DISTINCT ?x
+WHERE {
+FILTER (?x != ns:m.0cgqx)
+ns:m.0cgqx ns:government.government_office_or_title.office_holders ?y .
+?y ns:government.government_position_held.office_holder ?x .
+FILTER(NOT EXISTS {?y ns:government.government_position_held.from ?sk0} || 
+EXISTS {?y ns:government.government_position_held.from ?sk1 . 
+FILTER(STR(?sk1) > ""2011-12-31"") })
+FILTER(NOT EXISTS {?y ns:government.government_position_held.to ?sk2} || 
+EXISTS {?y ns:government.government_position_held.to ?sk3 . 
+FILTER(STR(?sk3) < ""2011-01-01"") })
+?x ns:government.politician.government_positions_held ?c .
+?c ns:government.government_position_held.from ?num .
+FILTER (STR(?num) >= ""2011-01-03"") . 
+}"
+24403,What players on the Boston Celtics current roster began playing professionally after 2001?,What players on the Boston Celtics current roster began did not play professionally after 2001 ?,"['Jeff Green', 'Evan Turner', 'Erik Murphy', 'Dwight Powell', 'Marcus Thornton', 'Brandon Bass', 'Colton Iverson', 'Tyler Zeller', 'Avery Bradley']","PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+PREFIX ns: <http://rdf.freebase.com/ns/>
+SELECT DISTINCT ?x
+WHERE {
+FILTER (?x != ns:m.0bwjj)
+ns:m.0bwjj ns:sports.sports_team.roster ?y .
+?y ns:sports.sports_team_roster.player ?x .
+FILTER(NOT EXISTS {?y ns:sports.sports_team_roster.from ?sk0} || 
+EXISTS {?y ns:sports.sports_team_roster.from ?sk1 . 
+FILTER(STR(?sk1) <= ""2015-08-10"") })
+FILTER(NOT EXISTS {?y ns:sports.sports_team_roster.to ?sk2} || 
+EXISTS {?y ns:sports.sports_team_roster.to ?sk3 . 
+FILTER(STR(?sk3) >= ""2015-08-10"") })
+?x ns:sports.pro_athlete.sports_played_professionally ?c .
+?c ns:sports.pro_sports_played.career_start ?num .
+FILTER (STR(?num) > ""2001"") . 
+}","PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+PREFIX ns: <http://rdf.freebase.com/ns/>
+SELECT DISTINCT ?x
+WHERE {
+FILTER (?x != ns:m.0bwjj)
+ns:m.0bwjj ns:sports.sports_team.roster ?y .
+?y ns:sports.sports_team_roster.player ?x .
+FILTER(NOT EXISTS {?y ns:sports.sports_team_roster.from ?sk0} || 
+EXISTS {?y ns:sports.sports_team_roster.from ?sk1 . 
+FILTER(STR(?sk1) <= ""2015-08-10"") })
+FILTER(NOT EXISTS {?y ns:sports.sports_team_roster.to ?sk2} || 
+EXISTS {?y ns:sports.sports_team_roster.to ?sk3 . 
+FILTER(STR(?sk3) >= ""2015-08-10"") })
+?x ns:sports.pro_athlete.sports_played_professionally ?c .
+?c ns:sports.pro_sports_played.career_start ?num .
+FILTER (STR(?num) <= ""2001"") . 
+}"
+24404,What structure started prior to 1900 can be visisted in Barcelona?,What structure started not prior to 1900 can be visisted in Barcelona ?,['Sagrada Família'],"PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+PREFIX ns: <http://rdf.freebase.com/ns/>
+SELECT DISTINCT ?x
+WHERE {
+FILTER (?x != ns:m.01f62)
+ns:m.01f62 ns:travel.travel_destination.tourist_attractions ?x .
+?x ns:architecture.structure.construction_started ?num .
+FILTER (STR(?num) < ""1900"") . 
+}","PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+PREFIX ns: <http://rdf.freebase.com/ns/>
+SELECT DISTINCT ?x
+WHERE {
+FILTER (?x != ns:m.01f62)
+ns:m.01f62 ns:travel.travel_destination.tourist_attractions ?x .
+?x ns:architecture.structure.construction_started ?num .
+FILTER (STR(?num) >= ""1900"") . 
+}"
+24405,Which country with a net migration less than -1377252 borders the U.S.?,Which country with a net migration not less than -1377252 borders the U.S. ?,['Mexico'],"PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+PREFIX ns: <http://rdf.freebase.com/ns/>
+SELECT DISTINCT ?x
+WHERE {
+FILTER (?x != ns:m.09c7w0)
+ns:m.09c7w0 ns:location.location.adjoin_s ?y .
+?y ns:location.adjoining_relationship.adjoins ?x .
+?x ns:common.topic.notable_types ns:m.01mp .
+?x ns:location.statistical_region.net_migration ?c .
+?c ns:measurement_unit.dated_integer.number ?num .
+FILTER (xsd:integer(?num) < -1377252) . 
+}","PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+PREFIX ns: <http://rdf.freebase.com/ns/>
+SELECT DISTINCT ?x
+WHERE {
+FILTER (?x != ns:m.09c7w0)
+ns:m.09c7w0 ns:location.location.adjoin_s ?y .
+?y ns:location.adjoining_relationship.adjoins ?x .
+?x ns:common.topic.notable_types ns:m.01mp .
+?x ns:location.statistical_region.net_migration ?c .
+?c ns:measurement_unit.dated_integer.number ?num .
+FILTER (xsd:integer(?num) >= -1377252) . 
+}"
+24406,Who is the Vancouver Canucks' coach that started his career after 1982?,Who is the Vancouver Canucks ' coach that did not start his career after 1982 ?,['Doug Lidster'],"PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+PREFIX ns: <http://rdf.freebase.com/ns/>
+SELECT DISTINCT ?x
+WHERE {
+FILTER (?x != ns:m.0jnnx)
+ns:m.0jnnx ns:sports.sports_team.coaches ?y .
+?y ns:sports.sports_team_coach_tenure.coach ?x .
+?x ns:sports.pro_athlete.career_start ?num .
+FILTER (STR(?num) > ""1982"") . 
+}","PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+PREFIX ns: <http://rdf.freebase.com/ns/>
+SELECT DISTINCT ?x
+WHERE {
+FILTER (?x != ns:m.0jnnx)
+ns:m.0jnnx ns:sports.sports_team.coaches ?y .
+?y ns:sports.sports_team_coach_tenure.coach ?x .
+?x ns:sports.pro_athlete.career_start ?num .
+FILTER (STR(?num) <= ""1982"") . 
+}"
+24407,"Who won the Nobel Peace Prize in 2007, and held his governmental position after January 03, 1983?","Who won the Nobel Peace Prize in 2007 , and held his governmental position not after January 03 , 1983 ?",['Al Gore'],"PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+PREFIX ns: <http://rdf.freebase.com/ns/>
+SELECT DISTINCT ?x
+WHERE {
+FILTER (?x != ns:m.05f3q)
+ns:m.05f3q ns:award.award_category.winners ?y .
+?y ns:award.award_honor.award_winner ?x .
+FILTER(NOT EXISTS {?y ns:award.award_honor.year ?sk0} || 
+EXISTS {?y ns:award.award_honor.year ?sk1 . 
+FILTER(STR(?sk1) >= ""2007-01-01"") })
+FILTER(NOT EXISTS {?y ns:award.award_honor.year ?sk2} || 
+EXISTS {?y ns:award.award_honor.year ?sk3 . 
+FILTER(STR(?sk3) <= ""2007-12-31"") })
+?x ns:government.politician.government_positions_held ?c .
+?c ns:government.government_position_held.from ?num .
+FILTER (STR(?num) > ""1983-01-03"") . 
+}","PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+PREFIX ns: <http://rdf.freebase.com/ns/>
+SELECT DISTINCT ?x
+WHERE {
+FILTER (?x != ns:m.05f3q)
+ns:m.05f3q ns:award.award_category.winners ?y .
+?y ns:award.award_honor.award_winner ?x .
+FILTER(NOT EXISTS {?y ns:award.award_honor.year ?sk0} || 
+EXISTS {?y ns:award.award_honor.year ?sk1 . 
+FILTER(STR(?sk1) >= ""2007-01-01"") })
+FILTER(NOT EXISTS {?y ns:award.award_honor.year ?sk2} || 
+EXISTS {?y ns:award.award_honor.year ?sk3 . 
+FILTER(STR(?sk3) <= ""2007-12-31"") })
+?x ns:government.politician.government_positions_held ?c .
+?c ns:government.government_position_held.from ?num .
+FILTER (STR(?num) <= ""1983-01-03"") . 
+}"
+24408,"Who was elected the president of the Philippines, which held his governmental position after December 30,1965?","Who was elected the president of the Philippines , which held his governmental position not after December 30,1965 ?","['Joseph Estrada', 'Fidel V. Ramos', 'Gloria Macapagal-Arroyo', 'Benigno \\""Noynoy\\"" Aquino III', 'Corazon Aquino']","PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+PREFIX ns: <http://rdf.freebase.com/ns/>
+SELECT DISTINCT ?x
+WHERE {
+FILTER (?x != ns:m.05v8c)
+ns:m.05v8c ns:government.governmental_jurisdiction.governing_officials ?y .
+?y ns:government.government_position_held.office_holder ?x .
+?y ns:government.government_position_held.basic_title ns:m.060c4 .
+?x ns:government.politician.government_positions_held ?c .
+?c ns:government.government_position_held.from ?num .
+FILTER (STR(?num) > ""1965-12-30"") . 
+}","PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+PREFIX ns: <http://rdf.freebase.com/ns/>
+SELECT DISTINCT ?x
+WHERE {
+FILTER (?x != ns:m.05v8c)
+ns:m.05v8c ns:government.governmental_jurisdiction.governing_officials ?y .
+?y ns:government.government_position_held.office_holder ?x .
+?y ns:government.government_position_held.basic_title ns:m.060c4 .
+?x ns:government.politician.government_positions_held ?c .
+?c ns:government.government_position_held.from ?num .
+FILTER (STR(?num) <= ""1965-12-30"") . 
+}"
+24409,"Who held his governmental position from November 6, 1962 and was JFK's family?","Who held his governmental position not from November 6 , 1962 and was JFK 's family ?","['Robert F. Kennedy', 'Joseph P. Kennedy, Sr.']","PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+#MANUAL SPARQL
+PREFIX ns: <http://rdf.freebase.com/ns/>
+SELECT DISTINCT ?x
+WHERE {
+	FILTER (?x != ns:m.0d3k14)
+	{ 
+	  # Parents
+	  ns:m.0d3k14 ns:people.person.parents ?x .
+	}
+	UNION
+	{
+	  # Children
+	  ns:m.0d3k14 ns:people.person.children ?x .
+	}
+	UNION
+	{
+	  # Siblings
+	  ns:m.0d3k14 ns:people.person.sibling_s ?y .
+	  ?y ns:people.sibling_relationship.sibling ?x .
+	}
+	UNION
+	{
+	  # Spouse
+	  ns:m.0d3k14 ns:people.person.spouse_s ?y .
+	  ?y ns:people.marriage.spouse ?x .
+	  ?y ns:people.marriage.type_of_union ns:m.04ztj .
+	  FILTER (NOT EXISTS {?y ns:people.marriage.to []})
+	}?x ns:government.politician.government_positions_held ?c .
+?c ns:government.government_position_held.from ?num .
+FILTER (STR(?num) < ""1962-11-06"") . 
+}","PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+#MANUAL SPARQL
+PREFIX ns: <http://rdf.freebase.com/ns/>
+SELECT DISTINCT ?x
+WHERE {
+	FILTER (?x != ns:m.0d3k14)
+	{ 
+	  # Parents
+	  ns:m.0d3k14 ns:people.person.parents ?x .
+	}
+	UNION
+	{
+	  # Children
+	  ns:m.0d3k14 ns:people.person.children ?x .
+	}
+	UNION
+	{
+	  # Siblings
+	  ns:m.0d3k14 ns:people.person.sibling_s ?y .
+	  ?y ns:people.sibling_relationship.sibling ?x .
+	}
+	UNION
+	{
+	  # Spouse
+	  ns:m.0d3k14 ns:people.person.spouse_s ?y .
+	  ?y ns:people.marriage.spouse ?x .
+	  ?y ns:people.marriage.type_of_union ns:m.04ztj .
+	  FILTER (NOT EXISTS {?y ns:people.marriage.to []})
+	}?x ns:government.politician.government_positions_held ?c .
+?c ns:government.government_position_held.from ?num .
+FILTER (STR(?num) >= ""1962-11-06"") . 
+}"
+24410,"Who held his governmental position from January 7, 2013 and won Utah Attorney General?","Who held his governmental position not from January 7 , 2013 and won Utah Attorney General ?",['Sean Reyes'],"PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+PREFIX ns: <http://rdf.freebase.com/ns/>
+SELECT DISTINCT ?x
+WHERE {
+FILTER (?x != ns:m.07srw)
+ns:m.07srw ns:government.governmental_jurisdiction.governing_officials ?y .
+?y ns:government.government_position_held.office_holder ?x .
+?y ns:government.government_position_held.office_position_or_title ns:m.0hzbyr1 .
+?x ns:government.politician.government_positions_held ?c .
+?c ns:government.government_position_held.from ?num .
+FILTER (STR(?num) > ""2013-01-07"") . 
+}","PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+PREFIX ns: <http://rdf.freebase.com/ns/>
+SELECT DISTINCT ?x
+WHERE {
+FILTER (?x != ns:m.07srw)
+ns:m.07srw ns:government.governmental_jurisdiction.governing_officials ?y .
+?y ns:government.government_position_held.office_holder ?x .
+?y ns:government.government_position_held.office_position_or_title ns:m.0hzbyr1 .
+?x ns:government.politician.government_positions_held ?c .
+?c ns:government.government_position_held.from ?num .
+FILTER (STR(?num) <= ""2013-01-07"") . 
+}"
+24411,Who held a government post from before 1969-01-22 and was Secretary of State under President Richard Nixon?,Who did not hold a government post from before 1969 - 01 - 22 and was Secretary of State under President Richard Nixon ?,['Henry Kissinger'],"PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+PREFIX ns: <http://rdf.freebase.com/ns/>
+SELECT DISTINCT ?x
+WHERE {
+FILTER (?x != ns:m.06c97)
+ns:m.06c97 ns:government.political_appointer.appointees ?y .
+?y ns:government.government_position_held.office_holder ?x .
+?y ns:government.government_position_held.basic_title ns:m.0789n .
+?x ns:government.politician.government_positions_held ?c .
+?c ns:government.government_position_held.from ?num .
+FILTER (STR(?num) < ""1969-01-22"") . 
+}","PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+PREFIX ns: <http://rdf.freebase.com/ns/>
+SELECT DISTINCT ?x
+WHERE {
+FILTER (?x != ns:m.06c97)
+ns:m.06c97 ns:government.political_appointer.appointees ?y .
+?y ns:government.government_position_held.office_holder ?x .
+?y ns:government.government_position_held.basic_title ns:m.0789n .
+?x ns:government.politician.government_positions_held ?c .
+?c ns:government.government_position_held.from ?num .
+FILTER (STR(?num) >= ""1969-01-22"") . 
+}"
+24412,Which Colorado representative held their governmental position since 2009-01-03?,Which Colorado representative held their governmental position not since 2009 - 01 - 03 ?,['Michael Bennet'],"PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+PREFIX ns: <http://rdf.freebase.com/ns/>
+SELECT DISTINCT ?x
+WHERE {
+FILTER (?x != ns:m.01n4w)
+ns:m.01n4w ns:government.political_district.representatives ?y .
+?y ns:government.government_position_held.office_holder ?x .
+FILTER(NOT EXISTS {?y ns:government.government_position_held.from ?sk0} || 
+EXISTS {?y ns:government.government_position_held.from ?sk1 . 
+FILTER(STR(?sk1) <= ""2015-08-10"") })
+FILTER(NOT EXISTS {?y ns:government.government_position_held.to ?sk2} || 
+EXISTS {?y ns:government.government_position_held.to ?sk3 . 
+FILTER(STR(?sk3) >= ""2015-08-10"") })
+?x ns:government.politician.government_positions_held ?c .
+?c ns:government.government_position_held.from ?num .
+FILTER (STR(?num) > ""2009-01-03"") . 
+}","PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+PREFIX ns: <http://rdf.freebase.com/ns/>
+SELECT DISTINCT ?x
+WHERE {
+FILTER (?x != ns:m.01n4w)
+ns:m.01n4w ns:government.political_district.representatives ?y .
+?y ns:government.government_position_held.office_holder ?x .
+FILTER(NOT EXISTS {?y ns:government.government_position_held.from ?sk0} || 
+EXISTS {?y ns:government.government_position_held.from ?sk1 . 
+FILTER(STR(?sk1) <= ""2015-08-10"") })
+FILTER(NOT EXISTS {?y ns:government.government_position_held.to ?sk2} || 
+EXISTS {?y ns:government.government_position_held.to ?sk3 . 
+FILTER(STR(?sk3) >= ""2015-08-10"") })
+?x ns:government.politician.government_positions_held ?c .
+?c ns:government.government_position_held.from ?num .
+FILTER (STR(?num) <= ""2009-01-03"") . 
+}"
+24413,What zoo that opened before 2006 is there to see when traveling around Sydney?,What zoo that did not open before 2006 is there to see when traveling around Sydney ?,['Featherdale Wildlife Park'],"PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+PREFIX ns: <http://rdf.freebase.com/ns/>
+SELECT DISTINCT ?x
+WHERE {
+FILTER (?x != ns:m.06y57)
+ns:m.06y57 ns:travel.travel_destination.tourist_attractions ?x .
+?x ns:zoos.zoo.opened ?num .
+FILTER (STR(?num) < ""2006"") . 
+}","PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+PREFIX ns: <http://rdf.freebase.com/ns/>
+SELECT DISTINCT ?x
+WHERE {
+FILTER (?x != ns:m.06y57)
+ns:m.06y57 ns:travel.travel_destination.tourist_attractions ?x .
+?x ns:zoos.zoo.opened ?num .
+FILTER (STR(?num) >= ""2006"") . 
+}"
+24414,Who held the position of state senator from Arizona and held this post before 1953-01-03?,Who held the position of state senator not from Arizona and held this post before 1953 - 01 - 03 ?,"['Ralph H. Cameron', 'Carl Hayden', 'Ernest McFarland', 'Marcus A. Smith', 'Henry F. Ashurst']","PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+PREFIX ns: <http://rdf.freebase.com/ns/>
+SELECT DISTINCT ?x
+WHERE {
+FILTER (?x != ns:m.0vmt)
+ns:m.0vmt ns:government.political_district.representatives ?y .
+?y ns:government.government_position_held.office_holder ?x .
+?y ns:government.government_position_held.office_position_or_title ns:m.02_7l8y .
+?x ns:government.politician.government_positions_held ?c .
+?c ns:government.government_position_held.from ?num .
+FILTER (STR(?num) < ""1953-01-03"") . 
+}","PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+PREFIX ns: <http://rdf.freebase.com/ns/>
+SELECT DISTINCT ?x
+WHERE {
+FILTER (?x != ns:m.0vmt)
+ns:m.0vmt ns:government.political_district.representatives ?y .
+?y ns:government.government_position_held.office_holder ?x .
+?y ns:government.government_position_held.office_position_or_title ns:m.02_7l8y .
+?x ns:government.politician.government_positions_held ?c .
+?c ns:government.government_position_held.from ?num .
+FILTER (STR(?num) >= ""1953-01-03"") . 
+}"
+24415,"Which of the sights to see in Madrid, where the structure construction started, after 1558?","Which of the sights to did not see in Madrid , where the structure construction started , after 1558 ?",['Royal Palace of Madrid'],"PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+PREFIX ns: <http://rdf.freebase.com/ns/>
+SELECT DISTINCT ?x
+WHERE {
+FILTER (?x != ns:m.056_y)
+ns:m.056_y ns:travel.travel_destination.tourist_attractions ?x .
+?x ns:architecture.structure.construction_started ?num .
+FILTER (STR(?num) > ""1558"") . 
+}","PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+PREFIX ns: <http://rdf.freebase.com/ns/>
+SELECT DISTINCT ?x
+WHERE {
+FILTER (?x != ns:m.056_y)
+ns:m.056_y ns:travel.travel_destination.tourist_attractions ?x .
+?x ns:architecture.structure.construction_started ?num .
+FILTER (STR(?num) <= ""1558"") . 
+}"
+24416,Who held his governmental position from 1965 and was VP for Nixon?,Who held his governmental position not from 1965 and was VP for Nixon ?,['Gerald Ford'],"PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+PREFIX ns: <http://rdf.freebase.com/ns/>
+SELECT DISTINCT ?x
+WHERE {
+FILTER (?x != ns:m.06c97)
+ns:m.06c97 ns:government.us_president.vice_president ?x .
+?x ns:government.politician.government_positions_held ?c .
+?c ns:government.government_position_held.from ?num .
+FILTER (STR(?num) < ""1965"") . 
+}","PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+PREFIX ns: <http://rdf.freebase.com/ns/>
+SELECT DISTINCT ?x
+WHERE {
+FILTER (?x != ns:m.06c97)
+ns:m.06c97 ns:government.us_president.vice_president ?x .
+?x ns:government.politician.government_positions_held ?c .
+?c ns:government.government_position_held.from ?num .
+FILTER (STR(?num) >= ""1965"") . 
+}"

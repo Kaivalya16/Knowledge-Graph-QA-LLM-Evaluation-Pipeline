@@ -1,0 +1,195 @@
+﻿id,original_question,negated_question,answers,sparql,negated_sparql,negation_rule,constraint_kind,detected_constraint,detected_phrase,detected_conjunction,question_negated,sparql_negated,negation_status,literal_match
+24524,"Of Marilyn Monroe's parents, whose date of death is March 11, 1984?","Of Marilyn Monroe's parents, whose date of death is March 11, 1984?",['Martin Edward Mortensen'],"PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+PREFIX ns: <http://rdf.freebase.com/ns/>
+SELECT DISTINCT ?x
+WHERE {
+FILTER (?x != ns:m.04wqr)
+ns:m.04wqr ns:people.person.parents ?x .
+?x ns:people.deceased_person.date_of_death ?num .
+FILTER (STR(?num) < ""1984-03-11"") . 
+}","PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+PREFIX ns: <http://rdf.freebase.com/ns/>
+SELECT DISTINCT ?x
+WHERE {
+FILTER (?x != ns:m.04wqr)
+ns:m.04wqr ns:people.person.parents ?x .
+?x ns:people.deceased_person.date_of_death ?num .
+FILTER (STR(?num) >= ""1984-03-11"") . 
+}",normal_comparative,date,1984-03-11,,,False,True,no_comparative_phrase,exact
+24953,What 2011 movie did Taylor Lautner star in?,What 2011 movie did Taylor Lautner star in?,"['Abduction', 'The Twilight Saga: Breaking Dawn - Part 1']","PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+PREFIX ns: <http://rdf.freebase.com/ns/>
+SELECT DISTINCT ?x
+WHERE {
+FILTER (?x != ns:m.07ldhs)
+ns:m.07ldhs ns:film.actor.film ?y .
+?y ns:film.performance.film ?x .
+FILTER(NOT EXISTS {?x ns:film.film.initial_release_date ?sk0} || 
+EXISTS {?x ns:film.film.initial_release_date ?sk1 . 
+FILTER(STR(?sk1) >= ""2011-01-01"") })
+FILTER(NOT EXISTS {?x ns:film.film.initial_release_date ?sk2} || 
+EXISTS {?x ns:film.film.initial_release_date ?sk3 . 
+FILTER(STR(?sk3) <= ""2011-12-31"") })
+?x ns:film.film.release_date_s ?c .
+?c ns:film.film_regional_release_date.release_date ?num .
+FILTER (STR(?num) > ""2011-11-18"") . 
+}","PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+PREFIX ns: <http://rdf.freebase.com/ns/>
+SELECT DISTINCT ?x
+WHERE {
+FILTER (?x != ns:m.07ldhs)
+ns:m.07ldhs ns:film.actor.film ?y .
+?y ns:film.performance.film ?x .
+FILTER(NOT EXISTS {?x ns:film.film.initial_release_date ?sk0} || 
+EXISTS {?x ns:film.film.initial_release_date ?sk1 . 
+FILTER(STR(?sk1) >= ""2011-01-01"") })
+FILTER(NOT EXISTS {?x ns:film.film.initial_release_date ?sk2} || 
+EXISTS {?x ns:film.film.initial_release_date ?sk3 . 
+FILTER(STR(?sk3) <= ""2011-12-31"") })
+?x ns:film.film.release_date_s ?c .
+?c ns:film.film_regional_release_date.release_date ?num .
+FILTER (STR(?num) <= ""2011-11-18"") . 
+}",normal_comparative,date,2011-11-18,,,False,True,no_comparative_phrase,exact
+25223,Which TV show with the tvrage_id 4914 does Jill Wagner play in?,Which TV show with the tvrage_id 4914 does Jill Wagner play in?,"['Wipeout', 'Teen Wolf']","PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+PREFIX ns: <http://rdf.freebase.com/ns/>
+SELECT DISTINCT ?x
+WHERE {
+FILTER (?x != ns:m.0ch3s1)
+ns:m.0ch3s1 ns:tv.tv_actor.starring_roles ?y .
+?y ns:tv.regular_tv_appearance.series ?x .
+?x ns:tv.tv_program.tvrage_id ?num .
+FILTER (xsd:integer(?num) > 4914) . 
+}","PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+PREFIX ns: <http://rdf.freebase.com/ns/>
+SELECT DISTINCT ?x
+WHERE {
+FILTER (?x != ns:m.0ch3s1)
+ns:m.0ch3s1 ns:tv.tv_actor.starring_roles ?y .
+?y ns:tv.regular_tv_appearance.series ?x .
+?x ns:tv.tv_program.tvrage_id ?num .
+FILTER (xsd:integer(?num) <= 4914) . 
+}",normal_comparative,int,4914,,,False,True,no_comparative_phrase,exact
+25476,What coaches of the Carolina Panthers were coaching from 2000 or later?,What coaches of the Carolina Panthers were coaching from 2000 or later?,"['Dom Capers', 'John Fox']","PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+PREFIX ns: <http://rdf.freebase.com/ns/>
+SELECT DISTINCT ?x
+WHERE {
+FILTER (?x != ns:m.01y3c)
+ns:m.01y3c ns:american_football.football_team.historical_coaching_staff ?y .
+?y ns:american_football.football_historical_coach_position.coach ?x .
+?x ns:american_football.football_coach.coaching_history ?c .
+?c ns:american_football.football_historical_coach_position.from ?num .
+FILTER (STR(?num) > ""1999"") . 
+}","PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+PREFIX ns: <http://rdf.freebase.com/ns/>
+SELECT DISTINCT ?x
+WHERE {
+FILTER (?x != ns:m.01y3c)
+ns:m.01y3c ns:american_football.football_team.historical_coaching_staff ?y .
+?y ns:american_football.football_historical_coach_position.coach ?x .
+?x ns:american_football.football_coach.coaching_history ?c .
+?c ns:american_football.football_historical_coach_position.from ?num .
+FILTER (STR(?num) <= ""1999"") . 
+}",normal_comparative,date,1999,,,False,True,constraint_not_found_in_question,
+25494,Which countries calling code is 356 where they speak Turkish?,Which countries calling code is 356 where they speak Turkish?,"['Turkey', 'Austria']","PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+PREFIX ns: <http://rdf.freebase.com/ns/>
+SELECT DISTINCT ?x
+WHERE {
+FILTER (?x != ns:m.02hwyss)
+ns:m.02hwyss ns:language.human_language.countries_spoken_in ?x .
+?x ns:location.country.calling_code ?num .
+FILTER (xsd:integer(?num) < 357) . 
+}","PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+PREFIX ns: <http://rdf.freebase.com/ns/>
+SELECT DISTINCT ?x
+WHERE {
+FILTER (?x != ns:m.02hwyss)
+ns:m.02hwyss ns:language.human_language.countries_spoken_in ?x .
+?x ns:location.country.calling_code ?num .
+FILTER (xsd:integer(?num) >= 357) . 
+}",normal_comparative,int,357,,,False,True,no_comparative_phrase,approximate
+25521,Who was the prime minister of Japan in 2011?,Who was the prime minister of Japan in 2011?,"['Yoshihiko Noda', 'Naoto Kan']","PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+PREFIX ns: <http://rdf.freebase.com/ns/>
+SELECT DISTINCT ?x
+WHERE {
+FILTER (?x != ns:m.03_3d)
+ns:m.03_3d ns:government.governmental_jurisdiction.governing_officials ?y .
+?y ns:government.government_position_held.office_holder ?x .
+?y ns:government.government_position_held.basic_title ns:m.060bp .
+FILTER(NOT EXISTS {?y ns:government.government_position_held.from ?sk0} || 
+EXISTS {?y ns:government.government_position_held.from ?sk1 . 
+FILTER(STR(?sk1) <= ""2011-12-31"") })
+FILTER(NOT EXISTS {?y ns:government.government_position_held.to ?sk2} || 
+EXISTS {?y ns:government.government_position_held.to ?sk3 . 
+FILTER(STR(?sk3) >= ""2011-01-01"") })
+?x ns:government.politician.party ?c .
+?c ns:government.political_party_tenure.from ?num .
+FILTER (STR(?num) > ""1993"") . 
+}","PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+PREFIX ns: <http://rdf.freebase.com/ns/>
+SELECT DISTINCT ?x
+WHERE {
+FILTER (?x != ns:m.03_3d)
+ns:m.03_3d ns:government.governmental_jurisdiction.governing_officials ?y .
+?y ns:government.government_position_held.office_holder ?x .
+?y ns:government.government_position_held.basic_title ns:m.060bp .
+FILTER(NOT EXISTS {?y ns:government.government_position_held.from ?sk0} || 
+EXISTS {?y ns:government.government_position_held.from ?sk1 . 
+FILTER(STR(?sk1) <= ""2011-12-31"") })
+FILTER(NOT EXISTS {?y ns:government.government_position_held.to ?sk2} || 
+EXISTS {?y ns:government.government_position_held.to ?sk3 . 
+FILTER(STR(?sk3) >= ""2011-01-01"") })
+?x ns:government.politician.party ?c .
+?c ns:government.political_party_tenure.from ?num .
+FILTER (STR(?num) <= ""1993"") . 
+}",normal_comparative,date,1993,,,False,True,constraint_not_found_in_question,
+25585,Who was the governor of Georgia in 2011 that started his tenure after 1-301993?,Who was the governor of Georgia in 2011 that started his tenure after 1-301993?,['Nathan Deal'],"PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+PREFIX ns: <http://rdf.freebase.com/ns/>
+SELECT DISTINCT ?x
+WHERE {
+FILTER (?x != ns:m.0d0x8)
+ns:m.0d0x8 ns:government.governmental_jurisdiction.governing_officials ?y .
+?y ns:government.government_position_held.office_holder ?x .
+?y ns:government.government_position_held.basic_title ns:m.0fkvn .
+FILTER(NOT EXISTS {?y ns:government.government_position_held.from ?sk0} || 
+EXISTS {?y ns:government.government_position_held.from ?sk1 . 
+FILTER(STR(?sk1) <= ""2011-12-31"") })
+FILTER(NOT EXISTS {?y ns:government.government_position_held.to ?sk2} || 
+EXISTS {?y ns:government.government_position_held.to ?sk3 . 
+FILTER(STR(?sk3) >= ""2011-01-01"") })
+?x ns:government.politician.party ?c .
+?c ns:government.political_party_tenure.from ?num .
+FILTER (STR(?num) > ""1993-01-03"") . 
+}","PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+PREFIX ns: <http://rdf.freebase.com/ns/>
+SELECT DISTINCT ?x
+WHERE {
+FILTER (?x != ns:m.0d0x8)
+ns:m.0d0x8 ns:government.governmental_jurisdiction.governing_officials ?y .
+?y ns:government.government_position_held.office_holder ?x .
+?y ns:government.government_position_held.basic_title ns:m.0fkvn .
+FILTER(NOT EXISTS {?y ns:government.government_position_held.from ?sk0} || 
+EXISTS {?y ns:government.government_position_held.from ?sk1 . 
+FILTER(STR(?sk1) <= ""2011-12-31"") })
+FILTER(NOT EXISTS {?y ns:government.government_position_held.to ?sk2} || 
+EXISTS {?y ns:government.government_position_held.to ?sk3 . 
+FILTER(STR(?sk3) >= ""2011-01-01"") })
+?x ns:government.politician.party ?c .
+?c ns:government.political_party_tenure.from ?num .
+FILTER (STR(?num) <= ""1993-01-03"") . 
+}",normal_comparative,date,1993-01-03,,,False,True,constraint_not_found_in_question,
+25688,What zoo is fun to see in Houson that opened September 1922?,What zoo is fun to see in Houson that opened September 1922?,"['Downtown Aquarium, Houston']","PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+PREFIX ns: <http://rdf.freebase.com/ns/>
+SELECT DISTINCT ?x
+WHERE {
+FILTER (?x != ns:m.03l2n)
+ns:m.03l2n ns:travel.travel_destination.tourist_attractions ?x .
+?x ns:zoos.zoo.opened ?num .
+FILTER (STR(?num) > ""1922-09"") . 
+}","PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+PREFIX ns: <http://rdf.freebase.com/ns/>
+SELECT DISTINCT ?x
+WHERE {
+FILTER (?x != ns:m.03l2n)
+ns:m.03l2n ns:travel.travel_destination.tourist_attractions ?x .
+?x ns:zoos.zoo.opened ?num .
+FILTER (STR(?num) <= ""1922-09"") . 
+}",normal_comparative,date,1922-09,,,False,True,no_comparative_phrase,exact

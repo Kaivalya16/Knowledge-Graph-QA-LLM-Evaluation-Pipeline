@@ -1,0 +1,58 @@
+[
+  {
+    "id": "12574",
+    "original_question": "Who are the children of the artists who headlined the Tina 50th Anniversary Tour and Ike",
+    "negated_question": "Who are the children of the artists who didn't headline the Tina 50th Anniversary Tour and Ike",
+    "answers": "['Ronnie Turner', 'Raymond Craig Turner']",
+    "sparql": "PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>\nPREFIX ns: <http://rdf.freebase.com/ns/>\nSELECT DISTINCT ?x\nWHERE {\nFILTER (?x != ?c)\n?c ns:music.artist.concert_tours ns:m.0463c2k . \n?c ns:people.person.children ?x .\n?x ns:people.person.parents ns:m.0dbzg .\n}",
+    "negated_sparql": "PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>\nPREFIX ns: <http://rdf.freebase.com/ns/>\nSELECT DISTINCT ?x\nWHERE {\nFILTER (?x != ?c)\n?c ns:people.person.children ?x .\n?x ns:people.person.parents ns:m.0dbzg .\nFILTER NOT EXISTS {\n  ?c ns:music.artist.concert_tours ns:m.0463c2k .\n}\n}",
+    "negated_answers": [
+      "http://rdf.freebase.com/ns/m.0j5dj25",
+      "http://rdf.freebase.com/ns/m.0j5dj1w",
+      "http://rdf.freebase.com/ns/m.0ggl36p",
+      "http://rdf.freebase.com/ns/m.0j5dj2h",
+      "http://rdf.freebase.com/ns/m.0p18q84",
+      "http://rdf.freebase.com/ns/m.0j5dh53",
+      "http://rdf.freebase.com/ns/m.0p18qj6"
+    ],
+    "query_status": "SUCCESS"
+  },
+  {
+    "id": "12595",
+    "original_question": "What drug killed the artist who went on Moment of Truth World Tour",
+    "negated_question": "What drug killed the artist who didn't go on Moment of Truth World Tour",
+    "answers": "['Cocaine overdose']",
+    "sparql": "PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>\nPREFIX ns: <http://rdf.freebase.com/ns/>\nSELECT DISTINCT ?x\nWHERE {\nFILTER (?x != ?c)\n?c ns:music.artist.concert_tours ns:m.04crr_4 . \n?c ns:people.deceased_person.cause_of_death ?x .\n?x ns:people.cause_of_death.parent_cause_of_death ns:m.01tf_6 .\n}",
+    "negated_sparql": "PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>\nPREFIX ns: <http://rdf.freebase.com/ns/>\nSELECT DISTINCT ?x\nWHERE {\nFILTER (?x != ?c)\n?c ns:people.deceased_person.cause_of_death ?x .\n?x ns:people.cause_of_death.parent_cause_of_death ns:m.01tf_6 .\nFILTER NOT EXISTS {\n  ?c ns:music.artist.concert_tours ns:m.04crr_4 .\n}\n}",
+    "negated_answers": [
+      "http://rdf.freebase.com/ns/m.02nx6jb",
+      "http://rdf.freebase.com/ns/m.02kp1qn"
+    ],
+    "query_status": "SUCCESS"
+  },
+  {
+    "id": "12607",
+    "original_question": "What is the largest part of the location where Denmark is partially located",
+    "negated_question": "What is the largest part of the location where Denmark isn't partially located",
+    "answers": "['Russia']",
+    "sparql": "PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>\nPREFIX ns: <http://rdf.freebase.com/ns/>\nSELECT DISTINCT ?x\nWHERE {\nFILTER (?x != ?c)\n?c ns:location.location.partiallycontains ?k .\n?k ns:location.partial_containment_relationship.partially_contains ns:m.0k6nt . \n?c ns:base.locations.continents.countries_within ?x .\n?x ns:topic_server.population_number ?sk0 .\n}\nORDER BY DESC(xsd:float(?sk0))\nLIMIT 1",
+    "negated_sparql": "PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>\nPREFIX ns: <http://rdf.freebase.com/ns/>\nSELECT DISTINCT ?x\nWHERE {\nFILTER (?x != ?c)\n?c ns:base.locations.continents.countries_within ?x .\n?x ns:topic_server.population_number ?sk0 .\nFILTER NOT EXISTS {\n  ?c ns:location.location.partiallycontains ?k .\n  ?k ns:location.partial_containment_relationship.partially_contains ns:m.0k6nt .\n}\n}\nORDER BY DESC(xsd:float(?sk0))\nLIMIT 1",
+    "negated_answers": [
+      "http://rdf.freebase.com/ns/m.0d05w3"
+    ],
+    "query_status": "SUCCESS"
+  },
+  {
+    "id": "12655",
+    "original_question": "Who did the artist play in the Wiz who had a concert tour named This Is It Tour",
+    "negated_question": "Who did the artist play in the Wiz who had a concert tour not named This Is It Tour",
+    "answers": "['Scarecrow']",
+    "sparql": "PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>\nPREFIX ns: <http://rdf.freebase.com/ns/>\nSELECT DISTINCT ?x\nWHERE {\nFILTER (?x != ?c)\n?c ns:music.artist.concert_tours ns:m.05y_zz5 . \n?c ns:film.actor.film ?y .\n?y ns:film.performance.character ?x .\n?y ns:film.performance.film ns:m.027fwmt .\n}",
+    "negated_sparql": "PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>\nPREFIX ns: <http://rdf.freebase.com/ns/>\nSELECT DISTINCT ?x\nWHERE {\nFILTER (?x != ?c)\n?c ns:music.artist.concert_tours ?neg_e .\nFILTER (?neg_e != ns:m.05y_zz5)\n?c ns:film.actor.film ?y .\n?y ns:film.performance.character ?x .\n?y ns:film.performance.film ns:m.027fwmt .\n}",
+    "negated_answers": [
+      "http://rdf.freebase.com/ns/m.02ztbm",
+      "http://rdf.freebase.com/ns/m.020hj1"
+    ],
+    "query_status": "SUCCESS"
+  }
+]

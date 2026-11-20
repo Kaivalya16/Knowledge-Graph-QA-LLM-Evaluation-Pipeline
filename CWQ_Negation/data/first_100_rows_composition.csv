@@ -1,0 +1,2033 @@
+id,original_question,negated_question,answers,sparql,negated_sparql
+11431,What state is home to the university that is represented in sports by George Washington Colonials men s basketball,What state is home to the university That isn't represented in sports by George Washington Colonials men s basketball,"['Washington, D.C.']","PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+PREFIX ns: <http://rdf.freebase.com/ns/>
+SELECT DISTINCT ?x
+WHERE {
+FILTER (?x != ?c)
+?c ns:education.educational_institution.sports_teams ns:m.03d0l76 . 
+?c ns:organization.organization.headquarters ?y .
+?y ns:location.mailing_address.state_province_region ?x .
+}","PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+PREFIX ns: <http://rdf.freebase.com/ns/>
+SELECT DISTINCT ?x
+WHERE {
+FILTER (?x != ?c)
+?c ns:organization.organization.headquarters ?y .
+?y ns:location.mailing_address.state_province_region ?x .
+  FILTER NOT EXISTS {
+    ?c ns:education.educational_institution.sports_teams ns:m.03d0l76 .
+  }
+}"
+11432,What year did the team with Baltimore Fight Song win the Superbowl,What year didn't the team with Baltimore Fight Song win the Superbowl,"['Super Bowl XLVII', 'Super Bowl XXXV']","PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+PREFIX ns: <http://rdf.freebase.com/ns/>
+SELECT DISTINCT ?x
+WHERE {
+FILTER (?x != ?c)
+?c ns:sports.sports_team.fight_song ns:m.0hn47qp . 
+?c ns:sports.sports_team.championships ?x .
+?x ns:sports.sports_championship_event.championship ns:m.06x5s .
+}","PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+PREFIX ns: <http://rdf.freebase.com/ns/>
+SELECT DISTINCT ?x
+WHERE {
+  FILTER NOT EXISTS {
+    ?c ns:sports.sports_team.fight_song ns:m.0hn47qp .
+  }
+FILTER (?x != ?c)
+?c ns:sports.sports_team.championships ?x .
+?x ns:sports.sports_championship_event.championship ns:m.06x5s .
+}"
+11433,Who was the 1996 coach of the team owned by Jerry Jones,Who was the 1996 coach of the team not owned by Jerry Jones,['Barry Switzer'],"PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+PREFIX ns: <http://rdf.freebase.com/ns/>
+SELECT DISTINCT ?x
+WHERE {
+FILTER (?x != ?c)
+?c ns:sports.professional_sports_team.owner_s ns:m.016b9c . 
+?c ns:american_football.football_team.historical_coaching_staff ?y .
+?y ns:american_football.football_historical_coach_position.coach ?x .
+FILTER(NOT EXISTS {?y ns:american_football.football_historical_coach_position.from ?sk0} || 
+EXISTS {?y ns:american_football.football_historical_coach_position.from ?sk1 . 
+FILTER(STR(?sk1) <= ""1996-12-31"") })
+FILTER(NOT EXISTS {?y ns:american_football.football_historical_coach_position.to ?sk2} || 
+EXISTS {?y ns:american_football.football_historical_coach_position.to ?sk3 . 
+FILTER(STR(?sk3) >= ""1996-01-01"") })
+}","PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+PREFIX ns: <http://rdf.freebase.com/ns/>
+SELECT DISTINCT ?x
+WHERE {
+FILTER (?x != ?c)
+?c ns:american_football.football_team.historical_coaching_staff ?y .
+?y ns:american_football.football_historical_coach_position.coach ?x .
+FILTER(NOT EXISTS {?y ns:american_football.football_historical_coach_position.from ?sk0} || 
+EXISTS {?y ns:american_football.football_historical_coach_position.from ?sk1 . 
+FILTER(STR(?sk1) <= ""1996-12-31"") })
+FILTER(NOT EXISTS {?y ns:american_football.football_historical_coach_position.to ?sk2} || 
+EXISTS {?y ns:american_football.football_historical_coach_position.to ?sk3 . 
+FILTER(STR(?sk3) >= ""1996-01-01"") })
+  FILTER NOT EXISTS {
+    ?c ns:sports.professional_sports_team.owner_s ns:m.016b9c .
+  }
+}"
+11434,Who dated the performer who headlined the concert tour called Demi World Tour,Who dated the performer Who didn't headline the concert tour called Demi World Tour,"['Nicholas Braun', 'Joe Jonas', 'Cody Linley']","PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+PREFIX ns: <http://rdf.freebase.com/ns/>
+SELECT DISTINCT ?x
+WHERE {
+FILTER (?x != ?c)
+?c ns:music.artist.concert_tours ns:m.010pzj9k . 
+?c ns:base.popstra.celebrity.dated ?y .
+?y ns:base.popstra.dated.participant ?x .
+}","PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+PREFIX ns: <http://rdf.freebase.com/ns/>
+SELECT DISTINCT ?x
+WHERE {
+FILTER (?x != ?c)
+?c ns:base.popstra.celebrity.dated ?y .
+?y ns:base.popstra.dated.participant ?x .
+  FILTER NOT EXISTS {
+    ?c ns:music.artist.concert_tours ns:m.010pzj9k .
+  }
+}"
+11435,What business titles was the most famous alumni of Detroit Business Institute best known for,What business titles was the most famous alumni of Detroit Business Institute Best not known for,"['Businessperson', 'Business magnate', 'Industrialist', 'Inventor', 'Engineer', 'Entrepreneur']","PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+PREFIX ns: <http://rdf.freebase.com/ns/>
+SELECT DISTINCT ?x
+WHERE {
+FILTER (?x != ?c)
+?c ns:people.person.education ?k .
+?k ns:education.education.institution ns:m.09ggd7n . 
+?c ns:people.person.profession ?x .
+}","PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+PREFIX ns: <http://rdf.freebase.com/ns/>
+SELECT DISTINCT ?x
+WHERE {
+FILTER (?x != ?c)
+?c ns:people.person.profession ?x .
+  FILTER NOT EXISTS {
+    ?c ns:people.person.education ?k .
+    ?k ns:education.education.institution ns:m.09ggd7n .
+  }
+}"
+11436,The artist from the HIStory World Tour concert tour played what character on the Wiz,The artist from the HIStory World Tour concert tour didn't play what character on the Wiz,['Scarecrow'],"PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+PREFIX ns: <http://rdf.freebase.com/ns/>
+SELECT DISTINCT ?x
+WHERE {
+FILTER (?x != ?c)
+?c ns:music.artist.concert_tours ns:m.09x1nf . 
+?c ns:film.actor.film ?y .
+?y ns:film.performance.character ?x .
+?y ns:film.performance.film ns:m.027fwmt .
+}","PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+PREFIX ns: <http://rdf.freebase.com/ns/>
+SELECT DISTINCT ?x
+WHERE {
+  FILTER NOT EXISTS {
+    ?c ns:music.artist.concert_tours ns:m.09x1nf .
+  }
+FILTER (?x != ?c)
+?c ns:film.actor.film ?y .
+?y ns:film.performance.character ?x .
+?y ns:film.performance.film ns:m.027fwmt .
+}"
+11437,When did the team who has Terry Collins in leadership last win the world series,When did the team Who doesn't have Terry Collins in leadership last win the world series,['1986 World Series'],"PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+PREFIX ns: <http://rdf.freebase.com/ns/>
+SELECT DISTINCT ?x
+WHERE {
+FILTER (?x != ?c)
+?c ns:organization.organization.leadership ?k .
+?k ns:organization.leadership.person ns:m.0bz4qr . 
+?c ns:sports.sports_team.championships ?x .
+?x ns:time.event.end_date ?sk0 .
+}
+ORDER BY DESC(xsd:datetime(?sk0))
+LIMIT 1","PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+PREFIX ns: <http://rdf.freebase.com/ns/>
+SELECT DISTINCT ?x
+WHERE {
+FILTER (?x != ?c)
+?c ns:sports.sports_team.championships ?x .
+?x ns:time.event.end_date ?sk0 .
+  FILTER NOT EXISTS {
+    ?c ns:organization.organization.leadership ?k .
+    ?k ns:organization.leadership.person ns:m.0bz4qr .
+  }
+}
+ORDER BY DESC(xsd:datetime(?sk0))
+LIMIT 1"
+11438,What language is spoken in the country that has Southern Peninsular,What language is spoken in the country That doesn't have Southern Peninsular,['Icelandic Language'],"PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+PREFIX ns: <http://rdf.freebase.com/ns/>
+SELECT DISTINCT ?x
+WHERE {
+FILTER (?x != ?c)
+?c ns:location.country.administrative_divisions ns:m.08kmfj . 
+?c ns:location.country.languages_spoken ?x .
+}","PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+PREFIX ns: <http://rdf.freebase.com/ns/>
+SELECT DISTINCT ?x
+WHERE {
+FILTER (?x != ?c)
+?c ns:location.country.languages_spoken ?x .
+  FILTER NOT EXISTS {
+    ?c ns:location.country.administrative_divisions ns:m.08kmfj .
+  }
+}"
+11439,What sport was played by the winners of the 1948 Stanley Cup,What sport wasn't played by the winners of the 1948 Stanley Cup,['Ice Hockey'],"PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+PREFIX ns: <http://rdf.freebase.com/ns/>
+SELECT DISTINCT ?x
+WHERE {
+FILTER (?x != ?c)
+?c ns:sports.sports_team.championships ns:m.03cjpsk . 
+?c ns:base.events.event_presenting_organisation.event_feed ?y .
+?y ns:base.events.event_feed.type_of_event ?x .
+}","PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+PREFIX ns: <http://rdf.freebase.com/ns/>
+SELECT DISTINCT ?x
+WHERE {
+  FILTER NOT EXISTS {
+    ?c ns:sports.sports_team.championships ns:m.03cjpsk .
+  }
+FILTER (?x != ?c)
+?c ns:base.events.event_presenting_organisation.event_feed ?y .
+?y ns:base.events.event_feed.type_of_event ?x .
+}"
+11440,Which city is home to the University that is known for Purdue Boilermakers men s basketball,Which city is home to the University That isn't known for Purdue Boilermakers men s basketball,['West Lafayette'],"PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+PREFIX ns: <http://rdf.freebase.com/ns/>
+SELECT DISTINCT ?x
+WHERE {
+FILTER (?x != ?c)
+?c ns:education.educational_institution.sports_teams ns:m.026w398 . 
+?c ns:location.location.street_address ?y .
+?y ns:location.mailing_address.citytown ?x .
+}","PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+PREFIX ns: <http://rdf.freebase.com/ns/>
+SELECT DISTINCT ?x
+WHERE {
+FILTER (?x != ?c)
+?c ns:location.location.street_address ?y .
+?y ns:location.mailing_address.citytown ?x .
+  FILTER NOT EXISTS {
+    ?c ns:education.educational_institution.sports_teams ns:m.026w398 .
+  }
+}"
+11441,A person attending education institution Assuptuion Saint Bridget is from where,A person Not attending education institution Assuptuion Saint Bridget is from where,['Bremerton'],"PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+PREFIX ns: <http://rdf.freebase.com/ns/>
+SELECT DISTINCT ?x
+WHERE {
+FILTER (?x != ?c)
+?c ns:people.person.education ?k .
+?k ns:education.education.institution ns:m.02wsngb . 
+?c ns:people.person.place_of_birth ?x .
+}","PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+PREFIX ns: <http://rdf.freebase.com/ns/>
+SELECT DISTINCT ?x
+WHERE {
+FILTER (?x != ?c)
+?c ns:people.person.place_of_birth ?x .
+  FILTER NOT EXISTS {
+    ?c ns:people.person.education ?k .
+    ?k ns:education.education.institution ns:m.02wsngb .
+  }
+}"
+11442,What sports team has a mascot with the name of Homer,What sports team doesn't have a mascot with the name of Homer,"['Homer', 'Rally', 'Chief Noc-A-Homa']","PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+PREFIX ns: <http://rdf.freebase.com/ns/>
+SELECT DISTINCT ?x
+WHERE {
+FILTER (?x != ?c)
+?c ns:sports.sports_team.team_mascot ns:m.07vbb7 . 
+?c ns:sports.sports_team.team_mascot ?x .
+}","PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+PREFIX ns: <http://rdf.freebase.com/ns/>
+SELECT DISTINCT ?x
+WHERE {
+  FILTER NOT EXISTS {
+    ?c ns:sports.sports_team.team_mascot ns:m.07vbb7 .
+  }
+FILTER (?x != ?c)
+?c ns:sports.sports_team.team_mascot ?x .
+}"
+11443,What is the name of the president of the geographic location where Nicolas Sarkozy was appointed to a governmental position,What is the name of the president of the geographic location Where Nicolas Sarkozy wasn't appointed to a governmental position,['François Hollande'],"PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+PREFIX ns: <http://rdf.freebase.com/ns/>
+SELECT DISTINCT ?x
+WHERE {
+FILTER (?x != ?c)
+?c ns:government.governmental_jurisdiction.governing_officials ?k .
+?k ns:government.government_position_held.appointed_by ns:m.02ps9k . 
+?c ns:government.governmental_jurisdiction.governing_officials ?y .
+?y ns:government.government_position_held.office_holder ?x .
+?y ns:government.government_position_held.basic_title ns:m.060c4 .
+FILTER(NOT EXISTS {?y ns:government.government_position_held.from ?sk0} || 
+EXISTS {?y ns:government.government_position_held.from ?sk1 . 
+FILTER(STR(?sk1) <= ""2015-08-10"") })
+FILTER(NOT EXISTS {?y ns:government.government_position_held.to ?sk2} || 
+EXISTS {?y ns:government.government_position_held.to ?sk3 . 
+FILTER(STR(?sk3) >= ""2015-08-10"") })
+}","PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+PREFIX ns: <http://rdf.freebase.com/ns/>
+SELECT DISTINCT ?x
+WHERE {
+FILTER (?x != ?c)
+?c ns:government.governmental_jurisdiction.governing_officials ?y .
+?y ns:government.government_position_held.office_holder ?x .
+?y ns:government.government_position_held.basic_title ns:m.060c4 .
+FILTER(NOT EXISTS {?y ns:government.government_position_held.from ?sk0} || 
+EXISTS {?y ns:government.government_position_held.from ?sk1 . 
+FILTER(STR(?sk1) <= ""2015-08-10"") })
+FILTER(NOT EXISTS {?y ns:government.government_position_held.to ?sk2} || 
+EXISTS {?y ns:government.government_position_held.to ?sk3 . 
+FILTER(STR(?sk3) >= ""2015-08-10"") })
+  FILTER NOT EXISTS {
+    ?c ns:government.governmental_jurisdiction.governing_officials ?k .
+    ?k ns:government.government_position_held.appointed_by ns:m.02ps9k .
+  }
+}"
+11444,What is the largest populated country that partially contains Denmark,What is the largest populated country That partially doesn't contain Denmark,['Germany'],"PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+PREFIX ns: <http://rdf.freebase.com/ns/>
+SELECT DISTINCT ?x
+WHERE {
+FILTER (?x != ?c)
+?c ns:location.location.partiallycontains ?k .
+?k ns:location.partial_containment_relationship.partially_contains ns:m.0k6nt . 
+?c ns:location.location.contains ?x .
+?x ns:common.topic.notable_types ns:m.01mp .
+?x ns:topic_server.population_number ?sk0 .
+}
+ORDER BY DESC(xsd:float(?sk0))
+LIMIT 1","PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+PREFIX ns: <http://rdf.freebase.com/ns/>
+SELECT DISTINCT ?x
+WHERE {
+FILTER (?x != ?c)
+?c ns:location.location.contains ?x .
+?x ns:common.topic.notable_types ns:m.01mp .
+?x ns:topic_server.population_number ?sk0 .
+  FILTER NOT EXISTS {
+    ?c ns:location.location.partiallycontains ?k .
+    ?k ns:location.partial_containment_relationship.partially_contains ns:m.0k6nt .
+  }
+}
+ORDER BY DESC(xsd:float(?sk0))
+LIMIT 1"
+11445,Who is the brother of the actor who played the character Alien on TV Monitors 2,Who is the brother of the actor Who didn't play the character Alien on TV Monitors 2,['Jaxon Bieber'],"PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+PREFIX ns: <http://rdf.freebase.com/ns/>
+SELECT DISTINCT ?x
+WHERE {
+FILTER (?x != ?c)
+?c ns:film.actor.film ?k .
+?k ns:film.performance.character ns:m.0pbzq16 . 
+?c ns:people.person.sibling_s ?y .
+?y ns:people.sibling_relationship.sibling ?x .
+?x ns:people.person.gender ns:m.05zppz .
+}","PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+PREFIX ns: <http://rdf.freebase.com/ns/>
+SELECT DISTINCT ?x
+WHERE {
+FILTER (?x != ?c)
+?c ns:people.person.sibling_s ?y .
+?y ns:people.sibling_relationship.sibling ?x .
+?x ns:people.person.gender ns:m.05zppz .
+  FILTER NOT EXISTS {
+    ?c ns:film.actor.film ?k .
+    ?k ns:film.performance.character ns:m.0pbzq16 .
+  }
+}"
+11446,What form of currency is used in the nation where you d find Rio de Janeiro,What form of currency is used in the nation Where you d don't find Rio de Janeiro,['Brazilian real'],"PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+PREFIX ns: <http://rdf.freebase.com/ns/>
+SELECT DISTINCT ?x
+WHERE {
+FILTER (?x != ?c)
+?c ns:location.country.administrative_divisions ns:m.01hd4s . 
+?c ns:location.country.currency_used ?x .
+}","PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+PREFIX ns: <http://rdf.freebase.com/ns/>
+SELECT DISTINCT ?x
+WHERE {
+FILTER (?x != ?c)
+?c ns:location.country.currency_used ?x .
+  FILTER NOT EXISTS {
+    ?c ns:location.country.administrative_divisions ns:m.01hd4s .
+  }
+}"
+11447,Where did the illustrator of De Divina Proportione die,Where didn't the illustrator of De Divina Proportione die,['Amboise'],"PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+PREFIX ns: <http://rdf.freebase.com/ns/>
+SELECT DISTINCT ?x
+WHERE {
+FILTER (?x != ?c)
+?c ns:book.illustrator.books_illustrated ns:m.06pqb_7 . 
+?c ns:people.deceased_person.place_of_death ?x .
+}","PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+PREFIX ns: <http://rdf.freebase.com/ns/>
+SELECT DISTINCT ?x
+WHERE {
+  FILTER NOT EXISTS {
+    ?c ns:book.illustrator.books_illustrated ns:m.06pqb_7 .
+  }
+FILTER (?x != ?c)
+?c ns:people.deceased_person.place_of_death ?x .
+}"
+11448,Who is the head coach of the basketball team whose head coach is Tom Thibodeau,Who is the head coach of the basketball team Whose head coach isn't Tom Thibodeau,['Tom Thibodeau'],"PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+PREFIX ns: <http://rdf.freebase.com/ns/>
+SELECT DISTINCT ?x
+WHERE {
+FILTER (?x != ?c)
+?c ns:basketball.basketball_team.head_coach ns:m.043jv80 . 
+?c ns:basketball.basketball_team.head_coach ?x .
+}","PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+PREFIX ns: <http://rdf.freebase.com/ns/>
+SELECT DISTINCT ?x
+WHERE {
+FILTER (?x != ?c)
+?c ns:basketball.basketball_team.head_coach ?x .
+  FILTER NOT EXISTS {
+    ?c ns:basketball.basketball_team.head_coach ns:m.043jv80 .
+  }
+}"
+11449,The Yale Herald is the newspaper of the educational institution located where,The Yale Herald is the newspaper of the educational institution not located where,['New Haven'],"PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+PREFIX ns: <http://rdf.freebase.com/ns/>
+SELECT DISTINCT ?x
+WHERE {
+FILTER (?x != ?c)
+?c ns:education.educational_institution.newspaper ns:m.0544pz . 
+?c ns:organization.organization.headquarters ?y .
+?y ns:location.mailing_address.citytown ?x .
+}","PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+PREFIX ns: <http://rdf.freebase.com/ns/>
+SELECT DISTINCT ?x
+WHERE {
+FILTER (?x != ?c)
+?c ns:organization.organization.headquarters ?y .
+?y ns:location.mailing_address.citytown ?x .
+  FILTER NOT EXISTS {
+    ?c ns:education.educational_institution.newspaper ns:m.0544pz .
+  }
+}"
+11450,What is the capital city of the geographic division where the religious organizational leadership is called the Orthodox Autocephalous Church of Albania,What is the capital city of the geographic division Where the religious organizational leadership isn't called the Orthodox Autocephalous Church of Albania,['Tirana'],"PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+PREFIX ns: <http://rdf.freebase.com/ns/>
+SELECT DISTINCT ?x
+WHERE {
+FILTER (?x != ?c)
+?c ns:religion.religious_leadership_jurisdiction.leader ?k .
+?k ns:religion.religious_organization_leadership.organization ns:m.06yy_g . 
+?c ns:location.country.capital ?x .
+}","PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+PREFIX ns: <http://rdf.freebase.com/ns/>
+SELECT DISTINCT ?x
+WHERE {
+FILTER (?x != ?c)
+?c ns:location.country.capital ?x .
+  FILTER NOT EXISTS {
+    ?c ns:religion.religious_leadership_jurisdiction.leader ?k .
+    ?k ns:religion.religious_organization_leadership.organization ns:m.06yy_g .
+  }
+}"
+11451,Which countries are located in a place that slightly contains Italy,Which countries are located in a place That slightly doesn't contain Italy,"['Turkey', 'Monaco', 'Spain', 'France']","PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+PREFIX ns: <http://rdf.freebase.com/ns/>
+SELECT DISTINCT ?x
+WHERE {
+FILTER (?x != ?c)
+?c ns:location.location.partiallycontains ?k .
+?k ns:location.partial_containment_relationship.partially_contains ns:m.03rjj . 
+?c ns:location.location.adjoin_s ?y .
+?y ns:location.adjoining_relationship.adjoins ?x .
+?x ns:common.topic.notable_types ns:m.01mp .
+}","PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+PREFIX ns: <http://rdf.freebase.com/ns/>
+SELECT DISTINCT ?x
+WHERE {
+FILTER (?x != ?c)
+?c ns:location.location.adjoin_s ?y .
+?y ns:location.adjoining_relationship.adjoins ?x .
+?x ns:common.topic.notable_types ns:m.01mp .
+  FILTER NOT EXISTS {
+    ?c ns:location.location.partiallycontains ?k .
+    ?k ns:location.partial_containment_relationship.partially_contains ns:m.03rjj .
+  }
+}"
+11452,What religion was followed by the person who once lived in Fotheringhay Castle,What religion was followed by the person Who once didn't live in Fotheringhay Castle,['Catholicism'],"PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+PREFIX ns: <http://rdf.freebase.com/ns/>
+SELECT DISTINCT ?x
+WHERE {
+FILTER (?x != ?c)
+?c ns:people.person.places_lived ?k .
+?k ns:people.place_lived.location ns:m.025s1y5 . 
+?c ns:people.person.religion ?x .
+}","PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+PREFIX ns: <http://rdf.freebase.com/ns/>
+SELECT DISTINCT ?x
+WHERE {
+FILTER (?x != ?c)
+?c ns:people.person.religion ?x .
+  FILTER NOT EXISTS {
+    ?c ns:people.person.places_lived ?k .
+    ?k ns:people.place_lived.location ns:m.025s1y5 .
+  }
+}"
+11453,What type of money does the country where El Seibo Province is use,What type of money does the country Where El Seibo Province isn't use,['Dominican peso'],"PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+PREFIX ns: <http://rdf.freebase.com/ns/>
+SELECT DISTINCT ?x
+WHERE {
+FILTER (?x != ?c)
+?c ns:location.country.administrative_divisions ns:m.03xplf . 
+?c ns:location.country.currency_used ?x .
+}","PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+PREFIX ns: <http://rdf.freebase.com/ns/>
+SELECT DISTINCT ?x
+WHERE {
+FILTER (?x != ?c)
+?c ns:location.country.currency_used ?x .
+  FILTER NOT EXISTS {
+    ?c ns:location.country.administrative_divisions ns:m.03xplf .
+  }
+}"
+11454,People from the country that uses the Costa Rican Colon speak what languages,People from the country That doesn't use the Costa Rican Colon speak what languages,"['Bribri Language', 'Jamaican Creole English Language', 'Limonese Creole', 'Spanish Language']","PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+PREFIX ns: <http://rdf.freebase.com/ns/>
+SELECT DISTINCT ?x
+WHERE {
+FILTER (?x != ?c)
+?c ns:location.country.currency_used ns:m.04wccn . 
+?c ns:location.country.languages_spoken ?x .
+}","PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+PREFIX ns: <http://rdf.freebase.com/ns/>
+SELECT DISTINCT ?x
+WHERE {
+FILTER (?x != ?c)
+?c ns:location.country.languages_spoken ?x .
+  FILTER NOT EXISTS {
+    ?c ns:location.country.currency_used ns:m.04wccn .
+  }
+}"
+11455,In what year did the basketball team whose head coach is Kevin McHale win their first championship game,In what year did the basketball team Whose head coach isn't Kevin McHale win their first championship game,['1994 NBA Finals'],"PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+PREFIX ns: <http://rdf.freebase.com/ns/>
+SELECT DISTINCT ?x
+WHERE {
+FILTER (?x != ?c)
+?c ns:basketball.basketball_team.head_coach ns:m.04b87b . 
+?c ns:sports.sports_team.championships ?x .
+?x ns:time.event.start_date ?sk0 .
+}
+ORDER BY xsd:datetime(?sk0)
+LIMIT 1","PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+PREFIX ns: <http://rdf.freebase.com/ns/>
+SELECT DISTINCT ?x
+WHERE {
+FILTER (?x != ?c)
+?c ns:sports.sports_team.championships ?x .
+?x ns:time.event.start_date ?sk0 .
+  FILTER NOT EXISTS {
+    ?c ns:basketball.basketball_team.head_coach ns:m.04b87b .
+  }
+}
+ORDER BY xsd:datetime(?sk0)
+LIMIT 1"
+11456,What style of music did the artist that went to Cry of Love Tour play,What style of music did the artist That didn't go to Cry of Love Tour play,"['Blues', 'Acid rock', 'Blues rock', 'Heavy metal', 'Psychedelic rock', 'Rock music', 'Rhythm and blues', 'Experimental rock', 'Funk rock', 'Psychedelia', 'Progressive rock', 'Hard rock']","PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+PREFIX ns: <http://rdf.freebase.com/ns/>
+SELECT DISTINCT ?x
+WHERE {
+FILTER (?x != ?c)
+?c ns:music.artist.concert_tours ns:m.04gkgs_ . 
+?c ns:music.artist.genre ?x .
+}","PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+PREFIX ns: <http://rdf.freebase.com/ns/>
+SELECT DISTINCT ?x
+WHERE {
+FILTER (?x != ?c)
+?c ns:music.artist.genre ?x .
+  FILTER NOT EXISTS {
+    ?c ns:music.artist.concert_tours ns:m.04gkgs_ .
+  }
+}"
+11457,A person from Rathfarnham is of what nationality,A person from Rathfarnham isn't of what nationality,"['India', 'Ottoman Empire']","PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+PREFIX ns: <http://rdf.freebase.com/ns/>
+SELECT DISTINCT ?x
+WHERE {
+FILTER (?x != ?c)
+?c ns:people.person.places_lived ?k .
+?k ns:people.place_lived.location ns:m.02bm4m . 
+?c ns:people.person.nationality ?x .
+}","PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+PREFIX ns: <http://rdf.freebase.com/ns/>
+SELECT DISTINCT ?x
+WHERE {
+  FILTER NOT EXISTS {
+    ?c ns:people.person.places_lived ?k .
+    ?k ns:people.place_lived.location ns:m.02bm4m .
+  }
+FILTER (?x != ?c)
+?c ns:people.person.nationality ?x .
+}"
+11458,The nation with National Anthem of Colombia as its national anthem is located in which geographic regions,The nation with National Anthem of Colombia as its national anthem isn't located in which geographic regions,"['South America', 'Americas']","PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+PREFIX ns: <http://rdf.freebase.com/ns/>
+SELECT DISTINCT ?x
+WHERE {
+FILTER (?x != ?c)
+?c ns:location.country.national_anthem ?k .
+?k ns:government.national_anthem_of_a_country.anthem ns:m.01prgy . 
+?c ns:location.location.containedby ?x .
+}","PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+PREFIX ns: <http://rdf.freebase.com/ns/>
+SELECT DISTINCT ?x
+WHERE {
+  FILTER NOT EXISTS {
+    ?c ns:location.country.national_anthem ?k .
+    ?k ns:government.national_anthem_of_a_country.anthem ns:m.01prgy .
+  }
+FILTER (?x != ?c)
+?c ns:location.location.containedby ?x .
+}"
+11459,What language is spoken in the location that appointed Margrethe II of Denmark to a governmental position,What language is spoken in the location That didn't appoint Margrethe II of Denmark to a governmental position,"['Greenlandic language', 'Danish Language', 'Faroese', 'German Language']","PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+PREFIX ns: <http://rdf.freebase.com/ns/>
+SELECT DISTINCT ?x
+WHERE {
+FILTER (?x != ?c)
+?c ns:government.governmental_jurisdiction.governing_officials ?k .
+?k ns:government.government_position_held.appointed_by ns:m.0g2kv . 
+?c ns:location.country.languages_spoken ?x .
+}","PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+PREFIX ns: <http://rdf.freebase.com/ns/>
+SELECT DISTINCT ?x
+WHERE {
+FILTER (?x != ?c)
+?c ns:location.country.languages_spoken ?x .
+  FILTER NOT EXISTS {
+    ?c ns:government.governmental_jurisdiction.governing_officials ?k .
+    ?k ns:government.government_position_held.appointed_by ns:m.0g2kv .
+  }
+}"
+11460,What is the home town of the NFL team owned by Daniel Snyder,What is the home town of the NFL team not owned by Daniel Snyder,"['Washington, D.C.']","PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+PREFIX ns: <http://rdf.freebase.com/ns/>
+SELECT DISTINCT ?x
+WHERE {
+FILTER (?x != ?c)
+?c ns:sports.professional_sports_team.owner_s ns:m.04pn7c . 
+?c ns:sports.sports_team.location ?x .
+}","PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+PREFIX ns: <http://rdf.freebase.com/ns/>
+SELECT DISTINCT ?x
+WHERE {
+FILTER (?x != ?c)
+?c ns:sports.sports_team.location ?x .
+  FILTER NOT EXISTS {
+    ?c ns:sports.professional_sports_team.owner_s ns:m.04pn7c .
+  }
+}"
+11461,In the film with the character named Tyler Crowley who played Jacob Black,In the film with the character named Tyler Crowley Who didn't play Jacob Black,['Taylor Lautner'],"PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+PREFIX ns: <http://rdf.freebase.com/ns/>
+SELECT DISTINCT ?x
+WHERE {
+FILTER (?x != ?c)
+?c ns:film.film.starring ?k .
+?k ns:film.performance.character ns:m.05m1x3_ . 
+?c ns:film.film.starring ?y .
+?y ns:film.performance.actor ?x .
+?y ns:film.performance.character ns:m.02qd_td .
+}","PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+PREFIX ns: <http://rdf.freebase.com/ns/>
+SELECT DISTINCT ?x
+WHERE {
+FILTER (?x != ?c)
+?c ns:film.film.starring ?y .
+?y ns:film.performance.actor ?x .
+?y ns:film.performance.character ns:m.02qd_td .
+  FILTER NOT EXISTS {
+    ?c ns:film.film.starring ?k .
+    ?k ns:film.performance.character ns:m.05m1x3_ .
+  }
+}"
+11462,What organization is owned by Nestle Belarusia,What organization isn't owned by Nestle Belarusia,"['Food processing', 'Ice Cream and Frozen Dessert Manufacturing', 'Soft Drink Manufacturing', 'Bottled Water Manufacturing', 'Cookies and Crackers', 'Chocolate and Cocoa Products', 'Bottled and Canned Soft Drinks and Carbonated Waters']","PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+PREFIX ns: <http://rdf.freebase.com/ns/>
+SELECT DISTINCT ?x
+WHERE {
+FILTER (?x != ?c)
+?c ns:organization.organization.child ?k .
+?k ns:organization.organization_relationship.child ns:m.075sdjl . 
+?c ns:business.business_operation.industry ?x .
+}","PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+PREFIX ns: <http://rdf.freebase.com/ns/>
+SELECT DISTINCT ?x
+WHERE {
+  FILTER NOT EXISTS {
+    ?c ns:organization.organization.child ?k .
+    ?k ns:organization.organization_relationship.child ns:m.075sdjl .
+  }
+FILTER (?x != ?c)
+?c ns:business.business_operation.industry ?x .
+}"
+11463,What country has Yardymli District in it,What country doesn't have Yardymli District in it,['Eurasia'],"PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+PREFIX ns: <http://rdf.freebase.com/ns/>
+SELECT DISTINCT ?x
+WHERE {
+FILTER (?x != ?c)
+?c ns:location.country.administrative_divisions ns:m.055njn . 
+?c ns:base.locations.countries.continent ?x .
+}","PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+PREFIX ns: <http://rdf.freebase.com/ns/>
+SELECT DISTINCT ?x
+WHERE {
+  FILTER NOT EXISTS {
+    ?c ns:location.country.administrative_divisions ns:m.055njn .
+  }
+FILTER (?x != ?c)
+?c ns:base.locations.countries.continent ?x .
+}"
+11464,Where is the Oral Fixation Tour artist from,Where isn't the Oral Fixation Tour artist from,['Colombia'],"PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+PREFIX ns: <http://rdf.freebase.com/ns/>
+SELECT DISTINCT ?x
+WHERE {
+FILTER (?x != ?c)
+?c ns:music.artist.concert_tours ns:m.0g2n_6 . 
+?c ns:music.artist.origin ?x .
+}","PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+PREFIX ns: <http://rdf.freebase.com/ns/>
+SELECT DISTINCT ?x
+WHERE {
+  FILTER NOT EXISTS {
+    ?c ns:music.artist.concert_tours ns:m.0g2n_6 .
+  }
+FILTER (?x != ?c)
+?c ns:music.artist.origin ?x .
+}"
+11465,What type of currency is used where the El Seibo Province is located,What type of currency is used Where the El Seibo Province isn't located,['Dominican peso'],"PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+PREFIX ns: <http://rdf.freebase.com/ns/>
+SELECT DISTINCT ?x
+WHERE {
+FILTER (?x != ?c)
+?c ns:location.country.administrative_divisions ns:m.03xplf . 
+?c ns:location.country.currency_used ?x .
+}","PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+PREFIX ns: <http://rdf.freebase.com/ns/>
+SELECT DISTINCT ?x
+WHERE {
+FILTER (?x != ?c)
+?c ns:location.country.currency_used ?x .
+  FILTER NOT EXISTS {
+    ?c ns:location.country.administrative_divisions ns:m.03xplf .
+  }
+}"
+11466,What are the official bird and flower of the state whose capital is Lansing,What are the official bird and flower of the state Whose capital isn't Lansing,"['American robin', 'Apple Blossom']","PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+#MANUAL SPARQL
+PREFIX ns: <http://rdf.freebase.com/ns/>
+SELECT DISTINCT  ?x
+WHERE {
+?c ns:location.us_state.capital ns:m.04pry . 
+?c ns:government.governmental_jurisdiction.official_symbols ?y . # Michigan
+  ?y ns:location.location_symbol_relationship.symbol ?x .
+  ?y ns:location.location_symbol_relationship.Kind_of_symbol ?k .
+
+  FILTER (?k = ns:m.04627hw || ?k = ns:m.04627gn)  # State Bird & State Flower
+}","PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+#MANUAL SPARQL
+PREFIX ns: <http://rdf.freebase.com/ns/>
+SELECT DISTINCT  ?x
+WHERE {
+?c ns:government.governmental_jurisdiction.official_symbols ?y . # Michigan
+  ?y ns:location.location_symbol_relationship.symbol ?x .
+  ?y ns:location.location_symbol_relationship.Kind_of_symbol ?k .
+
+  FILTER (?k = ns:m.04627hw || ?k = ns:m.04627gn)  # State Bird & State Flower
+  FILTER NOT EXISTS {
+    ?c ns:location.us_state.capital ns:m.04pry .
+  }
+}"
+11467,What is the nationalilty of the artist who had a concert tour named Tour Anfibio s,What is the nationalilty of the artist Who didn't have a concert tour named Tour Anfibio s,['Colombia'],"PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+PREFIX ns: <http://rdf.freebase.com/ns/>
+SELECT DISTINCT ?x
+WHERE {
+FILTER (?x != ?c)
+?c ns:music.artist.concert_tours ns:m.09ncdd . 
+?c ns:people.person.nationality ?x .
+}","PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+PREFIX ns: <http://rdf.freebase.com/ns/>
+SELECT DISTINCT ?x
+WHERE {
+FILTER (?x != ?c)
+?c ns:people.person.nationality ?x .
+  FILTER NOT EXISTS {
+    ?c ns:music.artist.concert_tours ns:m.09ncdd .
+  }
+}"
+11468,What is the state capital where the major export is Apple trees,What is the state capital Where the major export isn't Apple trees,['Olympia'],"PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+PREFIX ns: <http://rdf.freebase.com/ns/>
+SELECT DISTINCT ?x
+WHERE {
+FILTER (?x != ?c)
+?c ns:location.statistical_region.major_exports ?k .
+?k ns:location.imports_exports_by_industry.industry ns:m.014j1m . 
+?c ns:base.aareas.schema.administrative_area.capital ?x .
+}","PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+PREFIX ns: <http://rdf.freebase.com/ns/>
+SELECT DISTINCT ?x
+WHERE {
+FILTER (?x != ?c)
+?c ns:base.aareas.schema.administrative_area.capital ?x .
+  FILTER NOT EXISTS {
+    ?c ns:location.statistical_region.major_exports ?k .
+    ?k ns:location.imports_exports_by_industry.industry ns:m.014j1m .
+  }
+}"
+11469,The country that has the national anthem Shche ne vmerla Ukraina uses what kind of money,The country That doesn't have the national anthem Shche ne vmerla Ukraina uses what kind of money,['Ukrainian hryvnia'],"PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+PREFIX ns: <http://rdf.freebase.com/ns/>
+SELECT DISTINCT ?x
+WHERE {
+FILTER (?x != ?c)
+?c ns:location.country.national_anthem ?k .
+?k ns:government.national_anthem_of_a_country.anthem ns:m.01kvjf . 
+?c ns:location.country.currency_used ?x .
+}","PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+PREFIX ns: <http://rdf.freebase.com/ns/>
+SELECT DISTINCT ?x
+WHERE {
+FILTER (?x != ?c)
+?c ns:location.country.currency_used ?x .
+  FILTER NOT EXISTS {
+    ?c ns:location.country.national_anthem ?k .
+    ?k ns:government.national_anthem_of_a_country.anthem ns:m.01kvjf .
+  }
+}"
+11470,The nation where Michoacan is located uses which form of currency,The nation Where Michoacan isn't located uses which form of currency,['Mexican peso'],"PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+PREFIX ns: <http://rdf.freebase.com/ns/>
+SELECT DISTINCT ?x
+WHERE {
+FILTER (?x != ?c)
+?c ns:location.country.administrative_divisions ns:m.01btry . 
+?c ns:location.country.currency_used ?x .
+}","PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+PREFIX ns: <http://rdf.freebase.com/ns/>
+SELECT DISTINCT ?x
+WHERE {
+FILTER (?x != ?c)
+?c ns:location.country.currency_used ?x .
+  FILTER NOT EXISTS {
+    ?c ns:location.country.administrative_divisions ns:m.01btry .
+  }
+}"
+11471,What type of government is run in the country with the anthem titled God Defend New Zealand,What type of government is run in the country with the anthem not titled God Defend New Zealand,"['Parliamentary system', 'Unitary state', 'Constitutional monarchy']","PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+PREFIX ns: <http://rdf.freebase.com/ns/>
+SELECT DISTINCT ?x
+WHERE {
+FILTER (?x != ?c)
+?c ns:location.country.national_anthem ?k .
+?k ns:government.national_anthem_of_a_country.anthem ns:m.03b03 . 
+?c ns:location.country.form_of_government ?x .
+}","PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+PREFIX ns: <http://rdf.freebase.com/ns/>
+SELECT DISTINCT ?x
+WHERE {
+FILTER (?x != ?c)
+?c ns:location.country.form_of_government ?x .
+  FILTER NOT EXISTS {
+    ?c ns:location.country.national_anthem ?k .
+    ?k ns:government.national_anthem_of_a_country.anthem ns:m.03b03 .
+  }
+}"
+11472,What college was attended by the famous alumni of Luitpold Gymnasium,What college wasn't attended by the famous alumni of Luitpold Gymnasium,"['ETH Zurich', 'University of Zurich']","PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+PREFIX ns: <http://rdf.freebase.com/ns/>
+SELECT DISTINCT ?x
+WHERE {
+FILTER (?x != ?c)
+?c ns:people.person.education ?k .
+?k ns:education.education.institution ns:m.07yfzw . 
+?c ns:people.person.education ?y .
+?y ns:education.education.institution ?x .
+?x ns:common.topic.notable_types ns:m.01y2hnl .
+}","PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+PREFIX ns: <http://rdf.freebase.com/ns/>
+SELECT DISTINCT ?x
+WHERE {
+  FILTER NOT EXISTS {
+    ?c ns:people.person.education ?k .
+    ?k ns:education.education.institution ns:m.07yfzw .
+  }
+FILTER (?x != ?c)
+?c ns:people.person.education ?y .
+?y ns:education.education.institution ?x .
+?x ns:common.topic.notable_types ns:m.01y2hnl .
+}"
+11473,What is the type of government where the national anthem is Tien Quan Ca,What is the type of government Where the national anthem isn't Tien Quan Ca,"['Communist state', 'Socialist state', 'Single-party state']","PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+PREFIX ns: <http://rdf.freebase.com/ns/>
+SELECT DISTINCT ?x
+WHERE {
+FILTER (?x != ?c)
+?c ns:location.country.national_anthem ?k .
+?k ns:government.national_anthem_of_a_country.anthem ns:m.01kvf8 . 
+?c ns:location.country.form_of_government ?x .
+}","PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+PREFIX ns: <http://rdf.freebase.com/ns/>
+SELECT DISTINCT ?x
+WHERE {
+FILTER (?x != ?c)
+?c ns:location.country.form_of_government ?x .
+  FILTER NOT EXISTS {
+    ?c ns:location.country.national_anthem ?k .
+    ?k ns:government.national_anthem_of_a_country.anthem ns:m.01kvf8 .
+  }
+}"
+11474,When did the sports team whose mascot is Mrs Met most recently win the World Series,When did the sports team Whose mascot isn't Mrs Met most recently win the World Series,['1986 World Series'],"PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+PREFIX ns: <http://rdf.freebase.com/ns/>
+SELECT DISTINCT ?x
+WHERE {
+FILTER (?x != ?c)
+?c ns:sports.sports_team.team_mascot ns:m.0w7lzvh . 
+?c ns:sports.sports_team.championships ?x .
+?x ns:time.event.end_date ?sk0 .
+}
+ORDER BY DESC(xsd:datetime(?sk0))
+LIMIT 1","PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+PREFIX ns: <http://rdf.freebase.com/ns/>
+SELECT DISTINCT ?x
+WHERE {
+FILTER (?x != ?c)
+?c ns:sports.sports_team.championships ?x .
+?x ns:time.event.end_date ?sk0 .
+  FILTER NOT EXISTS {
+    ?c ns:sports.sports_team.team_mascot ns:m.0w7lzvh .
+  }
+}
+ORDER BY DESC(xsd:datetime(?sk0))
+LIMIT 1"
+11475,Michelle D Johnson is a leader of the organization established in what state,Michelle D Johnson is a leader of the organization not established in what state,['Colorado'],"PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+PREFIX ns: <http://rdf.freebase.com/ns/>
+SELECT DISTINCT ?x
+WHERE {
+FILTER (?x != ?c)
+?c ns:organization.organization.leadership ?k .
+?k ns:organization.leadership.person ns:m.0c56jn . 
+?c ns:organization.organization.headquarters ?y .
+?y ns:location.mailing_address.state_province_region ?x .
+}","PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+PREFIX ns: <http://rdf.freebase.com/ns/>
+SELECT DISTINCT ?x
+WHERE {
+FILTER (?x != ?c)
+?c ns:organization.organization.headquarters ?y .
+?y ns:location.mailing_address.state_province_region ?x .
+  FILTER NOT EXISTS {
+    ?c ns:organization.organization.leadership ?k .
+    ?k ns:organization.leadership.person ns:m.0c56jn .
+  }
+}"
+11476,What is the official language of the country that uses Renminbi as its currency,What is the official language of the country That doesn't use Renminbi as its currency,['Standard Chinese'],"PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+PREFIX ns: <http://rdf.freebase.com/ns/>
+SELECT DISTINCT ?x
+WHERE {
+FILTER (?x != ?c)
+?c ns:location.country.currency_used ns:m.0hn4_ . 
+?c ns:location.country.official_language ?x .
+}","PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+PREFIX ns: <http://rdf.freebase.com/ns/>
+SELECT DISTINCT ?x
+WHERE {
+FILTER (?x != ?c)
+?c ns:location.country.official_language ?x .
+  FILTER NOT EXISTS {
+    ?c ns:location.country.currency_used ns:m.0hn4_ .
+  }
+}"
+11477,What is the religion of the people where Benjamin Netanyahu is in a government position,What is the religion of the people Where Benjamin Netanyahu isn't in a government position,['Judaism'],"PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+PREFIX ns: <http://rdf.freebase.com/ns/>
+SELECT DISTINCT ?x
+WHERE {
+FILTER (?x != ?c)
+?c ns:government.governmental_jurisdiction.governing_officials ?k .
+?k ns:government.government_position_held.appointed_by ns:m.0fm2h . 
+?c ns:location.statistical_region.religions ?y .
+?y ns:location.religion_percentage.religion ?x .
+}","PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+PREFIX ns: <http://rdf.freebase.com/ns/>
+SELECT DISTINCT ?x
+WHERE {
+FILTER (?x != ?c)
+?c ns:location.statistical_region.religions ?y .
+?y ns:location.religion_percentage.religion ?x .
+  FILTER NOT EXISTS {
+    ?c ns:government.governmental_jurisdiction.governing_officials ?k .
+    ?k ns:government.government_position_held.appointed_by ns:m.0fm2h .
+  }
+}"
+11478,The country that contains Lopburi Province would require me to take what type of currency,The country That doesn't contain Lopburi Province would require me to take what type of currency,['Thai baht'],"PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+PREFIX ns: <http://rdf.freebase.com/ns/>
+SELECT DISTINCT ?x
+WHERE {
+FILTER (?x != ?c)
+?c ns:location.country.administrative_divisions ns:m.01kjwm . 
+?c ns:location.country.currency_used ?x .
+}","PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+PREFIX ns: <http://rdf.freebase.com/ns/>
+SELECT DISTINCT ?x
+WHERE {
+FILTER (?x != ?c)
+?c ns:location.country.currency_used ?x .
+  FILTER NOT EXISTS {
+    ?c ns:location.country.administrative_divisions ns:m.01kjwm .
+  }
+}"
+11479,What state is the school where Stephen G Haines is a grad student in,What state is the school Where Stephen G Haines isn't a grad student in,"['Washington, D.C.']","PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+PREFIX ns: <http://rdf.freebase.com/ns/>
+SELECT DISTINCT ?x
+WHERE {
+FILTER (?x != ?c)
+?c ns:education.educational_institution.students_graduates ?k .
+?k ns:education.education.student ns:m.06619nf . 
+?c ns:organization.organization.headquarters ?y .
+?y ns:location.mailing_address.state_province_region ?x .
+}","PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+PREFIX ns: <http://rdf.freebase.com/ns/>
+SELECT DISTINCT ?x
+WHERE {
+FILTER (?x != ?c)
+?c ns:organization.organization.headquarters ?y .
+?y ns:location.mailing_address.state_province_region ?x .
+  FILTER NOT EXISTS {
+    ?c ns:education.educational_institution.students_graduates ?k .
+    ?k ns:education.education.student ns:m.06619nf .
+  }
+}"
+11480,What is the religion belief of the person who once lived in Qunu Eastern Cape,What is the religion belief of the person Who once didn't live in Qunu Eastern Cape,['Methodism'],"PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+PREFIX ns: <http://rdf.freebase.com/ns/>
+SELECT DISTINCT ?x
+WHERE {
+FILTER (?x != ?c)
+?c ns:people.person.places_lived ?k .
+?k ns:people.place_lived.location ns:m.0b3jmh . 
+?c ns:people.person.religion ?x .
+}","PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+PREFIX ns: <http://rdf.freebase.com/ns/>
+SELECT DISTINCT ?x
+WHERE {
+FILTER (?x != ?c)
+?c ns:people.person.religion ?x .
+  FILTER NOT EXISTS {
+    ?c ns:people.person.places_lived ?k .
+    ?k ns:people.place_lived.location ns:m.0b3jmh .
+  }
+}"
+11481,What is the name of the language where The National Anthem of Russia is used,What is the name of the language Where The National Anthem of Russia isn't used,['Russian Language'],"PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+PREFIX ns: <http://rdf.freebase.com/ns/>
+SELECT DISTINCT ?x
+WHERE {
+FILTER (?x != ?c)
+?c ns:location.country.national_anthem ?k .
+?k ns:government.national_anthem_of_a_country.anthem ns:m.01ptxd . 
+?c ns:location.country.official_language ?x .
+}","PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+PREFIX ns: <http://rdf.freebase.com/ns/>
+SELECT DISTINCT ?x
+WHERE {
+FILTER (?x != ?c)
+?c ns:location.country.official_language ?x .
+  FILTER NOT EXISTS {
+    ?c ns:location.country.national_anthem ?k .
+    ?k ns:government.national_anthem_of_a_country.anthem ns:m.01ptxd .
+  }
+}"
+11482,Who is Serena Williams sports team quarterback,Who isn't Serena Williams sports team quarterback,"['Matt Moore', 'Ryan Tannehill']","PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+PREFIX ns: <http://rdf.freebase.com/ns/>
+SELECT DISTINCT ?x
+WHERE {
+FILTER (?x != ?c)
+?c ns:sports.professional_sports_team.owner_s ns:m.015z4j . 
+?c ns:sports.sports_team.roster ?y .
+?y ns:sports.sports_team_roster.player ?x .
+?y ns:sports.sports_team_roster.position ns:m.06b1q .
+FILTER(NOT EXISTS {?y ns:sports.sports_team_roster.from ?sk0} || 
+EXISTS {?y ns:sports.sports_team_roster.from ?sk1 . 
+FILTER(STR(?sk1) <= ""2015-08-10"") })
+FILTER(NOT EXISTS {?y ns:sports.sports_team_roster.to ?sk2} || 
+EXISTS {?y ns:sports.sports_team_roster.to ?sk3 . 
+FILTER(STR(?sk3) >= ""2015-08-10"") })
+}","PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+PREFIX ns: <http://rdf.freebase.com/ns/>
+SELECT DISTINCT ?x
+WHERE {
+  FILTER NOT EXISTS {
+    ?c ns:sports.professional_sports_team.owner_s ns:m.015z4j .
+  }
+FILTER (?x != ?c)
+?c ns:sports.sports_team.roster ?y .
+?y ns:sports.sports_team_roster.player ?x .
+?y ns:sports.sports_team_roster.position ns:m.06b1q .
+FILTER(NOT EXISTS {?y ns:sports.sports_team_roster.from ?sk0} || 
+EXISTS {?y ns:sports.sports_team_roster.from ?sk1 . 
+FILTER(STR(?sk1) <= ""2015-08-10"") })
+FILTER(NOT EXISTS {?y ns:sports.sports_team_roster.to ?sk2} || 
+EXISTS {?y ns:sports.sports_team_roster.to ?sk3 . 
+FILTER(STR(?sk3) >= ""2015-08-10"") })
+}"
+11483,The country that includes Ulsan uses what system of government,The country That doesn't include Ulsan uses what system of government,"['Presidential system', 'Unitary state', 'Constitutional republic']","PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+PREFIX ns: <http://rdf.freebase.com/ns/>
+SELECT DISTINCT ?x
+WHERE {
+FILTER (?x != ?c)
+?c ns:location.country.administrative_divisions ns:m.01vsdq . 
+?c ns:location.country.form_of_government ?x .
+}","PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+PREFIX ns: <http://rdf.freebase.com/ns/>
+SELECT DISTINCT ?x
+WHERE {
+FILTER (?x != ?c)
+?c ns:location.country.form_of_government ?x .
+  FILTER NOT EXISTS {
+    ?c ns:location.country.administrative_divisions ns:m.01vsdq .
+  }
+}"
+11484,What years did the team who won the 1995 championship win the World Series,What years did the team Who didn't win the 1995 championship win the World Series,['1995 World Series'],"PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+PREFIX ns: <http://rdf.freebase.com/ns/>
+SELECT DISTINCT ?x
+WHERE {
+FILTER (?x != ?c)
+?c ns:sports.sports_team.championships ns:m.04j712 . 
+?c ns:sports.sports_team.championships ?x .
+}","PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+PREFIX ns: <http://rdf.freebase.com/ns/>
+SELECT DISTINCT ?x
+WHERE {
+FILTER (?x != ?c)
+?c ns:sports.sports_team.championships ?x .
+  FILTER NOT EXISTS {
+    ?c ns:sports.sports_team.championships ns:m.04j712 .
+  }
+}"
+11485,Who is the current coach of the sports team owned by James D Stern,Who is the current coach of the sports team not owned by James D Stern,['Tom Thibodeau'],"PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+PREFIX ns: <http://rdf.freebase.com/ns/>
+SELECT DISTINCT ?x
+WHERE {
+FILTER (?x != ?c)
+?c ns:sports.professional_sports_team.owner_s ns:m.0ggb8tz . 
+?c ns:basketball.basketball_team.head_coach ?x .
+}","PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+PREFIX ns: <http://rdf.freebase.com/ns/>
+SELECT DISTINCT ?x
+WHERE {
+FILTER (?x != ?c)
+?c ns:basketball.basketball_team.head_coach ?x .
+  FILTER NOT EXISTS {
+    ?c ns:sports.professional_sports_team.owner_s ns:m.0ggb8tz .
+  }
+}"
+11486,Which division did the 2007 AFC champions play in,Which division did The 2007 AFC champions don't play in,['AFC South'],"PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+PREFIX ns: <http://rdf.freebase.com/ns/>
+SELECT DISTINCT ?x
+WHERE {
+FILTER (?x != ?c)
+?c ns:sports.sports_team.championships ns:m.0_gt_mg . 
+?c ns:american_football.football_team.division ?x .
+}","PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+PREFIX ns: <http://rdf.freebase.com/ns/>
+SELECT DISTINCT ?x
+WHERE {
+FILTER (?x != ?c)
+?c ns:american_football.football_team.division ?x .
+  FILTER NOT EXISTS {
+    ?c ns:sports.sports_team.championships ns:m.0_gt_mg .
+  }
+}"
+11487,What style of art did the person who majored in Perspective do,What style of art did the person Who didn't major in Perspective do,['Post-Impressionism'],"PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+PREFIX ns: <http://rdf.freebase.com/ns/>
+SELECT DISTINCT ?x
+WHERE {
+FILTER (?x != ?c)
+?c ns:people.person.education ?k .
+?k ns:education.education.major_field_of_study ns:m.021hz5 . 
+?c ns:visual_art.visual_artist.associated_periods_or_movements ?x .
+}","PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+PREFIX ns: <http://rdf.freebase.com/ns/>
+SELECT DISTINCT ?x
+WHERE {
+FILTER (?x != ?c)
+?c ns:visual_art.visual_artist.associated_periods_or_movements ?x .
+  FILTER NOT EXISTS {
+    ?c ns:people.person.education ?k .
+    ?k ns:education.education.major_field_of_study ns:m.021hz5 .
+  }
+}"
+11488,Sony Overseas S A headquarters is a child organization located where,Sony Overseas S A headquarters is a child organization not located where,['Minato'],"PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+PREFIX ns: <http://rdf.freebase.com/ns/>
+SELECT DISTINCT ?x
+WHERE {
+FILTER (?x != ?c)
+?c ns:organization.organization.child ?k .
+?k ns:organization.organization_relationship.child ns:m.072r9lb . 
+?c ns:organization.organization.headquarters ?y .
+?y ns:location.mailing_address.citytown ?x .
+}","PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+PREFIX ns: <http://rdf.freebase.com/ns/>
+SELECT DISTINCT ?x
+WHERE {
+FILTER (?x != ?c)
+?c ns:organization.organization.headquarters ?y .
+?y ns:location.mailing_address.citytown ?x .
+  FILTER NOT EXISTS {
+    ?c ns:organization.organization.child ?k .
+    ?k ns:organization.organization_relationship.child ns:m.072r9lb .
+  }
+}"
+11489,Whose the president of the region that appointed Benjamin Netanyahu to a governmental position,Whose the president of the region That didn't appoint Benjamin Netanyahu to a governmental position,['Reuven Rivlin'],"PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+PREFIX ns: <http://rdf.freebase.com/ns/>
+SELECT DISTINCT ?x
+WHERE {
+FILTER (?x != ?c)
+?c ns:government.governmental_jurisdiction.governing_officials ?k .
+?k ns:government.government_position_held.appointed_by ns:m.0fm2h . 
+?c ns:government.governmental_jurisdiction.governing_officials ?y .
+?y ns:government.government_position_held.office_holder ?x .
+?y ns:government.government_position_held.basic_title ns:m.060c4 .
+FILTER(NOT EXISTS {?y ns:government.government_position_held.from ?sk0} || 
+EXISTS {?y ns:government.government_position_held.from ?sk1 . 
+FILTER(STR(?sk1) <= ""2015-08-10"") })
+FILTER(NOT EXISTS {?y ns:government.government_position_held.to ?sk2} || 
+EXISTS {?y ns:government.government_position_held.to ?sk3 . 
+FILTER(STR(?sk3) >= ""2015-08-10"") })
+}","PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+PREFIX ns: <http://rdf.freebase.com/ns/>
+SELECT DISTINCT ?x
+WHERE {
+FILTER (?x != ?c)
+?c ns:government.governmental_jurisdiction.governing_officials ?y .
+?y ns:government.government_position_held.office_holder ?x .
+?y ns:government.government_position_held.basic_title ns:m.060c4 .
+FILTER(NOT EXISTS {?y ns:government.government_position_held.from ?sk0} || 
+EXISTS {?y ns:government.government_position_held.from ?sk1 . 
+FILTER(STR(?sk1) <= ""2015-08-10"") })
+FILTER(NOT EXISTS {?y ns:government.government_position_held.to ?sk2} || 
+EXISTS {?y ns:government.government_position_held.to ?sk3 . 
+FILTER(STR(?sk3) >= ""2015-08-10"") })
+  FILTER NOT EXISTS {
+    ?c ns:government.governmental_jurisdiction.governing_officials ?k .
+    ?k ns:government.government_position_held.appointed_by ns:m.0fm2h .
+  }
+}"
+11490,Where did the famous person who once lived in Kennebunkport attend college,Where did the famous person Who once didn't live in Kennebunkport attend college,['University Yale'],"PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+PREFIX ns: <http://rdf.freebase.com/ns/>
+SELECT DISTINCT ?x
+WHERE {
+FILTER (?x != ?c)
+?c ns:people.person.places_lived ?k .
+?k ns:people.place_lived.location ns:m.01m78r . 
+?c ns:people.person.education ?y .
+?y ns:education.education.institution ?x .
+?x ns:common.topic.notable_types ns:m.01y2hnl .
+}","PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+PREFIX ns: <http://rdf.freebase.com/ns/>
+SELECT DISTINCT ?x
+WHERE {
+FILTER (?x != ?c)
+?c ns:people.person.education ?y .
+?y ns:education.education.institution ?x .
+?x ns:common.topic.notable_types ns:m.01y2hnl .
+  FILTER NOT EXISTS {
+    ?c ns:people.person.places_lived ?k .
+    ?k ns:people.place_lived.location ns:m.01m78r .
+  }
+}"
+11491,When was the last time the team that won the 1970 NBA Finals win a championship,When was the last time The team that won the 1970 NBA Finals don't win a championship,['1973 NBA Finals'],"PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+PREFIX ns: <http://rdf.freebase.com/ns/>
+SELECT DISTINCT ?x
+WHERE {
+FILTER (?x != ?c)
+?c ns:sports.sports_team.championships ns:m.0cs1x4 . 
+?c ns:sports.sports_team.championships ?x .
+?x ns:time.event.start_date ?sk0 .
+}
+ORDER BY DESC(xsd:datetime(?sk0))
+LIMIT 1","PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+PREFIX ns: <http://rdf.freebase.com/ns/>
+SELECT DISTINCT ?x
+WHERE {
+FILTER (?x != ?c)
+?c ns:sports.sports_team.championships ?x .
+?x ns:time.event.start_date ?sk0 .
+  FILTER NOT EXISTS {
+    ?c ns:sports.sports_team.championships ns:m.0cs1x4 .
+  }
+}
+ORDER BY DESC(xsd:datetime(?sk0))
+LIMIT 1"
+11492,Which languages are spoken in the country whose national anthem is Swiss Psalm,Which languages are spoken in the country Whose national anthem isn't Swiss Psalm,"['Italian Language', 'German Language', 'French', 'Romansh language']","PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+PREFIX ns: <http://rdf.freebase.com/ns/>
+SELECT DISTINCT ?x
+WHERE {
+FILTER (?x != ?c)
+?c ns:location.country.national_anthem ?k .
+?k ns:government.national_anthem_of_a_country.anthem ns:m.01jhkt . 
+?c ns:location.country.languages_spoken ?x .
+}","PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+PREFIX ns: <http://rdf.freebase.com/ns/>
+SELECT DISTINCT ?x
+WHERE {
+FILTER (?x != ?c)
+?c ns:location.country.languages_spoken ?x .
+  FILTER NOT EXISTS {
+    ?c ns:location.country.national_anthem ?k .
+    ?k ns:government.national_anthem_of_a_country.anthem ns:m.01jhkt .
+  }
+}"
+11493,What location contains a portion of the Deltaform Mountain,What location doesn't contain a portion of the Deltaform Mountain,['Canadian province'],"PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+PREFIX ns: <http://rdf.freebase.com/ns/>
+SELECT DISTINCT ?x
+WHERE {
+FILTER (?x != ?c)
+?c ns:location.location.partiallycontains ?k .
+?k ns:location.partial_containment_relationship.partially_contains ns:m.0300h5 . 
+?c ns:base.aareas.schema.administrative_area.administrative_area_type ?x .
+}","PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+PREFIX ns: <http://rdf.freebase.com/ns/>
+SELECT DISTINCT ?x
+WHERE {
+  FILTER NOT EXISTS {
+    ?c ns:location.location.partiallycontains ?k .
+    ?k ns:location.partial_containment_relationship.partially_contains ns:m.0300h5 .
+  }
+FILTER (?x != ?c)
+?c ns:base.aareas.schema.administrative_area.administrative_area_type ?x .
+}"
+11494,What is the meaning of the name of the city that hosted the 1960 Summer Olympics,What is the meaning of the name of the city That didn't host the 1960 Summer Olympics,['Romulus and Remus'],"PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+PREFIX ns: <http://rdf.freebase.com/ns/>
+SELECT DISTINCT ?x
+WHERE {
+FILTER (?x != ?c)
+?c ns:olympics.olympic_host_city.olympics_hosted ns:m.0lbd9 . 
+?c ns:symbols.namesake.named_after ?x .
+}","PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+PREFIX ns: <http://rdf.freebase.com/ns/>
+SELECT DISTINCT ?x
+WHERE {
+FILTER (?x != ?c)
+?c ns:symbols.namesake.named_after ?x .
+  FILTER NOT EXISTS {
+    ?c ns:olympics.olympic_host_city.olympics_hosted ns:m.0lbd9 .
+  }
+}"
+11495,Which 6 states border the location whose capital is known as Pierre,Which 6 states border the location Whose capital isn't known as Pierre,"['Iowa', 'Minnesota', 'Montana', 'Nebraska', 'North Dakota', 'Wyoming']","PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+PREFIX ns: <http://rdf.freebase.com/ns/>
+SELECT DISTINCT ?x
+WHERE {
+FILTER (?x != ?c)
+?c ns:location.administrative_division.capital ?k .
+?k ns:location.administrative_division_capital_relationship.capital ns:m.0fw08 . 
+?c ns:location.location.adjoin_s ?y .
+?y ns:location.adjoining_relationship.adjoins ?x .
+?x ns:common.topic.notable_types ns:m.0kpys4 .
+}","PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+PREFIX ns: <http://rdf.freebase.com/ns/>
+SELECT DISTINCT ?x
+WHERE {
+FILTER (?x != ?c)
+?c ns:location.location.adjoin_s ?y .
+?y ns:location.adjoining_relationship.adjoins ?x .
+?x ns:common.topic.notable_types ns:m.0kpys4 .
+  FILTER NOT EXISTS {
+    ?c ns:location.administrative_division.capital ?k .
+    ?k ns:location.administrative_division_capital_relationship.capital ns:m.0fw08 .
+  }
+}"
+11496,Who inspired the architect who designed Laurentian Library,Who inspired the architect Who didn't design Laurentian Library,"['Giovanni Pico della Mirandola', 'Domenico Ghirlandaio', ""Lorenzo de' Medici"", 'Melozzo da Forlì', 'Girolamo Savonarola', 'Donatello']","PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+PREFIX ns: <http://rdf.freebase.com/ns/>
+SELECT DISTINCT ?x
+WHERE {
+FILTER (?x != ?c)
+?c ns:architecture.architect.structures_designed ns:m.06hthb . 
+?c ns:influence.influence_node.influenced_by ?x .
+}","PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+PREFIX ns: <http://rdf.freebase.com/ns/>
+SELECT DISTINCT ?x
+WHERE {
+FILTER (?x != ?c)
+?c ns:influence.influence_node.influenced_by ?x .
+  FILTER NOT EXISTS {
+    ?c ns:architecture.architect.structures_designed ns:m.06hthb .
+  }
+}"
+11497,What did the famous person who went to Calvinist College of Sarospatak do,What did the famous person Who didn't go to Calvinist College of Sarospatak do,"['Lawyer', 'Politician']","PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+PREFIX ns: <http://rdf.freebase.com/ns/>
+SELECT DISTINCT ?x
+WHERE {
+FILTER (?x != ?c)
+?c ns:people.person.education ?k .
+?k ns:education.education.institution ns:m.0k1bfwz . 
+?c ns:people.person.profession ?x .
+}","PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+PREFIX ns: <http://rdf.freebase.com/ns/>
+SELECT DISTINCT ?x
+WHERE {
+FILTER (?x != ?c)
+?c ns:people.person.profession ?x .
+  FILTER NOT EXISTS {
+    ?c ns:people.person.education ?k .
+    ?k ns:education.education.institution ns:m.0k1bfwz .
+  }
+}"
+11498,Which years was the Superbowl won by the team whose mascot is Steely McBeam,Which years was the Superbowl won by the team Whose mascot isn't Steely McBeam,"['2011 AFC Championship Game', '2009 AFC Championship Game', '2006 AFC Championship Game', 'Super Bowl XL', 'Super Bowl XLIII', 'Super Bowl IX', 'Super Bowl X', 'Super Bowl XIII', 'Super Bowl XIV', '1996 AFC Championship Game']","PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+PREFIX ns: <http://rdf.freebase.com/ns/>
+SELECT DISTINCT ?x
+WHERE {
+FILTER (?x != ?c)
+?c ns:sports.sports_team.team_mascot ns:m.02x0cyj . 
+?c ns:sports.sports_team.championships ?x .
+}","PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+PREFIX ns: <http://rdf.freebase.com/ns/>
+SELECT DISTINCT ?x
+WHERE {
+FILTER (?x != ?c)
+?c ns:sports.sports_team.championships ?x .
+  FILTER NOT EXISTS {
+    ?c ns:sports.sports_team.team_mascot ns:m.02x0cyj .
+  }
+}"
+11499,What is the burial place of the famous person who went to Edward Devotion school,What is the burial place of the famous person Who didn't go to Edward Devotion school,['Arlington National Cemetery'],"PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+PREFIX ns: <http://rdf.freebase.com/ns/>
+SELECT DISTINCT ?x
+WHERE {
+FILTER (?x != ?c)
+?c ns:people.person.education ?k .
+?k ns:education.education.institution ns:m.0ccg42 . 
+?c ns:people.deceased_person.place_of_burial ?x .
+}","PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+PREFIX ns: <http://rdf.freebase.com/ns/>
+SELECT DISTINCT ?x
+WHERE {
+FILTER (?x != ?c)
+?c ns:people.deceased_person.place_of_burial ?x .
+  FILTER NOT EXISTS {
+    ?c ns:people.person.education ?k .
+    ?k ns:education.education.institution ns:m.0ccg42 .
+  }
+}"
+11500,Who played Darth Vadar in the film with a character named Bana Breemu,Who played Darth Vadar in the film with a character not named Bana Breemu,['Hayden Christensen'],"PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+PREFIX ns: <http://rdf.freebase.com/ns/>
+SELECT DISTINCT ?x
+WHERE {
+FILTER (?x != ?c)
+?c ns:film.film.starring ?k .
+?k ns:film.performance.character ns:m.0gzk5tq . 
+?c ns:film.film.starring ?y .
+?y ns:film.performance.actor ?x .
+?y ns:film.performance.character ns:m.0f2y0 .
+}","PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+PREFIX ns: <http://rdf.freebase.com/ns/>
+SELECT DISTINCT ?x
+WHERE {
+FILTER (?x != ?c)
+?c ns:film.film.starring ?y .
+?y ns:film.performance.actor ?x .
+?y ns:film.performance.character ns:m.0f2y0 .
+  FILTER NOT EXISTS {
+    ?c ns:film.film.starring ?k .
+    ?k ns:film.performance.character ns:m.0gzk5tq .
+  }
+}"
+11501,The artist who had a concert tour named Believe Tour uses what type of instrument,The artist Who didn't have a concert tour named Believe Tour uses what type of instrument,['Vocals'],"PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+PREFIX ns: <http://rdf.freebase.com/ns/>
+SELECT DISTINCT ?x
+WHERE {
+FILTER (?x != ?c)
+?c ns:music.artist.concert_tours ns:m.0j_3p6t . 
+?c ns:music.group_member.membership ?y .
+?y ns:music.group_membership.role ?x .
+}","PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+PREFIX ns: <http://rdf.freebase.com/ns/>
+SELECT DISTINCT ?x
+WHERE {
+FILTER (?x != ?c)
+?c ns:music.group_member.membership ?y .
+?y ns:music.group_membership.role ?x .
+  FILTER NOT EXISTS {
+    ?c ns:music.artist.concert_tours ns:m.0j_3p6t .
+  }
+}"
+11502,It what city and state is the university that publishes the newspaper titled Santa Clara,It what city and state is the university That doesn't publish the newspaper titled Santa Clara,"['California', 'United States of America', 'Santa Clara']","PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+PREFIX ns: <http://rdf.freebase.com/ns/>
+SELECT DISTINCT ?x
+WHERE {
+FILTER (?x != ?c)
+?c ns:education.educational_institution.newspaper ns:m.0f4t11 . 
+?c ns:location.location.containedby ?x .
+}","PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+PREFIX ns: <http://rdf.freebase.com/ns/>
+SELECT DISTINCT ?x
+WHERE {
+FILTER (?x != ?c)
+?c ns:location.location.containedby ?x .
+  FILTER NOT EXISTS {
+    ?c ns:education.educational_institution.newspaper ns:m.0f4t11 .
+  }
+}"
+11503,Team mascot named Sir Purr is part of the team coached by whom,Team mascot named Sir Purr is part of the team not coached by whom,['Ron Rivera'],"PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+PREFIX ns: <http://rdf.freebase.com/ns/>
+SELECT DISTINCT ?x
+WHERE {
+FILTER (?x != ?c)
+?c ns:sports.sports_team.team_mascot ns:m.03lr5s . 
+?c ns:american_football.football_team.current_head_coach ?x .
+}","PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+PREFIX ns: <http://rdf.freebase.com/ns/>
+SELECT DISTINCT ?x
+WHERE {
+FILTER (?x != ?c)
+?c ns:american_football.football_team.current_head_coach ?x .
+  FILTER NOT EXISTS {
+    ?c ns:sports.sports_team.team_mascot ns:m.03lr5s .
+  }
+}"
+11504,Which political system does the country utilize that has the National anthem of South Africa,Which political system does the country utilize That doesn't have the National anthem of South Africa,"['Constitutional republic', 'Parliamentary republic']","PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+PREFIX ns: <http://rdf.freebase.com/ns/>
+SELECT DISTINCT ?x
+WHERE {
+FILTER (?x != ?c)
+?c ns:location.country.national_anthem ?k .
+?k ns:government.national_anthem_of_a_country.anthem ns:m.07lzg . 
+?c ns:location.country.form_of_government ?x .
+}","PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+PREFIX ns: <http://rdf.freebase.com/ns/>
+SELECT DISTINCT ?x
+WHERE {
+FILTER (?x != ?c)
+?c ns:location.country.form_of_government ?x .
+  FILTER NOT EXISTS {
+    ?c ns:location.country.national_anthem ?k .
+    ?k ns:government.national_anthem_of_a_country.anthem ns:m.07lzg .
+  }
+}"
+11505,The location that appointed Vladimir Putin to govermental position is close to what countries,The location That didn't appoint Vladimir Putin to govermental position is close to what countries,"['Belarus', 'Estonia', 'Finland', 'Kazakhstan', 'Latvia', 'Lithuania', 'Mongolia', 'Norway', 'North Korea', 'Poland', 'Ukraine', 'China', 'Georgia', 'Azerbaijan']","PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+PREFIX ns: <http://rdf.freebase.com/ns/>
+SELECT DISTINCT ?x
+WHERE {
+FILTER (?x != ?c)
+?c ns:government.governmental_jurisdiction.governing_officials ?k .
+?k ns:government.government_position_held.appointed_by ns:m.08193 . 
+?c ns:location.location.adjoin_s ?y .
+?y ns:location.adjoining_relationship.adjoins ?x .
+?x ns:common.topic.notable_types ns:m.01mp .
+}","PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+PREFIX ns: <http://rdf.freebase.com/ns/>
+SELECT DISTINCT ?x
+WHERE {
+FILTER (?x != ?c)
+?c ns:location.location.adjoin_s ?y .
+?y ns:location.adjoining_relationship.adjoins ?x .
+?x ns:common.topic.notable_types ns:m.01mp .
+  FILTER NOT EXISTS {
+    ?c ns:government.governmental_jurisdiction.governing_officials ?k .
+    ?k ns:government.government_position_held.appointed_by ns:m.08193 .
+  }
+}"
+11506,What was the first president of the country that has Karanodar Krai,What was the first president of the country That doesn't have Karanodar Krai,['Boris Yeltsin'],"PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+PREFIX ns: <http://rdf.freebase.com/ns/>
+SELECT DISTINCT ?x
+WHERE {
+FILTER (?x != ?c)
+?c ns:location.country.administrative_divisions ns:m.02dw2c . 
+?c ns:government.governmental_jurisdiction.governing_officials ?y .
+?y ns:government.government_position_held.office_holder ?x .
+?y ns:government.government_position_held.basic_title ns:m.060c4 .
+?y ns:government.government_position_held.from ?sk0 .
+}
+ORDER BY xsd:datetime(?sk0)
+LIMIT 1","PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+PREFIX ns: <http://rdf.freebase.com/ns/>
+SELECT DISTINCT ?x
+WHERE {
+FILTER (?x != ?c)
+?c ns:government.governmental_jurisdiction.governing_officials ?y .
+?y ns:government.government_position_held.office_holder ?x .
+?y ns:government.government_position_held.basic_title ns:m.060c4 .
+?y ns:government.government_position_held.from ?sk0 .
+  FILTER NOT EXISTS {
+    ?c ns:location.country.administrative_divisions ns:m.02dw2c .
+  }
+}
+ORDER BY xsd:datetime(?sk0)
+LIMIT 1"
+11507,What year did the NBA player that went to Emsley A Laney High school got drafted,What year did the NBA player That didn't go to Emsley A Laney High school got drafted,['1984 NBA draft'],"PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+PREFIX ns: <http://rdf.freebase.com/ns/>
+SELECT DISTINCT ?x
+WHERE {
+FILTER (?x != ?c)
+?c ns:people.person.education ?k .
+?k ns:education.education.institution ns:m.07qymj . 
+?c ns:sports.drafted_athlete.drafted ?y .
+?y ns:sports.sports_league_draft_pick.draft ?x .
+}","PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+PREFIX ns: <http://rdf.freebase.com/ns/>
+SELECT DISTINCT ?x
+WHERE {
+FILTER (?x != ?c)
+?c ns:sports.drafted_athlete.drafted ?y .
+?y ns:sports.sports_league_draft_pick.draft ?x .
+  FILTER NOT EXISTS {
+    ?c ns:people.person.education ?k .
+    ?k ns:education.education.institution ns:m.07qymj .
+  }
+}"
+11508,What are the languages used for communication in the region where Nicolas Sarkozy was placed in a government post,What are the languages used for communication in the region Where Nicolas Sarkozy wasn't placed in a government post,"['Basque Language', 'Catalan language', 'Provençal Language', 'Corsican Language', 'Tahitian Language', 'Franco-Provençal Language', 'Breton', 'Yeniche Language', 'Guianese Creole French Language', 'Esperanto Language', 'West Flemish', 'Gallo language', 'Antillean Creole French', 'Occitan language', 'French', 'Réunion Creole French Language', 'Alsatian dialect']","PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+PREFIX ns: <http://rdf.freebase.com/ns/>
+SELECT DISTINCT ?x
+WHERE {
+FILTER (?x != ?c)
+?c ns:government.governmental_jurisdiction.governing_officials ?k .
+?k ns:government.government_position_held.appointed_by ns:m.02ps9k . 
+?c ns:location.country.languages_spoken ?x .
+}","PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+PREFIX ns: <http://rdf.freebase.com/ns/>
+SELECT DISTINCT ?x
+WHERE {
+FILTER (?x != ?c)
+?c ns:location.country.languages_spoken ?x .
+  FILTER NOT EXISTS {
+    ?c ns:government.governmental_jurisdiction.governing_officials ?k .
+    ?k ns:government.government_position_held.appointed_by ns:m.02ps9k .
+  }
+}"
+11509,Which location is the Hoh River partially situated in,Which location is The Hoh River partially not situated in,['Washington'],"PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+PREFIX ns: <http://rdf.freebase.com/ns/>
+SELECT DISTINCT ?x
+WHERE {
+FILTER (?x != ?c)
+?c ns:location.location.partiallycontains ?k .
+?k ns:location.partial_containment_relationship.partially_contains ns:m.039fqk . 
+?c ns:base.usnationalparks.us_national_park.state ?x .
+}","PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+PREFIX ns: <http://rdf.freebase.com/ns/>
+SELECT DISTINCT ?x
+WHERE {
+FILTER (?x != ?c)
+?c ns:base.usnationalparks.us_national_park.state ?x .
+  FILTER NOT EXISTS {
+    ?c ns:location.location.partiallycontains ?k .
+    ?k ns:location.partial_containment_relationship.partially_contains ns:m.039fqk .
+  }
+}"
+11510,What currency is used where Thai National Anthem is the national anthem,What currency is used Where Thai National Anthem isn't the national anthem,['Thai baht'],"PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+PREFIX ns: <http://rdf.freebase.com/ns/>
+SELECT DISTINCT ?x
+WHERE {
+FILTER (?x != ?c)
+?c ns:location.country.national_anthem ?k .
+?k ns:government.national_anthem_of_a_country.anthem ns:m.01b8l3 . 
+?c ns:location.country.currency_used ?x .
+}","PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+PREFIX ns: <http://rdf.freebase.com/ns/>
+SELECT DISTINCT ?x
+WHERE {
+FILTER (?x != ?c)
+?c ns:location.country.currency_used ?x .
+  FILTER NOT EXISTS {
+    ?c ns:location.country.national_anthem ?k .
+    ?k ns:government.national_anthem_of_a_country.anthem ns:m.01b8l3 .
+  }
+}"
+11511,What time zone is the country with Rick Scott in a government position in,What time zone isn't the country with Rick Scott in a government position in,"['UTC−05:00', 'Central Time Zone', 'Eastern Time Zone']","PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+PREFIX ns: <http://rdf.freebase.com/ns/>
+SELECT DISTINCT ?x
+WHERE {
+FILTER (?x != ?c)
+?c ns:government.governmental_jurisdiction.governing_officials ?k .
+?k ns:government.government_position_held.appointed_by ns:m.0btx2g . 
+?c ns:location.location.time_zones ?x .
+}","PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+PREFIX ns: <http://rdf.freebase.com/ns/>
+SELECT DISTINCT ?x
+WHERE {
+  FILTER NOT EXISTS {
+    ?c ns:government.governmental_jurisdiction.governing_officials ?k .
+    ?k ns:government.government_position_held.appointed_by ns:m.0btx2g .
+  }
+FILTER (?x != ?c)
+?c ns:location.location.time_zones ?x .
+}"
+11512,What disease does the artist who went on the HIStory World Tour suffer from,What disease does the artist Who didn't go on the HIStory World Tour suffer from,['Mysophobia'],"PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+PREFIX ns: <http://rdf.freebase.com/ns/>
+SELECT DISTINCT ?x
+WHERE {
+FILTER (?x != ?c)
+?c ns:music.artist.concert_tours ns:m.09x1nf . 
+?c ns:medicine.notable_person_with_medical_condition.condition ?x .
+}","PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+PREFIX ns: <http://rdf.freebase.com/ns/>
+SELECT DISTINCT ?x
+WHERE {
+FILTER (?x != ?c)
+?c ns:medicine.notable_person_with_medical_condition.condition ?x .
+  FILTER NOT EXISTS {
+    ?c ns:music.artist.concert_tours ns:m.09x1nf .
+  }
+}"
+11513,The country that contains Wellington Region has what prime minister now,The country That doesn't contain Wellington Region has what prime minister now,['John Key'],"PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+PREFIX ns: <http://rdf.freebase.com/ns/>
+SELECT DISTINCT ?x
+WHERE {
+FILTER (?x != ?c)
+?c ns:location.country.administrative_divisions ns:m.015q4y . 
+?c ns:government.governmental_jurisdiction.governing_officials ?y .
+?y ns:government.government_position_held.office_holder ?x .
+?y ns:government.government_position_held.basic_title ns:m.060bp .
+FILTER(NOT EXISTS {?y ns:government.government_position_held.from ?sk0} || 
+EXISTS {?y ns:government.government_position_held.from ?sk1 . 
+FILTER(STR(?sk1) <= ""2015-08-10"") })
+FILTER(NOT EXISTS {?y ns:government.government_position_held.to ?sk2} || 
+EXISTS {?y ns:government.government_position_held.to ?sk3 . 
+FILTER(STR(?sk3) >= ""2015-08-10"") })
+}","PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+PREFIX ns: <http://rdf.freebase.com/ns/>
+SELECT DISTINCT ?x
+WHERE {
+FILTER (?x != ?c)
+?c ns:government.governmental_jurisdiction.governing_officials ?y .
+?y ns:government.government_position_held.office_holder ?x .
+?y ns:government.government_position_held.basic_title ns:m.060bp .
+FILTER(NOT EXISTS {?y ns:government.government_position_held.from ?sk0} || 
+EXISTS {?y ns:government.government_position_held.from ?sk1 . 
+FILTER(STR(?sk1) <= ""2015-08-10"") })
+FILTER(NOT EXISTS {?y ns:government.government_position_held.to ?sk2} || 
+EXISTS {?y ns:government.government_position_held.to ?sk3 . 
+FILTER(STR(?sk3) >= ""2015-08-10"") })
+  FILTER NOT EXISTS {
+    ?c ns:location.country.administrative_divisions ns:m.015q4y .
+  }
+}"
+11514,The country that contains Tabasco is located in what continent,The country That doesn't contain Tabasco is located in what continent,['North America'],"PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+PREFIX ns: <http://rdf.freebase.com/ns/>
+SELECT DISTINCT ?x
+WHERE {
+FILTER (?x != ?c)
+?c ns:location.country.administrative_divisions ns:m.01bkt4 . 
+?c ns:base.locations.countries.continent ?x .
+}","PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+PREFIX ns: <http://rdf.freebase.com/ns/>
+SELECT DISTINCT ?x
+WHERE {
+FILTER (?x != ?c)
+?c ns:base.locations.countries.continent ?x .
+  FILTER NOT EXISTS {
+    ?c ns:location.country.administrative_divisions ns:m.01bkt4 .
+  }
+}"
+11515,People from the country that contains Canton of Jura speak what languages,People from the country That doesn't contain Canton of Jura speak what languages,"['Italian Language', 'German Language', 'French', 'Romansh language']","PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+PREFIX ns: <http://rdf.freebase.com/ns/>
+SELECT DISTINCT ?x
+WHERE {
+FILTER (?x != ?c)
+?c ns:location.country.administrative_divisions ns:m.01l8hj . 
+?c ns:location.country.languages_spoken ?x .
+}","PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+PREFIX ns: <http://rdf.freebase.com/ns/>
+SELECT DISTINCT ?x
+WHERE {
+FILTER (?x != ?c)
+?c ns:location.country.languages_spoken ?x .
+  FILTER NOT EXISTS {
+    ?c ns:location.country.administrative_divisions ns:m.01l8hj .
+  }
+}"
+11516,What language is used in the country that uses Icelandic krÃ³na,What language is used in the country That doesn't use Icelandic krÃ³na,['Icelandic Language'],"PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+PREFIX ns: <http://rdf.freebase.com/ns/>
+SELECT DISTINCT ?x
+WHERE {
+FILTER (?x != ?c)
+?c ns:location.country.currency_used ns:m.012nk9 . 
+?c ns:location.country.languages_spoken ?x .
+}","PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+PREFIX ns: <http://rdf.freebase.com/ns/>
+SELECT DISTINCT ?x
+WHERE {
+FILTER (?x != ?c)
+?c ns:location.country.languages_spoken ?x .
+  FILTER NOT EXISTS {
+    ?c ns:location.country.currency_used ns:m.012nk9 .
+  }
+}"
+11517,Who was the 2011 coach of the team owned by Jim Irsay,Who was the 2011 coach of the team not owned by Jim Irsay,['Jim Caldwell'],"PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+PREFIX ns: <http://rdf.freebase.com/ns/>
+SELECT DISTINCT ?x
+WHERE {
+FILTER (?x != ?c)
+?c ns:sports.professional_sports_team.owner_s ns:m.0ff334 . 
+?c ns:american_football.football_team.historical_coaching_staff ?y .
+?y ns:american_football.football_historical_coach_position.coach ?x .
+FILTER(NOT EXISTS {?y ns:american_football.football_historical_coach_position.from ?sk0} || 
+EXISTS {?y ns:american_football.football_historical_coach_position.from ?sk1 . 
+FILTER(STR(?sk1) <= ""2011-12-31"") })
+FILTER(NOT EXISTS {?y ns:american_football.football_historical_coach_position.to ?sk2} || 
+EXISTS {?y ns:american_football.football_historical_coach_position.to ?sk3 . 
+FILTER(STR(?sk3) >= ""2011-01-01"") })
+}","PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+PREFIX ns: <http://rdf.freebase.com/ns/>
+SELECT DISTINCT ?x
+WHERE {
+FILTER (?x != ?c)
+?c ns:american_football.football_team.historical_coaching_staff ?y .
+?y ns:american_football.football_historical_coach_position.coach ?x .
+FILTER(NOT EXISTS {?y ns:american_football.football_historical_coach_position.from ?sk0} || 
+EXISTS {?y ns:american_football.football_historical_coach_position.from ?sk1 . 
+FILTER(STR(?sk1) <= ""2011-12-31"") })
+FILTER(NOT EXISTS {?y ns:american_football.football_historical_coach_position.to ?sk2} || 
+EXISTS {?y ns:american_football.football_historical_coach_position.to ?sk3 . 
+FILTER(STR(?sk3) >= ""2011-01-01"") })
+  FILTER NOT EXISTS {
+    ?c ns:sports.professional_sports_team.owner_s ns:m.0ff334 .
+  }
+}"
+11518,Who is the husband of the artist who had a tour named A Different Me,Who is the husband of the artist Who didn't have a tour named A Different Me,['Daniel Gibson'],"PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+PREFIX ns: <http://rdf.freebase.com/ns/>
+SELECT DISTINCT ?x
+WHERE {
+FILTER (?x != ?c)
+?c ns:music.artist.concert_tours ns:m.05zw52r . 
+?c ns:people.person.spouse_s ?y .
+?y ns:people.marriage.spouse ?x .
+?y ns:people.marriage.type_of_union ns:m.04ztj .
+FILTER(NOT EXISTS {?y ns:people.marriage.from ?sk0} || 
+EXISTS {?y ns:people.marriage.from ?sk1 . 
+FILTER(STR(?sk1) <= ""2015-08-10"") })
+FILTER(NOT EXISTS {?y ns:people.marriage.to ?sk2} || 
+EXISTS {?y ns:people.marriage.to ?sk3 . 
+FILTER(STR(?sk3) >= ""2015-08-10"") })
+}","PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+PREFIX ns: <http://rdf.freebase.com/ns/>
+SELECT DISTINCT ?x
+WHERE {
+FILTER (?x != ?c)
+?c ns:people.person.spouse_s ?y .
+?y ns:people.marriage.spouse ?x .
+?y ns:people.marriage.type_of_union ns:m.04ztj .
+FILTER(NOT EXISTS {?y ns:people.marriage.from ?sk0} || 
+EXISTS {?y ns:people.marriage.from ?sk1 . 
+FILTER(STR(?sk1) <= ""2015-08-10"") })
+FILTER(NOT EXISTS {?y ns:people.marriage.to ?sk2} || 
+EXISTS {?y ns:people.marriage.to ?sk3 . 
+FILTER(STR(?sk3) >= ""2015-08-10"") })
+  FILTER NOT EXISTS {
+    ?c ns:music.artist.concert_tours ns:m.05zw52r .
+  }
+}"
+11519,Where does the famous person who attended Colegio AlemÃ n Alexander von Humboldt live now,Where does the famous person Who didn't attend Colegio AlemÃ n Alexander von Humboldt live now,"['Coyoacán', 'Mexico City']","PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+PREFIX ns: <http://rdf.freebase.com/ns/>
+SELECT DISTINCT ?x
+WHERE {
+FILTER (?x != ?c)
+?c ns:people.person.education ?k .
+?k ns:education.education.institution ns:m.02r4cn1 . 
+?c ns:people.person.places_lived ?y .
+?y ns:people.place_lived.location ?x .
+FILTER(NOT EXISTS {?y ns:people.place_lived.end_date ?sk0} || 
+EXISTS {?y ns:people.place_lived.end_date ?sk1 . 
+FILTER(STR(?sk1) >= ""2015-08-10"") })
+FILTER(NOT EXISTS {?y ns:people.place_lived.start_date ?sk2} || 
+EXISTS {?y ns:people.place_lived.start_date ?sk3 . 
+FILTER(STR(?sk3) <= ""2015-08-10"") })
+}","PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+PREFIX ns: <http://rdf.freebase.com/ns/>
+SELECT DISTINCT ?x
+WHERE {
+FILTER (?x != ?c)
+?c ns:people.person.places_lived ?y .
+?y ns:people.place_lived.location ?x .
+FILTER(NOT EXISTS {?y ns:people.place_lived.end_date ?sk0} || 
+EXISTS {?y ns:people.place_lived.end_date ?sk1 . 
+FILTER(STR(?sk1) >= ""2015-08-10"") })
+FILTER(NOT EXISTS {?y ns:people.place_lived.start_date ?sk2} || 
+EXISTS {?y ns:people.place_lived.start_date ?sk3 . 
+FILTER(STR(?sk3) <= ""2015-08-10"") })
+  FILTER NOT EXISTS {
+    ?c ns:people.person.education ?k .
+    ?k ns:education.education.institution ns:m.02r4cn1 .
+  }
+}"
+11520,What languages are spoken in the country that has the national anthem Du gamla Du fria,What languages are spoken in the country That doesn't have the national anthem Du gamla Du fria,"['Romani language', 'Finnish Language', 'Meänkieli', 'Swedish Sign Language', 'Turoyo Language', 'Swedish Language', 'Yiddish Language']","PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+PREFIX ns: <http://rdf.freebase.com/ns/>
+SELECT DISTINCT ?x
+WHERE {
+FILTER (?x != ?c)
+?c ns:location.country.national_anthem ?k .
+?k ns:government.national_anthem_of_a_country.anthem ns:m.0m6w8 . 
+?c ns:location.country.languages_spoken ?x .
+}","PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+PREFIX ns: <http://rdf.freebase.com/ns/>
+SELECT DISTINCT ?x
+WHERE {
+FILTER (?x != ?c)
+?c ns:location.country.languages_spoken ?x .
+  FILTER NOT EXISTS {
+    ?c ns:location.country.national_anthem ?k .
+    ?k ns:government.national_anthem_of_a_country.anthem ns:m.0m6w8 .
+  }
+}"
+11521,The Super Bowl I championship team was owned by whom,The Super Bowl I championship team wasn't owned by whom,['Green Bay Packers Board of Directors'],"PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+PREFIX ns: <http://rdf.freebase.com/ns/>
+SELECT DISTINCT ?x
+WHERE {
+FILTER (?x != ?c)
+?c ns:sports.sports_team.championships ns:m.076lp . 
+?c ns:sports.professional_sports_team.owner_s ?x .
+}","PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+PREFIX ns: <http://rdf.freebase.com/ns/>
+SELECT DISTINCT ?x
+WHERE {
+  FILTER NOT EXISTS {
+    ?c ns:sports.sports_team.championships ns:m.076lp .
+  }
+FILTER (?x != ?c)
+?c ns:sports.professional_sports_team.owner_s ?x .
+}"
+11522,People from the location that appointed Adly Mansour to govermental position speak what languages,People from the location That didn't appoint Adly Mansour to govermental position speak what languages,"['Siwi Language', 'Egyptian Arabic', ""Sa'idi Arabic"", 'Bedawi Arabic']","PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+PREFIX ns: <http://rdf.freebase.com/ns/>
+SELECT DISTINCT ?x
+WHERE {
+FILTER (?x != ?c)
+?c ns:government.governmental_jurisdiction.governing_officials ?k .
+?k ns:government.government_position_held.appointed_by ns:m.0w5nf92 . 
+?c ns:location.country.languages_spoken ?x .
+?x ns:language.human_language.main_country ?c .
+}","PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+PREFIX ns: <http://rdf.freebase.com/ns/>
+SELECT DISTINCT ?x
+WHERE {
+FILTER (?x != ?c)
+?c ns:location.country.languages_spoken ?x .
+?x ns:language.human_language.main_country ?c .
+  FILTER NOT EXISTS {
+    ?c ns:government.governmental_jurisdiction.governing_officials ?k .
+    ?k ns:government.government_position_held.appointed_by ns:m.0w5nf92 .
+  }
+}"
+11523,Bell Atlantic Network is the child organization with headquarters where,Bell Atlantic Network isn't the child organization with headquarters where,['New York City'],"PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+PREFIX ns: <http://rdf.freebase.com/ns/>
+SELECT DISTINCT ?x
+WHERE {
+FILTER (?x != ?c)
+?c ns:organization.organization.child ?k .
+?k ns:organization.organization_relationship.child ns:m.02_8366 . 
+?c ns:organization.organization.headquarters ?y .
+?y ns:location.mailing_address.citytown ?x .
+}","PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+PREFIX ns: <http://rdf.freebase.com/ns/>
+SELECT DISTINCT ?x
+WHERE {
+  FILTER NOT EXISTS {
+    ?c ns:organization.organization.child ?k .
+    ?k ns:organization.organization_relationship.child ns:m.02_8366 .
+  }
+FILTER (?x != ?c)
+?c ns:organization.organization.headquarters ?y .
+?y ns:location.mailing_address.citytown ?x .
+}"
+11524,With which record label did the artist of My December Tour sign with,With which record label didn't the artist of My December Tour sign with,"['RCA Records', 'Sony BMG', 'Sony Music Entertainment', '19 Recordings']","PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+PREFIX ns: <http://rdf.freebase.com/ns/>
+SELECT DISTINCT ?x
+WHERE {
+FILTER (?x != ?c)
+?c ns:music.artist.concert_tours ns:m.02q_l60 . 
+?c ns:music.artist.label ?x .
+}","PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+PREFIX ns: <http://rdf.freebase.com/ns/>
+SELECT DISTINCT ?x
+WHERE {
+  FILTER NOT EXISTS {
+    ?c ns:music.artist.concert_tours ns:m.02q_l60 .
+  }
+FILTER (?x != ?c)
+?c ns:music.artist.label ?x .
+}"
+11525,When did the sports team that won the 1974 NBA Finals championship win their first championship,When did the sports team That didn't win the 1974 NBA Finals championship win their first championship,['1957 NBA Finals'],"PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+PREFIX ns: <http://rdf.freebase.com/ns/>
+SELECT DISTINCT ?x
+WHERE {
+FILTER (?x != ?c)
+?c ns:sports.sports_team.championships ns:m.0cs1gb . 
+?c ns:sports.sports_team.championships ?x .
+?x ns:time.event.start_date ?sk0 .
+}
+ORDER BY xsd:datetime(?sk0)
+LIMIT 1","PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+PREFIX ns: <http://rdf.freebase.com/ns/>
+SELECT DISTINCT ?x
+WHERE {
+FILTER (?x != ?c)
+?c ns:sports.sports_team.championships ?x .
+?x ns:time.event.start_date ?sk0 .
+  FILTER NOT EXISTS {
+    ?c ns:sports.sports_team.championships ns:m.0cs1gb .
+  }
+}
+ORDER BY xsd:datetime(?sk0)
+LIMIT 1"
+11526,What role in the Declaration of Independence did the architect that designed Charlotte Country Courthouse play,What role in the Declaration of Independence did the architect That didn't design Charlotte Country Courthouse play,"['Statesman', 'Teacher', 'Philosopher', 'Archaeologist', 'Inventor', 'Lawyer', 'Writer', 'Farmer', 'Author', 'Architect']","PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+PREFIX ns: <http://rdf.freebase.com/ns/>
+SELECT DISTINCT ?x
+WHERE {
+FILTER (?x != ?c)
+?c ns:architecture.architect.structures_designed ns:m.06_d_fx . 
+?c ns:people.person.profession ?x .
+}","PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+PREFIX ns: <http://rdf.freebase.com/ns/>
+SELECT DISTINCT ?x
+WHERE {
+FILTER (?x != ?c)
+?c ns:people.person.profession ?x .
+  FILTER NOT EXISTS {
+    ?c ns:architecture.architect.structures_designed ns:m.06_d_fx .
+  }
+}"
+11527,What language is spoken where the capital city is Brussels,What language is spoken Where the capital city isn't Brussels,"['Dutch Language', 'Picard Language', 'West Flemish', 'German Language', 'French']","PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+PREFIX ns: <http://rdf.freebase.com/ns/>
+SELECT DISTINCT ?x
+WHERE {
+FILTER (?x != ?c)
+?c ns:location.country.capital ns:m.02rnbv . 
+?c ns:location.country.languages_spoken ?x .
+}","PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+PREFIX ns: <http://rdf.freebase.com/ns/>
+SELECT DISTINCT ?x
+WHERE {
+FILTER (?x != ?c)
+?c ns:location.country.languages_spoken ?x .
+  FILTER NOT EXISTS {
+    ?c ns:location.country.capital ns:m.02rnbv .
+  }
+}"
+11528,What currency is used in the country with San Pedo de Marocris Province,What currency isn't used in the country with San Pedo de Marocris Province,['Dominican peso'],"PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+PREFIX ns: <http://rdf.freebase.com/ns/>
+SELECT DISTINCT ?x
+WHERE {
+FILTER (?x != ?c)
+?c ns:location.country.administrative_divisions ns:m.03xyyk . 
+?c ns:location.country.currency_used ?x .
+}","PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+PREFIX ns: <http://rdf.freebase.com/ns/>
+SELECT DISTINCT ?x
+WHERE {
+  FILTER NOT EXISTS {
+    ?c ns:location.country.administrative_divisions ns:m.03xyyk .
+  }
+FILTER (?x != ?c)
+?c ns:location.country.currency_used ?x .
+}"
+11529,What religions does the artist who went on The Girlie Show World Tour follow,What religions does the artist Who didn't go on The Girlie Show World Tour follow,"['Jewish Renewal', 'Catholicism']","PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+PREFIX ns: <http://rdf.freebase.com/ns/>
+SELECT DISTINCT ?x
+WHERE {
+FILTER (?x != ?c)
+?c ns:music.artist.concert_tours ns:m.08c8b5 . 
+?c ns:people.person.religion ?x .
+}","PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+PREFIX ns: <http://rdf.freebase.com/ns/>
+SELECT DISTINCT ?x
+WHERE {
+FILTER (?x != ?c)
+?c ns:people.person.religion ?x .
+  FILTER NOT EXISTS {
+    ?c ns:music.artist.concert_tours ns:m.08c8b5 .
+  }
+}"
+11530,In what year did team owner Ken Kendrick s sports team with the World Series,In what year didn't team owner Ken Kendrick s sports team with the World Series,['2001 World Series'],"PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+PREFIX ns: <http://rdf.freebase.com/ns/>
+SELECT DISTINCT ?x
+WHERE {
+FILTER (?x != ?c)
+?c ns:sports.professional_sports_team.owner_s ns:m.0d_khh . 
+?c ns:sports.sports_team.championships ?x .
+}","PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+PREFIX ns: <http://rdf.freebase.com/ns/>
+SELECT DISTINCT ?x
+WHERE {
+  FILTER NOT EXISTS {
+    ?c ns:sports.professional_sports_team.owner_s ns:m.0d_khh .
+  }
+FILTER (?x != ?c)
+?c ns:sports.sports_team.championships ?x .
+}"

@@ -1,4 +1,4 @@
-# Knowledge Graph QA and LLM Evaluation Pipeline
+# NegQA: Generating and Evaluating Negated Question-Answer Pairs
 
 **Do LLMs understand "not"?** This project builds a validated benchmark of **positive / negated question pairs** for Text-to-SQL and uses it to evaluate and fine-tune open LLMs (Qwen2.5-7B, Llama-3.1-8B, Gemma-2-9B).
 
